@@ -1,0 +1,27 @@
+# ninja log v5
+8	8789	7086919223151887	ProyectoEventos_autogen/timestamp	9e6cee08530de250
+8	8789	7086919223151887	ProyectoEventos_autogen/mocs_compilation.cpp	9e6cee08530de250
+8	8789	7086919223151887	C:/Users/Carlos Mora/Documents/UCR/Algoritmos abstractas/Proyecto/Proyecto 2/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/ProyectoEventos_autogen/timestamp	9e6cee08530de250
+8	8789	7086919223151887	C:/Users/Carlos Mora/Documents/UCR/Algoritmos abstractas/Proyecto/Proyecto 2/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/ProyectoEventos_autogen/mocs_compilation.cpp	9e6cee08530de250
+8866	18930	7086919331016634	CMakeFiles/ProyectoEventos.dir/ProyectoEventos_autogen/mocs_compilation.cpp.obj	dd1f5455d8b98e54
+8893	18968	7086919331106602	CMakeFiles/ProyectoEventos.dir/mainwindow.cpp.obj	f15053b23387053d
+8881	19017	7086919331906118	CMakeFiles/ProyectoEventos.dir/main.cpp.obj	3630716801beaf7f
+19018	22104	7086919362848888	ProyectoEventos.exe	b730fc597cc9f820
+354	4948	7086928103056258	ProyectoEventos_autogen/timestamp	9e6cee08530de250
+354	4948	7086928103056258	ProyectoEventos_autogen/mocs_compilation.cpp	9e6cee08530de250
+354	4948	7086928103056258	C:/Users/Carlos Mora/Documents/UCR/Algoritmos abstractas/Proyecto/Proyecto 2/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/ProyectoEventos_autogen/timestamp	9e6cee08530de250
+354	4948	7086928103056258	C:/Users/Carlos Mora/Documents/UCR/Algoritmos abstractas/Proyecto/Proyecto 2/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/ProyectoEventos_autogen/mocs_compilation.cpp	9e6cee08530de250
+4994	11121	7086928164613748	CMakeFiles/ProyectoEventos.dir/mainwindow.cpp.obj	f15053b23387053d
+11123	11879	7086928172239271	ProyectoEventos.exe	b730fc597cc9f820
+13	1699	7086932544623584	ProyectoEventos_autogen/timestamp	9e6cee08530de250
+13	1699	7086932544623584	ProyectoEventos_autogen/mocs_compilation.cpp	9e6cee08530de250
+13	1699	7086932544623584	C:/Users/Carlos Mora/Documents/UCR/Algoritmos abstractas/Proyecto/Proyecto 2/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/ProyectoEventos_autogen/timestamp	9e6cee08530de250
+13	1699	7086932544623584	C:/Users/Carlos Mora/Documents/UCR/Algoritmos abstractas/Proyecto/Proyecto 2/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/ProyectoEventos_autogen/mocs_compilation.cpp	9e6cee08530de250
+1743	9607	7086932623555512	CMakeFiles/ProyectoEventos.dir/mainwindow.cpp.obj	f15053b23387053d
+9609	12151	7086932648193246	ProyectoEventos.exe	b730fc597cc9f820
+40	3938	7086945783949434	ProyectoEventos_autogen/timestamp	9e6cee08530de250
+40	3938	7086945783949434	ProyectoEventos_autogen/mocs_compilation.cpp	9e6cee08530de250
+40	3938	7086945783949434	C:/Users/Carlos Mora/Documents/UCR/Algoritmos abstractas/Proyecto/Proyecto 2/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/ProyectoEventos_autogen/timestamp	9e6cee08530de250
+40	3938	7086945783949434	C:/Users/Carlos Mora/Documents/UCR/Algoritmos abstractas/Proyecto/Proyecto 2/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/ProyectoEventos_autogen/mocs_compilation.cpp	9e6cee08530de250
+3985	11715	7086945861610177	CMakeFiles/ProyectoEventos.dir/mainwindow.cpp.obj	f15053b23387053d
+11717	13875	7086945883280522	ProyectoEventos.exe	b730fc597cc9f820
