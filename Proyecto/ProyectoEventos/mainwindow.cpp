@@ -23,15 +23,18 @@ void MainWindow::on_pushButton_Registrarse_clicked()
     ui->stackedWidget->setCurrentIndex(2);
 }
 
+
 /* Pantalla de Registro */
 void MainWindow::on_pushButton_Cancelar_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
 
-/* Pantalla de Registro */
 void MainWindow::on_pushButton_Registrar_clicked()
 {
     ui->stackedWidget->setCurrentIndex(3);
 }
+
+
+/* Pantalla Principal */
 

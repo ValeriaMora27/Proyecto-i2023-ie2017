@@ -34,9 +34,9 @@ background-color: #E0E6F0;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
-    <widget class="QWidget" name="page0_Inicio">
+    <widget class="QWidget" name="page00_Inicio">
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
@@ -121,8 +121,8 @@ background-color: #E0E6F0;
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="page1_Login"/>
-    <widget class="QWidget" name="page2_Registro">
+    <widget class="QWidget" name="page01_Login"/>
+    <widget class="QWidget" name="page02_Registro">
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
@@ -365,7 +365,7 @@ contraseña</string>
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="page3_Principal">
+    <widget class="QWidget" name="page03_Principal">
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
@@ -389,6 +389,13 @@ contraseña</string>
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="page04_Eventos"/>
+    <widget class="QWidget" name="page05_CrearEvento"/>
+    <widget class="QWidget" name="page06_Lugares"/>
+    <widget class="QWidget" name="page07_Proveedores"/>
+    <widget class="QWidget" name="page08_Estadisticas"/>
+    <widget class="QWidget" name="page09_SolicitudesE"/>
+    <widget class="QWidget" name="page10_Contacto"/>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

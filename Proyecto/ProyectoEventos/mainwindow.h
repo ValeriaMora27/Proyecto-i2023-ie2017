@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QMenu>
+#include <QMenuBar>
+#include <QStackedWidget>
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -19,10 +22,15 @@ public:
     ~MainWindow();
 
 private slots:
+    /*Pantalla Inicio*/
     void on_pushButton_Iniciar_clicked();
     void on_pushButton_Registrarse_clicked();
+    /*Pantalla Registro*/
     void on_pushButton_Cancelar_clicked();
     void on_pushButton_Registrar_clicked();
+    /*Pantalla Principal*/
+    void onEventosClicked();
+    void onContactenosClicked();
 
 private:
     Ui::MainWindow *ui;
