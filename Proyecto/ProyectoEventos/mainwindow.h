@@ -19,9 +19,10 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_BotonRegistrarse_clicked();
-
-    void on_BotonIniciarSesion_clicked();
+    void on_pushButton_Iniciar_clicked();
+    void on_pushButton_Registrarse_clicked();
+    void on_pushButton_Cancelar_clicked();
+    void on_pushButton_Registrar_clicked();
 
 private:
     Ui::MainWindow *ui;
