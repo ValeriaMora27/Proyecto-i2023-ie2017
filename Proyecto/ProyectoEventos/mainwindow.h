@@ -31,8 +31,19 @@ private slots:
     /*Pantalla Principal*/
     void onEventosClicked();
     void onContactenosClicked();
+    void onEventoNuevoClicked();
+    void onLugaresClicked();
+    void onProveedoresClicked();
+    void onEstadisticasClicked();
+    void onSolicitudesClicked();
+    void onAdminContactenosClicked();
+    void onStackedWidgetCurrentChanged(int index);
 
 private:
     Ui::MainWindow *ui;
+
+    void setupMenu();
+    bool esAdministrador();
 };
+
 #endif // MAINWINDOW_H
