@@ -55,6 +55,12 @@ private slots:
 
     void on_pushButton_bodas_clicked();
 
+    void on_pushButton_Cancelar_3_clicked();
+
+    void on_pushButton_Cancelar_4_clicked();
+
+    void on_pushButton_Crear_clicked();
+
 private:
     Ui::MainWindow *ui;
 

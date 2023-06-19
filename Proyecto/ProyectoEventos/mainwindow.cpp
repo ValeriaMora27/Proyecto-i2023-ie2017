@@ -213,3 +213,17 @@ void MainWindow::on_pushButton_conferencias_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
 }
+
+/* Pantalla Crear evento */
+
+void MainWindow::on_pushButton_Cancelar_3_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+}
+
