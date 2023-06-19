@@ -186,3 +186,30 @@ void MainWindow::onAdminContactenosClicked()
     ui->stackedWidget->setCurrentIndex(10);
 }
 
+
+/* Botones de las actividades */
+
+void MainWindow::on_pushButton_bailes_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+}
+
+void MainWindow::on_pushButton_conciertos_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+}
+
+void MainWindow::on_pushButton_graduaciones_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+}
+
+void MainWindow::on_pushButton_bodas_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+}
+
+void MainWindow::on_pushButton_conferencias_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+}

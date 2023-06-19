@@ -1,2 +1,9 @@
-<!DOCTYPE RCC>
-<RCC version="1.0"/>
+<RCC>
+    <qresource prefix="/">
+        <file>imagenes/Bailes.jpg</file>
+        <file>imagenes/Bodas.jpg</file>
+        <file>imagenes/Conciertos.jpg</file>
+        <file>imagenes/Conferencias.jpg</file>
+        <file>imagenes/Graduaciones.jpg</file>
+    </qresource>
+</RCC>

@@ -43,6 +43,18 @@ private slots:
 
     void on_pushButton_Iniciar_2_clicked();
 
+    void on_pushButton_clicked();
+
+    void on_pushButton_bailes_clicked();
+
+    void on_pushButton_conferencias_clicked();
+
+    void on_pushButton_graduaciones_clicked();
+
+    void on_pushButton_conciertos_clicked();
+
+    void on_pushButton_bodas_clicked();
+
 private:
     Ui::MainWindow *ui;
 
