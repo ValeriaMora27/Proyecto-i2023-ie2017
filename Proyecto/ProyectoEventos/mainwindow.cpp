@@ -32,6 +32,20 @@ void MainWindow::on_pushButton_Registrarse_clicked()
 }
 
 
+/* Pantalla Iniciar Sesión */
+
+void MainWindow::on_pushButton_Cancelar_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+
+void MainWindow::on_pushButton_Iniciar_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
+
 /* Pantalla de Registro */
 void MainWindow::on_pushButton_Cancelar_clicked()
 {
@@ -40,7 +54,7 @@ void MainWindow::on_pushButton_Cancelar_clicked()
 
 void MainWindow::on_pushButton_Registrar_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(3);
+    ui->stackedWidget->setCurrentIndex(0);
 }
 
 
@@ -171,3 +185,4 @@ void MainWindow::onAdminContactenosClicked()
 {
     ui->stackedWidget->setCurrentIndex(10);
 }
+

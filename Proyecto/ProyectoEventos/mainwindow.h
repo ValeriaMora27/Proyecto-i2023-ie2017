@@ -39,6 +39,10 @@ private slots:
     void onAdminContactenosClicked();
     void onStackedWidgetCurrentChanged(int index);
 
+    void on_pushButton_Cancelar_2_clicked();
+
+    void on_pushButton_Iniciar_2_clicked();
+
 private:
     Ui::MainWindow *ui;
 
