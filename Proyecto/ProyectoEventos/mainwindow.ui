@@ -27,8 +27,8 @@ background-color: #E0E6F0;
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>-1</x>
-      <y>-1</y>
+      <x>0</x>
+      <y>-10</y>
       <width>800</width>
       <height>600</height>
      </rect>
@@ -842,7 +842,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       <property name="geometry">
        <rect>
         <x>190</x>
-        <y>100</y>
+        <y>80</y>
         <width>141</width>
         <height>16</height>
        </rect>
@@ -860,7 +860,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       <property name="geometry">
        <rect>
         <x>190</x>
-        <y>150</y>
+        <y>130</y>
         <width>141</width>
         <height>16</height>
        </rect>
@@ -878,7 +878,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       <property name="geometry">
        <rect>
         <x>190</x>
-        <y>200</y>
+        <y>180</y>
         <width>141</width>
         <height>16</height>
        </rect>
@@ -896,7 +896,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       <property name="geometry">
        <rect>
         <x>190</x>
-        <y>250</y>
+        <y>280</y>
         <width>141</width>
         <height>21</height>
        </rect>
@@ -914,7 +914,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       <property name="geometry">
        <rect>
         <x>190</x>
-        <y>310</y>
+        <y>330</y>
         <width>141</width>
         <height>16</height>
        </rect>
@@ -932,7 +932,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       <property name="geometry">
        <rect>
         <x>190</x>
-        <y>360</y>
+        <y>390</y>
         <width>141</width>
         <height>16</height>
        </rect>
@@ -950,7 +950,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       <property name="geometry">
        <rect>
         <x>190</x>
-        <y>410</y>
+        <y>440</y>
         <width>141</width>
         <height>16</height>
        </rect>
@@ -968,7 +968,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       <property name="geometry">
        <rect>
         <x>360</x>
-        <y>90</y>
+        <y>80</y>
         <width>291</width>
         <height>31</height>
        </rect>
@@ -978,7 +978,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       <property name="geometry">
        <rect>
         <x>360</x>
-        <y>150</y>
+        <y>130</y>
         <width>110</width>
         <height>22</height>
        </rect>
@@ -1008,7 +1008,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       <property name="geometry">
        <rect>
         <x>360</x>
-        <y>200</y>
+        <y>180</y>
         <width>118</width>
         <height>22</height>
        </rect>
@@ -1018,9 +1018,9 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       <property name="geometry">
        <rect>
         <x>360</x>
-        <y>410</y>
+        <y>440</y>
         <width>311</width>
-        <height>71</height>
+        <height>51</height>
        </rect>
       </property>
      </widget>
@@ -1028,7 +1028,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       <property name="geometry">
        <rect>
         <x>360</x>
-        <y>250</y>
+        <y>280</y>
         <width>291</width>
         <height>31</height>
        </rect>
@@ -1038,7 +1038,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       <property name="geometry">
        <rect>
         <x>360</x>
-        <y>300</y>
+        <y>330</y>
         <width>291</width>
         <height>31</height>
        </rect>
@@ -1048,7 +1048,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       <property name="geometry">
        <rect>
         <x>360</x>
-        <y>350</y>
+        <y>380</y>
         <width>291</width>
         <height>31</height>
        </rect>
@@ -1058,7 +1058,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       <property name="geometry">
        <rect>
         <x>260</x>
-        <y>510</y>
+        <y>520</y>
         <width>91</width>
         <height>31</height>
        </rect>
@@ -1085,7 +1085,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       <property name="geometry">
        <rect>
         <x>550</x>
-        <y>510</y>
+        <y>520</y>
         <width>91</width>
         <height>31</height>
        </rect>
@@ -1093,6 +1093,59 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       <property name="text">
        <string>Crear</string>
       </property>
+     </widget>
+     <widget class="QLabel" name="label_31">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>230</y>
+        <width>141</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Tipo del evento:</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>230</y>
+        <width>121</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Bodas</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Bailes</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Bodas</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Conferencias</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Graduaciones</string>
+       </property>
+      </item>
      </widget>
     </widget>
     <widget class="QWidget" name="page06_Lugares">
