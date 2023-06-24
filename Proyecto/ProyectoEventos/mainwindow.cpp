@@ -221,9 +221,19 @@ void MainWindow::on_pushButton_Cancelar_3_clicked()
     ui->stackedWidget->setCurrentIndex(4);
 }
 
-
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_pushButton_Crear_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
 }
 
+/* Pantalla Contáctenos */
+
+void MainWindow::on_pushButton_Regresar_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
+void MainWindow::on_pushButton_Enviar_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}

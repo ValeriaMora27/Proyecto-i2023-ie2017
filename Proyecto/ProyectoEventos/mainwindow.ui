@@ -28,13 +28,13 @@ background-color: #E0E6F0;
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>-10</y>
+      <y>0</y>
       <width>800</width>
       <height>600</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page00_Inicio">
      <widget class="QLabel" name="label_2">
@@ -990,7 +990,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
         <second>0</second>
         <year>2023</year>
         <month>9</month>
-        <day>14</day>
+        <day>15</day>
        </datetime>
       </property>
       <property name="minimumDateTime">
@@ -1000,7 +1000,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
         <second>0</second>
         <year>2023</year>
         <month>1</month>
-        <day>1</day>
+        <day>2</day>
        </datetime>
       </property>
      </widget>
@@ -1081,19 +1081,6 @@ planificación, organización y gestión de eventos extraordinarios.</string>
        <bool>false</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton">
-      <property name="geometry">
-       <rect>
-        <x>550</x>
-        <y>520</y>
-        <width>91</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Crear</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_31">
       <property name="geometry">
        <rect>
@@ -1147,6 +1134,19 @@ planificación, organización y gestión de eventos extraordinarios.</string>
        </property>
       </item>
      </widget>
+     <widget class="QPushButton" name="pushButton_Crear">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>520</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Crear</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page06_Lugares">
      <widget class="QLabel" name="label_9">
@@ -1191,6 +1191,19 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_32">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>140</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Proveedores</string>
       </property>
      </widget>
     </widget>
@@ -1242,7 +1255,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       <property name="geometry">
        <rect>
         <x>280</x>
-        <y>60</y>
+        <y>50</y>
         <width>241</width>
         <height>41</height>
        </rect>
@@ -1254,6 +1267,254 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       </property>
       <property name="text">
        <string>¡Reserve mi evento!</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="InputNombre_7">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>130</y>
+        <width>291</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Nombre_2">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>130</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Nombre:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Nombre_3">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>180</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Correo:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="InputNombre_8">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>180</y>
+        <width>291</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="InputNombre_9">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>230</y>
+        <width>291</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Nombre_4">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>230</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Teléfono:</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_2">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>290</y>
+        <width>141</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Bodas</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Bailes</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Bodas</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Conferencias</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Graduaciones</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="Nombre_5">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>300</y>
+        <width>131</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Tipo del evento:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Nombre_6">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>350</y>
+        <width>101</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Presupuesto:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="InputNombre_10">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>350</y>
+        <width>291</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Nombre_7">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>410</y>
+        <width>101</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Acerca de 
+su evento:</string>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="plainTextEdit_2">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>410</y>
+        <width>291</width>
+        <height>81</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_Regresar">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>510</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Regresar</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_Enviar">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>510</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Enviar</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
       </property>
      </widget>
     </widget>
