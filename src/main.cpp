@@ -1,3 +1,0 @@
-/**
- * Archivo main del proyecto 
- */
