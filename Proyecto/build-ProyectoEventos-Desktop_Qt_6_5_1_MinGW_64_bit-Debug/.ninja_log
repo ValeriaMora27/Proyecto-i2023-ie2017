@@ -1,0 +1,13 @@
+# ninja log v5
+1	814	7094387355053907	ProyectoEventos_autogen/timestamp	ad3026523aab6b9f
+1	814	7094387355053907	ProyectoEventos_autogen/mocs_compilation.cpp	ad3026523aab6b9f
+1	814	7094387355053907	C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/ProyectoEventos_autogen/timestamp	ad3026523aab6b9f
+1	814	7094387355053907	C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/ProyectoEventos_autogen/mocs_compilation.cpp	ad3026523aab6b9f
+815	889	7094387357179261	ProyectoEventos_autogen/EWIEGA46WW/qrc_imagenes.cpp	f9d30cd15a560970
+815	889	7094387357179261	C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/ProyectoEventos_autogen/EWIEGA46WW/qrc_imagenes.cpp	f9d30cd15a560970
+908	1054	7094387358871677	CMakeFiles/ProyectoEventos.dir/ProyectoEventos_autogen/EWIEGA46WW/qrc_imagenes.cpp.obj	50b4df4df5b54c1c
+895	1251	7094387360837141	CMakeFiles/ProyectoEventos.dir/usuario.cpp.obj	48c383dad1298d6a
+899	2913	7094387377458556	CMakeFiles/ProyectoEventos.dir/main.cpp.obj	6f5fcebae35390d2
+890	2932	7094387377650843	CMakeFiles/ProyectoEventos.dir/ProyectoEventos_autogen/mocs_compilation.cpp.obj	69ace73fbfd11164
+902	4081	7094387389111886	CMakeFiles/ProyectoEventos.dir/mainwindow.cpp.obj	2b9aea00fb89e155
+4081	4369	7094387391977103	ProyectoEventos.exe	368b4ccd93524fc3

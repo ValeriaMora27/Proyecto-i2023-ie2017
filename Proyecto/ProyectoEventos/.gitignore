@@ -71,6 +71,4 @@ CMakeLists.txt.user*
 *.dll
 *.exe
 
-# Ignore makefile
-Makefile
-
+# Ignore buiild directory

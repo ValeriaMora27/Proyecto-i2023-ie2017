@@ -1,0 +1,26 @@
+{
+	"BUILD_DIR" : "C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/ProyectoEventos_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos",
+	"CMAKE_SOURCE_DIR" : "C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos",
+	"INCLUDE_DIR" : "C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/ProyectoEventos_autogen/include",
+	"INPUTS" : 
+	[
+		"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/imagenes/Graduaciones.jpg",
+		"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/imagenes/Conferencias.jpg",
+		"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/imagenes/Conciertos.jpg",
+		"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/imagenes/Bodas.jpg",
+		"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/imagenes/Bailes.jpg"
+	],
+	"LOCK_FILE" : "C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/CMakeFiles/ProyectoEventos_autogen.dir/AutoRcc_imagenes_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "imagenes" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_imagenes.cpp",
+	"RCC_EXECUTABLE" : "C:/Qt/6.5.1/mingw_64/./bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/CMakeFiles/ProyectoEventos_autogen.dir/AutoRcc_imagenes_EWIEGA46WW_Used.txt",
+	"SOURCE" : "C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/imagenes.qrc",
+	"VERBOSITY" : 0
+}
