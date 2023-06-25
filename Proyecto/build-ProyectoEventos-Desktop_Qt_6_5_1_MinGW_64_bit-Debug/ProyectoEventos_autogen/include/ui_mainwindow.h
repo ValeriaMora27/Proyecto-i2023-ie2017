@@ -451,7 +451,7 @@ public:
         page06_Lugares->setObjectName("page06_Lugares");
         label_9 = new QLabel(page06_Lugares);
         label_9->setObjectName("label_9");
-        label_9->setGeometry(QRect(160, 40, 501, 61));
+        label_9->setGeometry(QRect(20, 20, 501, 61));
         label_9->setFont(font3);
         label_9->setAlignment(Qt::AlignCenter);
         stackedWidget->addWidget(page06_Lugares);
@@ -554,7 +554,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(6);
         pushButton_Cancelar_2->setDefault(false);
         pushButton_Iniciar_2->setDefault(false);
         pushButton_Cancelar->setDefault(false);
@@ -625,7 +625,7 @@ public:
         comboBox->setItemText(4, QCoreApplication::translate("MainWindow", "Graduaciones", nullptr));
 
         pushButton_Crear->setText(QCoreApplication::translate("MainWindow", "Crear", nullptr));
-        label_9->setText(QCoreApplication::translate("MainWindow", "Lugares que tenemos para eventos", nullptr));
+        label_9->setText(QCoreApplication::translate("MainWindow", "Lugares disponibles para eventos", nullptr));
         label_8->setText(QCoreApplication::translate("MainWindow", "Lista de proveedores", nullptr));
         label_32->setText(QCoreApplication::translate("MainWindow", "Proveedores", nullptr));
         label_7->setText(QCoreApplication::translate("MainWindow", "Estad\303\255sticas de los eventos", nullptr));

@@ -88,7 +88,7 @@ void MainWindow::setupMenu()
     menuBar->addMenu(menu);
 
     /* Acción "Eventos" */
-    QAction *eventosAction = new QAction("Eventos", this);
+    QAction *eventosAction = new QAction("Próximos eventos", this);
     connect(eventosAction, &QAction::triggered, this, &MainWindow::onEventosClicked);
     menu->addAction(eventosAction);
 
@@ -103,7 +103,7 @@ void MainWindow::setupMenu()
        establecen acciones únicamente para administradores*/
     if (esAdministrador()) {
         /* Acción "Evento Nuevo" */
-        QAction *eventoNuevoAction = new QAction("Evento Nuevo", this);
+        QAction *eventoNuevoAction = new QAction("Evento nuevo", this);
         connect(eventoNuevoAction, &QAction::triggered, this, &MainWindow::onEventoNuevoClicked);
         menu->addAction(eventoNuevoAction);
 

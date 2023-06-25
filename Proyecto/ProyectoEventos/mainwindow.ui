@@ -34,7 +34,7 @@ background-color: #E0E6F0;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>6</number>
     </property>
     <widget class="QWidget" name="page00_Inicio">
      <widget class="QLabel" name="label_2">
@@ -1148,8 +1148,8 @@ planificación, organización y gestión de eventos extraordinarios.</string>
      <widget class="QLabel" name="label_9">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>40</y>
+        <x>20</x>
+        <y>20</y>
         <width>501</width>
         <height>61</height>
        </rect>
@@ -1160,7 +1160,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
        </font>
       </property>
       <property name="text">
-       <string>Lugares que tenemos para eventos</string>
+       <string>Lugares disponibles para eventos</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
