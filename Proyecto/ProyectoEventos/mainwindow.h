@@ -74,6 +74,15 @@ private slots:
     /*Pantalla de Eventos Existentes*/
     void on_pushButton_Cancelar_Eventos_clicked();
 
+    /* Pantalla de Lugares */
+    void on_pushButton_Cancelar_Lugares_clicked();
+
+    /* Pantalla de Lugares */
+    void on_pushButton_Cancelar_Proveedores_clicked();
+
+    /* Pantalla de Estadisticas */
+    void on_pushButton_Cancelar_Estadisticas_clicked();
+
     /*Pantalla Crear Evento*/
     void on_pushButton_Cancelar_3_clicked();
     void on_pushButton_Crear_clicked();

@@ -34,7 +34,7 @@ background-color: #E0E6F0;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>8</number>
     </property>
     <widget class="QWidget" name="page00_Inicio">
      <widget class="QLabel" name="label_2">
@@ -981,7 +981,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       </property>
       <property name="dateTime">
        <datetime>
-        <hour>6</hour>
+        <hour>12</hour>
         <minute>0</minute>
         <second>0</second>
         <year>2023</year>
@@ -991,7 +991,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       </property>
       <property name="minimumDateTime">
        <datetime>
-        <hour>6</hour>
+        <hour>12</hour>
         <minute>0</minute>
         <second>0</second>
         <year>2023</year>
@@ -1166,14 +1166,27 @@ planificación, organización y gestión de eventos extraordinarios.</string>
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_Cancelar_Lugares">
+      <property name="geometry">
+       <rect>
+        <x>690</x>
+        <y>30</y>
+        <width>83</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Cancelar</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page07_Proveedores">
      <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
-        <x>280</x>
-        <y>70</y>
-        <width>261</width>
+        <x>60</x>
+        <y>30</y>
+        <width>381</width>
         <height>41</height>
        </rect>
       </property>
@@ -1202,14 +1215,27 @@ planificación, organización y gestión de eventos extraordinarios.</string>
        <string>Proveedores</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_Cancelar_Proveedores">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>40</y>
+        <width>83</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Cancelar</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page08_Estadisticas">
      <widget class="QLabel" name="label_7">
       <property name="geometry">
        <rect>
-        <x>250</x>
-        <y>60</y>
-        <width>321</width>
+        <x>30</x>
+        <y>20</y>
+        <width>421</width>
         <height>61</height>
        </rect>
       </property>
@@ -1223,6 +1249,19 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_Cancelar_Estadisticas">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>40</y>
+        <width>83</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Regresar</string>
       </property>
      </widget>
     </widget>

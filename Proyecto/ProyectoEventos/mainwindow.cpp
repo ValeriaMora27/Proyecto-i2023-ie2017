@@ -13,7 +13,6 @@
 #include <string>
 #include <QMessageBox>
 
-/* Este enum tentativamente va para un archivo por separado*/
 
 using namespace std;
 
@@ -24,7 +23,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     /* Se configura el menú en el widget del índice 3 del stackedWidget */
     setupMenu();
-
 }
 
 MainWindow::~MainWindow()
@@ -45,7 +43,6 @@ void MainWindow::on_pushButton_Registrarse_clicked()
 
 
 /* Pantalla Iniciar Sesión */
-
 void MainWindow::on_pushButton_Cancelar_2_clicked()
 {
     ui->stackedWidget->setCurrentIndex(inicio);
@@ -140,9 +137,7 @@ void MainWindow::on_pushButton_Registrar_clicked()
 }
 
 
-
 /* Pantalla Principal */
-
 bool MainWindow::esAdministrador()
 {
     /* Modificar esto según datos al registrarse*/
@@ -301,6 +296,24 @@ void MainWindow::on_pushButton_conferencias_clicked()
 
 /* Pantalle de Eventos Existentes */
 void MainWindow::on_pushButton_Cancelar_Eventos_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(principal);
+}
+
+/* Pantalla Lugares */
+void MainWindow::on_pushButton_Cancelar_Lugares_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(principal);
+}
+
+/* Pantalla Proveedores */
+void MainWindow::on_pushButton_Cancelar_Proveedores_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(principal);
+}
+
+/* Pantalla Estadisticas */
+void MainWindow::on_pushButton_Cancelar_Estadisticas_clicked()
 {
     ui->stackedWidget->setCurrentIndex(principal);
 }
