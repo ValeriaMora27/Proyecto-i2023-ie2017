@@ -1,8 +1,8 @@
-/mnt/c/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/build/CMakeFiles/install/local.dir
-/mnt/c/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/build/CMakeFiles/install.dir
-/mnt/c/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/build/CMakeFiles/list_install_components.dir
-/mnt/c/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/build/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/build/CMakeFiles/edit_cache.dir
-/mnt/c/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/build/CMakeFiles/install/strip.dir
-/mnt/c/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/build/CMakeFiles/ProyectoEventos.dir
-/mnt/c/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/build/CMakeFiles/ProyectoEventos_autogen.dir
+C:/Users/Carlos Mora/Documents/Proyecto/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/build/CMakeFiles/ProyectoEventos.dir
+C:/Users/Carlos Mora/Documents/Proyecto/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/build/CMakeFiles/edit_cache.dir
+C:/Users/Carlos Mora/Documents/Proyecto/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/build/CMakeFiles/rebuild_cache.dir
+C:/Users/Carlos Mora/Documents/Proyecto/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/build/CMakeFiles/list_install_components.dir
+C:/Users/Carlos Mora/Documents/Proyecto/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/build/CMakeFiles/install.dir
+C:/Users/Carlos Mora/Documents/Proyecto/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/build/CMakeFiles/install/local.dir
+C:/Users/Carlos Mora/Documents/Proyecto/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/build/CMakeFiles/install/strip.dir
+C:/Users/Carlos Mora/Documents/Proyecto/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/build/CMakeFiles/ProyectoEventos_autogen.dir

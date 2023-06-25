@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ProyectoEventos_autogen"
+  "ProyectoEventos_autogen/include/ui_mainwindow.h"
   "ProyectoEventos_autogen/mocs_compilation.cpp"
 )
 

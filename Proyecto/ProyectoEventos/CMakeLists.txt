@@ -19,6 +19,8 @@ set(PROJECT_SOURCES
         enums.h
         mainwindow.ui
         imagenes.qrc
+        usuario.cpp
+        usuario.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

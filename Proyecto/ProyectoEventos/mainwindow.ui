@@ -34,7 +34,7 @@ background-color: #E0E6F0;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page00_Inicio">
      <widget class="QLabel" name="label_2">
@@ -981,22 +981,22 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       </property>
       <property name="dateTime">
        <datetime>
-        <hour>18</hour>
+        <hour>6</hour>
         <minute>0</minute>
         <second>0</second>
         <year>2023</year>
         <month>9</month>
-        <day>15</day>
+        <day>16</day>
        </datetime>
       </property>
       <property name="minimumDateTime">
        <datetime>
-        <hour>18</hour>
+        <hour>6</hour>
         <minute>0</minute>
         <second>0</second>
         <year>2023</year>
         <month>1</month>
-        <day>2</day>
+        <day>3</day>
        </datetime>
       </property>
      </widget>

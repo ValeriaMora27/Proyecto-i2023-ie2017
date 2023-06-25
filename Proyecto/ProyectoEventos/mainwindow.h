@@ -1,3 +1,8 @@
+/**
+ * @file mainwindow.h
+ * @brief Definición de la clase MainWindow.
+ */
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -5,6 +10,7 @@
 #include <QMenu>
 #include <QMenuBar>
 #include <QStackedWidget>
+#include "usuario.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -13,12 +19,25 @@ namespace Ui
 }
 QT_END_NAMESPACE
 
+/**
+ * @class MainWindow
+ * @brief Clase que representa la ventana principal de la aplicación.
+ */
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
+    /**
+     * @brief Constructor de la clase MainWindow.
+     *
+     * @param parent El widget padre.
+     */
     MainWindow(QWidget *parent = nullptr);
+
+    /**
+     * @brief Destructor de la clase MainWindow.
+     */
     ~MainWindow();
 
 private slots:
@@ -65,9 +84,18 @@ private slots:
 
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow *ui; /**< Interfaz de usuario de la ventana principal. */
 
+    /**
+     * @brief Configura el menú de la ventana principal.
+     */
     void setupMenu();
+
+    /**
+     * @brief Verifica si el usuario actual es un administrador.
+     *
+     * @return true si el usuario es un administrador, false en caso contrario.
+     */
     bool esAdministrador();
 };
 
