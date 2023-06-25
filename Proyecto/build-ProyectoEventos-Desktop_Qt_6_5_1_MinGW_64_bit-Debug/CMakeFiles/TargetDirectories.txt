@@ -1,0 +1,9 @@
+C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/CMakeFiles/ProyectoEventos.dir
+C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
+C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/CMakeFiles/install.dir
+C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
+C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
+C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/CMakeFiles/ProyectoEventos_autogen_timestamp_deps.dir
+C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/CMakeFiles/ProyectoEventos_autogen.dir

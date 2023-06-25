@@ -11,7 +11,7 @@ SOURCES := main.cpp mainwindow.cpp
 OBJECTS := $(SOURCES:.cpp=.o)
 
 # Header files
-HEADERS := mainwindow.h
+HEADERS := mainwindow.h enums.h
 
 # Executable name
 TARGET := myprogram
@@ -23,7 +23,7 @@ all: cmake_build
 
 cmake_build:
 	mkdir -p $(BUILD_DIR)
-	cd $(BUILD_DIR) && cmake -G "Unix Makefiles" ..
+	cd $(BUILD_DIR) && cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/usr ..
 	$(MAKE) -C $(BUILD_DIR)
 
 $(TARGET): $(OBJECTS)

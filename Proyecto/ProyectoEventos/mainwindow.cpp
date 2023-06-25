@@ -3,6 +3,8 @@
 
 #include <string>
 
+/* Este enum tentativamente va para un archivo por separado*/
+
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -129,6 +131,9 @@ void MainWindow::setupMenu()
         QAction *adminContactenosAction = new QAction("Contáctenos", this);
         connect(adminContactenosAction, &QAction::triggered, this, &MainWindow::onAdminContactenosClicked);
         menu->addAction(adminContactenosAction);
+
+        /* Acción para regresar al menú principal */
+       //Action *regresarAction = new QAction()
     }
     connect(ui->stackedWidget, &QStackedWidget::currentChanged, this, &MainWindow::onStackedWidgetCurrentChanged);
 }
@@ -214,11 +219,17 @@ void MainWindow::on_pushButton_conferencias_clicked()
     ui->stackedWidget->setCurrentIndex(4);
 }
 
+/* Pantalle de Eventos Existentes */
+void MainWindow::on_pushButton_Cancelar_Eventos_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
 /* Pantalla Crear evento */
 
 void MainWindow::on_pushButton_Cancelar_3_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(4);
+    ui->stackedWidget->setCurrentIndex(3);
 }
 
 void MainWindow::on_pushButton_Crear_clicked()

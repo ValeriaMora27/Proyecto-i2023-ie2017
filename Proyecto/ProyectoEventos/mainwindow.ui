@@ -34,16 +34,16 @@ background-color: #E0E6F0;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="page00_Inicio">
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>330</x>
+        <x>260</x>
         <y>220</y>
-        <width>161</width>
-        <height>41</height>
+        <width>311</width>
+        <height>61</height>
        </rect>
       </property>
       <property name="font">
@@ -52,7 +52,7 @@ background-color: #E0E6F0;
        </font>
       </property>
       <property name="text">
-       <string>¡Bienvenido!</string>
+       <string>¡Gracias por visitarnos!</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -61,9 +61,9 @@ background-color: #E0E6F0;
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>240</x>
-        <y>60</y>
-        <width>361</width>
+        <x>200</x>
+        <y>70</y>
+        <width>431</width>
         <height>71</height>
        </rect>
       </property>
@@ -84,9 +84,9 @@ background-color: #E0E6F0;
      <widget class="QPushButton" name="pushButton_Registrarse">
       <property name="geometry">
        <rect>
-        <x>500</x>
+        <x>220</x>
         <y>390</y>
-        <width>101</width>
+        <width>121</width>
         <height>41</height>
        </rect>
       </property>
@@ -102,9 +102,9 @@ background-color: #E0E6F0;
      <widget class="QPushButton" name="pushButton_Iniciar">
       <property name="geometry">
        <rect>
-        <x>226</x>
+        <x>480</x>
         <y>390</y>
-        <width>101</width>
+        <width>121</width>
         <height>41</height>
        </rect>
       </property>
@@ -125,9 +125,9 @@ background-color: #E0E6F0;
      <widget class="QLabel" name="label_12">
       <property name="geometry">
        <rect>
-        <x>320</x>
+        <x>260</x>
         <y>60</y>
-        <width>171</width>
+        <width>231</width>
         <height>51</height>
        </rect>
       </property>
@@ -149,7 +149,7 @@ background-color: #E0E6F0;
         <x>200</x>
         <y>180</y>
         <width>61</width>
-        <height>16</height>
+        <height>21</height>
        </rect>
       </property>
       <property name="font">
@@ -164,10 +164,10 @@ background-color: #E0E6F0;
      <widget class="QLabel" name="label_14">
       <property name="geometry">
        <rect>
-        <x>200</x>
+        <x>190</x>
         <y>260</y>
-        <width>91</width>
-        <height>16</height>
+        <width>101</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="font">
@@ -205,10 +205,10 @@ background-color: #E0E6F0;
      <widget class="QPushButton" name="pushButton_Cancelar_2">
       <property name="geometry">
        <rect>
-        <x>270</x>
+        <x>300</x>
         <y>400</y>
-        <width>91</width>
-        <height>31</height>
+        <width>121</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="font">
@@ -232,10 +232,10 @@ background-color: #E0E6F0;
      <widget class="QPushButton" name="pushButton_Iniciar_2">
       <property name="geometry">
        <rect>
-        <x>510</x>
+        <x>480</x>
         <y>400</y>
-        <width>91</width>
-        <height>31</height>
+        <width>121</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="font">
@@ -261,10 +261,10 @@ background-color: #E0E6F0;
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>300</x>
+        <x>270</x>
         <y>40</y>
-        <width>221</width>
-        <height>41</height>
+        <width>261</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="font">
@@ -504,9 +504,9 @@ contraseña</string>
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>260</x>
+        <x>250</x>
         <y>30</y>
-        <width>301</width>
+        <width>361</width>
         <height>51</height>
        </rect>
       </property>
@@ -528,7 +528,7 @@ contraseña</string>
        <rect>
         <x>130</x>
         <y>100</y>
-        <width>141</width>
+        <width>171</width>
         <height>21</height>
        </rect>
       </property>
@@ -566,7 +566,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
        <rect>
         <x>130</x>
         <y>200</y>
-        <width>141</width>
+        <width>171</width>
         <height>21</height>
        </rect>
       </property>
@@ -578,22 +578,6 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       </property>
       <property name="text">
        <string>¿Qué ofrecemos?</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_21">
-      <property name="geometry">
-       <rect>
-        <x>180</x>
-        <y>410</y>
-        <width>201</width>
-        <height>111</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap resource="imagenes.qrc">:/imagenes/Conciertos.jpg</pixmap>
       </property>
      </widget>
      <widget class="QLabel" name="label_22">
@@ -700,7 +684,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
      <widget class="QPushButton" name="pushButton_bailes">
       <property name="geometry">
        <rect>
-        <x>70</x>
+        <x>100</x>
         <y>250</y>
         <width>201</width>
         <height>111</height>
@@ -785,7 +769,6 @@ planificación, organización y gestión de eventos extraordinarios.</string>
      <zorder>label_15</zorder>
      <zorder>label_16</zorder>
      <zorder>label_17</zorder>
-     <zorder>label_21</zorder>
      <zorder>label_22</zorder>
      <zorder>label_23</zorder>
      <zorder>label_24</zorder>
@@ -797,9 +780,9 @@ planificación, organización y gestión de eventos extraordinarios.</string>
      <widget class="QLabel" name="label_11">
       <property name="geometry">
        <rect>
-        <x>290</x>
+        <x>260</x>
         <y>60</y>
-        <width>231</width>
+        <width>281</width>
         <height>51</height>
        </rect>
       </property>
@@ -815,6 +798,19 @@ planificación, organización y gestión de eventos extraordinarios.</string>
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_Cancelar_Eventos">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>520</y>
+        <width>83</width>
+        <height>29</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Cancelar</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page05_CrearEvento">
      <widget class="QLabel" name="label_10">
@@ -822,7 +818,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
        <rect>
         <x>320</x>
         <y>20</y>
-        <width>171</width>
+        <width>201</width>
         <height>51</height>
        </rect>
       </property>
@@ -985,7 +981,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       </property>
       <property name="dateTime">
        <datetime>
-        <hour>6</hour>
+        <hour>12</hour>
         <minute>0</minute>
         <second>0</second>
         <year>2023</year>
@@ -995,7 +991,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       </property>
       <property name="minimumDateTime">
        <datetime>
-        <hour>6</hour>
+        <hour>12</hour>
         <minute>0</minute>
         <second>0</second>
         <year>2023</year>
@@ -1522,8 +1518,6 @@ su evento:</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="imagenes.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
