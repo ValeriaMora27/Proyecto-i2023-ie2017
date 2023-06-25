@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include "enums.h""
 
 #include <string>
 
@@ -25,12 +26,12 @@ MainWindow::~MainWindow()
 /* Pantalla de Inicio */
 void MainWindow::on_pushButton_Iniciar_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(1);
+    ui->stackedWidget->setCurrentIndex(login);
 }
 
 void MainWindow::on_pushButton_Registrarse_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(2);
+    ui->stackedWidget->setCurrentIndex(registro);
 }
 
 
@@ -38,27 +39,26 @@ void MainWindow::on_pushButton_Registrarse_clicked()
 
 void MainWindow::on_pushButton_Cancelar_2_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(inicio);
 }
 
 
 void MainWindow::on_pushButton_Iniciar_2_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(3);
+    ui->stackedWidget->setCurrentIndex(principal);
 }
 
 
 /* Pantalla de Registro */
 void MainWindow::on_pushButton_Cancelar_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(inicio);
 }
 
 void MainWindow::on_pushButton_Registrar_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(inicio); // Este tiene que cambiarse para que haga la acción de registrar también
 }
-
 
 
 /* Pantalla Principal */
@@ -141,7 +141,7 @@ void MainWindow::setupMenu()
 void MainWindow::onStackedWidgetCurrentChanged(int index)
 {
     /* Se verifica si el índice actual del QStackedWidget coincide con el índice de la página del menú */
-    if (index == 3) {
+    if (index == principal) {
         /* Se muestra el menú */
         menuBar()->show();
     } else {
@@ -153,42 +153,42 @@ void MainWindow::onStackedWidgetCurrentChanged(int index)
 /* Se definen los indices de las pantallas a las que se lleva al dar click en algún evento*/
 void MainWindow::onEventosClicked()
 {
-    ui->stackedWidget->setCurrentIndex(4);
+    ui->stackedWidget->setCurrentIndex(eventos);
 }
 
 void MainWindow::onContactenosClicked()
 {
-    ui->stackedWidget->setCurrentIndex(10);
+    ui->stackedWidget->setCurrentIndex(contacto);
 }
 
 void MainWindow::onEventoNuevoClicked()
 {
-    ui->stackedWidget->setCurrentIndex(5);
+    ui->stackedWidget->setCurrentIndex(crear_evento);
 }
 
 void MainWindow::onLugaresClicked()
 {
-    ui->stackedWidget->setCurrentIndex(6);
+    ui->stackedWidget->setCurrentIndex(lugares);
 }
 
 void MainWindow::onProveedoresClicked()
 {
-    ui->stackedWidget->setCurrentIndex(7);
+    ui->stackedWidget->setCurrentIndex(proveedores);
 }
 
 void MainWindow::onEstadisticasClicked()
 {
-    ui->stackedWidget->setCurrentIndex(8);
+    ui->stackedWidget->setCurrentIndex(estadisticas);
 }
 
 void MainWindow::onSolicitudesClicked()
 {
-    ui->stackedWidget->setCurrentIndex(9);
+    ui->stackedWidget->setCurrentIndex(solicitudes);
 }
 
 void MainWindow::onAdminContactenosClicked()
 {
-    ui->stackedWidget->setCurrentIndex(10);
+    ui->stackedWidget->setCurrentIndex(contacto);
 }
 
 
@@ -196,55 +196,55 @@ void MainWindow::onAdminContactenosClicked()
 
 void MainWindow::on_pushButton_bailes_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(4);
+    ui->stackedWidget->setCurrentIndex(eventos);
 }
 
 void MainWindow::on_pushButton_conciertos_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(4);
+    ui->stackedWidget->setCurrentIndex(eventos);
 }
 
 void MainWindow::on_pushButton_graduaciones_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(4);
+    ui->stackedWidget->setCurrentIndex(eventos);
 }
 
 void MainWindow::on_pushButton_bodas_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(4);
+    ui->stackedWidget->setCurrentIndex(eventos);
 }
 
 void MainWindow::on_pushButton_conferencias_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(4);
+    ui->stackedWidget->setCurrentIndex(eventos);
 }
 
 /* Pantalle de Eventos Existentes */
 void MainWindow::on_pushButton_Cancelar_Eventos_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(3);
+    ui->stackedWidget->setCurrentIndex(principal);
 }
 
 /* Pantalla Crear evento */
 
 void MainWindow::on_pushButton_Cancelar_3_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(3);
+    ui->stackedWidget->setCurrentIndex(principal);
 }
 
 void MainWindow::on_pushButton_Crear_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(4);
+    ui->stackedWidget->setCurrentIndex(eventos);
 }
 
 /* Pantalla Contáctenos */
 
 void MainWindow::on_pushButton_Regresar_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(3);
+    ui->stackedWidget->setCurrentIndex(principal);
 }
 
 void MainWindow::on_pushButton_Enviar_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(3);
+    ui->stackedWidget->setCurrentIndex(principal);
 }

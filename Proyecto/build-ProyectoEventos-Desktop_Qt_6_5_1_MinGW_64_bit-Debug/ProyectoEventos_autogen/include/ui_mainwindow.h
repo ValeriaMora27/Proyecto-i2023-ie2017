@@ -408,8 +408,8 @@ public:
         dateEdit = new QDateEdit(page05_CrearEvento);
         dateEdit->setObjectName("dateEdit");
         dateEdit->setGeometry(QRect(360, 130, 110, 22));
-        dateEdit->setDateTime(QDateTime(QDate(2023, 9, 15), QTime(12, 0, 0)));
-        dateEdit->setMinimumDateTime(QDateTime(QDate(2023, 1, 2), QTime(12, 0, 0)));
+        dateEdit->setDateTime(QDateTime(QDate(2023, 9, 15), QTime(18, 0, 0)));
+        dateEdit->setMinimumDateTime(QDateTime(QDate(2023, 1, 2), QTime(18, 0, 0)));
         timeEdit = new QTimeEdit(page05_CrearEvento);
         timeEdit->setObjectName("timeEdit");
         timeEdit->setGeometry(QRect(360, 180, 118, 22));
@@ -554,7 +554,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(0);
         pushButton_Cancelar_2->setDefault(false);
         pushButton_Iniciar_2->setDefault(false);
         pushButton_Cancelar->setDefault(false);
