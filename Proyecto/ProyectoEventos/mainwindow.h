@@ -58,6 +58,7 @@ private slots:
     void onEstadisticasClicked();
     void onSolicitudesClicked();
     void onAdminContactenosClicked();
+    void onCerrarSesionClicked();
     void onStackedWidgetCurrentChanged(int index);
 
     /*Pantalla Login*/

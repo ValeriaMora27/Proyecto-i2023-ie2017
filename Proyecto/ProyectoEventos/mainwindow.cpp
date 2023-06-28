@@ -208,8 +208,10 @@ void MainWindow::setupMenu()
         connect(adminContactenosAction, &QAction::triggered, this, &MainWindow::onAdminContactenosClicked);
         menu->addAction(adminContactenosAction);
 
-        /* Acción para regresar al menú principal */
-       //Action *regresarAction = new QAction()
+        /* Acción para  cerrar sesión */
+        QAction *cerrarSesionAction = new QAction("Cerrar sesión", this);
+        connect(cerrarSesionAction, &QAction::triggered, this, &MainWindow::onCerrarSesionClicked);
+        menu->addAction(cerrarSesionAction);
     }
     connect(ui->stackedWidget, &QStackedWidget::currentChanged, this, &MainWindow::onStackedWidgetCurrentChanged);
 }
@@ -266,6 +268,11 @@ void MainWindow::onSolicitudesClicked()
 void MainWindow::onAdminContactenosClicked()
 {
     ui->stackedWidget->setCurrentIndex(contacto);
+}
+
+void MainWindow::onCerrarSesionClicked()
+{
+    ui->stackedWidget->setCurrentIndex(inicio);
 }
 
 

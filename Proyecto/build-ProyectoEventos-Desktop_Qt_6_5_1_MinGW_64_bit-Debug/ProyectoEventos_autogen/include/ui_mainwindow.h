@@ -41,7 +41,7 @@ public:
     QLabel *label_12;
     QPushButton *pushButton_Cancelar_2;
     QPushButton *pushButton_Iniciar_2;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QFormLayout *formLayout_4;
     QLabel *label_13;
     QLineEdit *InputNombre_2;
@@ -83,7 +83,7 @@ public:
     QLabel *label_10;
     QPushButton *pushButton_Cancelar_3;
     QPushButton *pushButton_Crear;
-    QWidget *widget1;
+    QWidget *layoutWidget1;
     QFormLayout *formLayout_3;
     QLabel *label_18;
     QLineEdit *InputNombre_3;
@@ -120,7 +120,7 @@ public:
     QLabel *label_5;
     QPushButton *pushButton_Regresar;
     QPushButton *pushButton_Enviar;
-    QWidget *widget2;
+    QWidget *layoutWidget2;
     QFormLayout *formLayout;
     QLabel *label_correo;
     QLineEdit *InputNombre_7;
@@ -136,11 +136,11 @@ public:
     QLabel *label_presupuesto;
     QWidget *page11_Anadir_Lugar;
     QPushButton *pushButton_anadir_lugar;
-    QWidget *widget3;
+    QWidget *layoutWidget3;
     QHBoxLayout *horizontalLayout;
     QLabel *label_anada_lugar;
     QPushButton *pushButton_Regresar_Anadir_Lugares;
-    QWidget *widget4;
+    QWidget *layoutWidget4;
     QFormLayout *formLayout_2;
     QLabel *label_nombre_lugar;
     QLineEdit *lineEdit_nombre;
@@ -223,16 +223,16 @@ public:
         pushButton_Iniciar_2->setFont(font2);
         pushButton_Iniciar_2->setAutoDefault(false);
         pushButton_Iniciar_2->setFlat(false);
-        widget = new QWidget(page01_Login);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(200, 170, 401, 111));
-        formLayout_4 = new QFormLayout(widget);
+        layoutWidget = new QWidget(page01_Login);
+        layoutWidget->setObjectName("layoutWidget");
+        layoutWidget->setGeometry(QRect(200, 170, 401, 111));
+        formLayout_4 = new QFormLayout(layoutWidget);
         formLayout_4->setObjectName("formLayout_4");
         formLayout_4->setLabelAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         formLayout_4->setHorizontalSpacing(16);
         formLayout_4->setVerticalSpacing(43);
         formLayout_4->setContentsMargins(3, 3, 3, 3);
-        label_13 = new QLabel(widget);
+        label_13 = new QLabel(layoutWidget);
         label_13->setObjectName("label_13");
         QFont font4;
         font4.setPointSize(12);
@@ -240,18 +240,18 @@ public:
 
         formLayout_4->setWidget(0, QFormLayout::LabelRole, label_13);
 
-        InputNombre_2 = new QLineEdit(widget);
+        InputNombre_2 = new QLineEdit(layoutWidget);
         InputNombre_2->setObjectName("InputNombre_2");
 
         formLayout_4->setWidget(0, QFormLayout::FieldRole, InputNombre_2);
 
-        label_14 = new QLabel(widget);
+        label_14 = new QLabel(layoutWidget);
         label_14->setObjectName("label_14");
         label_14->setFont(font4);
 
         formLayout_4->setWidget(1, QFormLayout::LabelRole, label_14);
 
-        InputContra_3 = new QLineEdit(widget);
+        InputContra_3 = new QLineEdit(layoutWidget);
         InputContra_3->setObjectName("InputContra_3");
         InputContra_3->setEchoMode(QLineEdit::Password);
 
@@ -435,57 +435,57 @@ public:
         pushButton_Crear->setObjectName("pushButton_Crear");
         pushButton_Crear->setGeometry(QRect(510, 530, 111, 41));
         pushButton_Crear->setFont(font4);
-        widget1 = new QWidget(page05_CrearEvento);
-        widget1->setObjectName("widget1");
-        widget1->setGeometry(QRect(200, 70, 439, 434));
-        formLayout_3 = new QFormLayout(widget1);
+        layoutWidget1 = new QWidget(page05_CrearEvento);
+        layoutWidget1->setObjectName("layoutWidget1");
+        layoutWidget1->setGeometry(QRect(200, 70, 439, 434));
+        formLayout_3 = new QFormLayout(layoutWidget1);
         formLayout_3->setObjectName("formLayout_3");
         formLayout_3->setFieldGrowthPolicy(QFormLayout::ExpandingFieldsGrow);
         formLayout_3->setLabelAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         formLayout_3->setVerticalSpacing(21);
         formLayout_3->setContentsMargins(3, 3, 3, 3);
-        label_18 = new QLabel(widget1);
+        label_18 = new QLabel(layoutWidget1);
         label_18->setObjectName("label_18");
         label_18->setFont(font4);
 
         formLayout_3->setWidget(0, QFormLayout::LabelRole, label_18);
 
-        InputNombre_3 = new QLineEdit(widget1);
+        InputNombre_3 = new QLineEdit(layoutWidget1);
         InputNombre_3->setObjectName("InputNombre_3");
 
         formLayout_3->setWidget(0, QFormLayout::FieldRole, InputNombre_3);
 
-        label_19 = new QLabel(widget1);
+        label_19 = new QLabel(layoutWidget1);
         label_19->setObjectName("label_19");
         label_19->setFont(font4);
 
         formLayout_3->setWidget(1, QFormLayout::LabelRole, label_19);
 
-        dateEdit = new QDateEdit(widget1);
+        dateEdit = new QDateEdit(layoutWidget1);
         dateEdit->setObjectName("dateEdit");
-        dateEdit->setDateTime(QDateTime(QDate(2023, 9, 16), QTime(12, 0, 0)));
-        dateEdit->setMinimumDateTime(QDateTime(QDate(2023, 1, 3), QTime(12, 0, 0)));
+        dateEdit->setDateTime(QDateTime(QDate(2023, 9, 17), QTime(0, 0, 0)));
+        dateEdit->setMinimumDateTime(QDateTime(QDate(2023, 1, 4), QTime(0, 0, 0)));
 
         formLayout_3->setWidget(1, QFormLayout::FieldRole, dateEdit);
 
-        label_20 = new QLabel(widget1);
+        label_20 = new QLabel(layoutWidget1);
         label_20->setObjectName("label_20");
         label_20->setFont(font4);
 
         formLayout_3->setWidget(2, QFormLayout::LabelRole, label_20);
 
-        timeEdit = new QTimeEdit(widget1);
+        timeEdit = new QTimeEdit(layoutWidget1);
         timeEdit->setObjectName("timeEdit");
 
         formLayout_3->setWidget(2, QFormLayout::FieldRole, timeEdit);
 
-        label_31 = new QLabel(widget1);
+        label_31 = new QLabel(layoutWidget1);
         label_31->setObjectName("label_31");
         label_31->setFont(font4);
 
         formLayout_3->setWidget(3, QFormLayout::LabelRole, label_31);
 
-        comboBox = new QComboBox(widget1);
+        comboBox = new QComboBox(layoutWidget1);
         comboBox->addItem(QString());
         comboBox->addItem(QString());
         comboBox->addItem(QString());
@@ -495,46 +495,46 @@ public:
 
         formLayout_3->setWidget(3, QFormLayout::FieldRole, comboBox);
 
-        label_27 = new QLabel(widget1);
+        label_27 = new QLabel(layoutWidget1);
         label_27->setObjectName("label_27");
         label_27->setFont(font4);
 
         formLayout_3->setWidget(4, QFormLayout::LabelRole, label_27);
 
-        InputNombre_4 = new QLineEdit(widget1);
+        InputNombre_4 = new QLineEdit(layoutWidget1);
         InputNombre_4->setObjectName("InputNombre_4");
 
         formLayout_3->setWidget(4, QFormLayout::FieldRole, InputNombre_4);
 
-        label_28 = new QLabel(widget1);
+        label_28 = new QLabel(layoutWidget1);
         label_28->setObjectName("label_28");
         label_28->setFont(font4);
 
         formLayout_3->setWidget(5, QFormLayout::LabelRole, label_28);
 
-        InputNombre_5 = new QLineEdit(widget1);
+        InputNombre_5 = new QLineEdit(layoutWidget1);
         InputNombre_5->setObjectName("InputNombre_5");
 
         formLayout_3->setWidget(5, QFormLayout::FieldRole, InputNombre_5);
 
-        label_29 = new QLabel(widget1);
+        label_29 = new QLabel(layoutWidget1);
         label_29->setObjectName("label_29");
         label_29->setFont(font4);
 
         formLayout_3->setWidget(6, QFormLayout::LabelRole, label_29);
 
-        InputNombre_6 = new QLineEdit(widget1);
+        InputNombre_6 = new QLineEdit(layoutWidget1);
         InputNombre_6->setObjectName("InputNombre_6");
 
         formLayout_3->setWidget(6, QFormLayout::FieldRole, InputNombre_6);
 
-        label_30 = new QLabel(widget1);
+        label_30 = new QLabel(layoutWidget1);
         label_30->setObjectName("label_30");
         label_30->setFont(font4);
 
         formLayout_3->setWidget(7, QFormLayout::LabelRole, label_30);
 
-        plainTextEdit = new QPlainTextEdit(widget1);
+        plainTextEdit = new QPlainTextEdit(layoutWidget1);
         plainTextEdit->setObjectName("plainTextEdit");
         plainTextEdit->setMaximumSize(QSize(16777215, 16777213));
 
@@ -611,53 +611,53 @@ public:
         pushButton_Enviar->setFont(font4);
         pushButton_Enviar->setAutoDefault(false);
         pushButton_Enviar->setFlat(false);
-        widget2 = new QWidget(page10_Contacto);
-        widget2->setObjectName("widget2");
-        widget2->setGeometry(QRect(130, 100, 481, 361));
-        formLayout = new QFormLayout(widget2);
+        layoutWidget2 = new QWidget(page10_Contacto);
+        layoutWidget2->setObjectName("layoutWidget2");
+        layoutWidget2->setGeometry(QRect(130, 100, 481, 361));
+        formLayout = new QFormLayout(layoutWidget2);
         formLayout->setObjectName("formLayout");
         formLayout->setLabelAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         formLayout->setContentsMargins(0, 0, 0, 0);
-        label_correo = new QLabel(widget2);
+        label_correo = new QLabel(layoutWidget2);
         label_correo->setObjectName("label_correo");
         label_correo->setFont(font4);
 
         formLayout->setWidget(0, QFormLayout::LabelRole, label_correo);
 
-        InputNombre_7 = new QLineEdit(widget2);
+        InputNombre_7 = new QLineEdit(layoutWidget2);
         InputNombre_7->setObjectName("InputNombre_7");
 
         formLayout->setWidget(0, QFormLayout::FieldRole, InputNombre_7);
 
-        label_nombre = new QLabel(widget2);
+        label_nombre = new QLabel(layoutWidget2);
         label_nombre->setObjectName("label_nombre");
         label_nombre->setFont(font4);
 
         formLayout->setWidget(2, QFormLayout::LabelRole, label_nombre);
 
-        InputNombre_8 = new QLineEdit(widget2);
+        InputNombre_8 = new QLineEdit(layoutWidget2);
         InputNombre_8->setObjectName("InputNombre_8");
 
         formLayout->setWidget(2, QFormLayout::FieldRole, InputNombre_8);
 
-        label_telefono = new QLabel(widget2);
+        label_telefono = new QLabel(layoutWidget2);
         label_telefono->setObjectName("label_telefono");
         label_telefono->setFont(font4);
 
         formLayout->setWidget(4, QFormLayout::LabelRole, label_telefono);
 
-        InputNombre_9 = new QLineEdit(widget2);
+        InputNombre_9 = new QLineEdit(layoutWidget2);
         InputNombre_9->setObjectName("InputNombre_9");
 
         formLayout->setWidget(4, QFormLayout::FieldRole, InputNombre_9);
 
-        label_tipo_evento = new QLabel(widget2);
+        label_tipo_evento = new QLabel(layoutWidget2);
         label_tipo_evento->setObjectName("label_tipo_evento");
         label_tipo_evento->setFont(font4);
 
         formLayout->setWidget(6, QFormLayout::LabelRole, label_tipo_evento);
 
-        comboBox_2 = new QComboBox(widget2);
+        comboBox_2 = new QComboBox(layoutWidget2);
         comboBox_2->addItem(QString());
         comboBox_2->addItem(QString());
         comboBox_2->addItem(QString());
@@ -667,23 +667,23 @@ public:
 
         formLayout->setWidget(6, QFormLayout::FieldRole, comboBox_2);
 
-        InputNombre_10 = new QLineEdit(widget2);
+        InputNombre_10 = new QLineEdit(layoutWidget2);
         InputNombre_10->setObjectName("InputNombre_10");
 
         formLayout->setWidget(8, QFormLayout::FieldRole, InputNombre_10);
 
-        label__acerca_de = new QLabel(widget2);
+        label__acerca_de = new QLabel(layoutWidget2);
         label__acerca_de->setObjectName("label__acerca_de");
         label__acerca_de->setFont(font4);
 
         formLayout->setWidget(10, QFormLayout::LabelRole, label__acerca_de);
 
-        InputNombre_11 = new QLineEdit(widget2);
+        InputNombre_11 = new QLineEdit(layoutWidget2);
         InputNombre_11->setObjectName("InputNombre_11");
 
         formLayout->setWidget(10, QFormLayout::FieldRole, InputNombre_11);
 
-        label_presupuesto = new QLabel(widget2);
+        label_presupuesto = new QLabel(layoutWidget2);
         label_presupuesto->setObjectName("label_presupuesto");
         label_presupuesto->setFont(font4);
 
@@ -696,18 +696,18 @@ public:
         pushButton_anadir_lugar->setObjectName("pushButton_anadir_lugar");
         pushButton_anadir_lugar->setGeometry(QRect(320, 500, 151, 51));
         pushButton_anadir_lugar->setFont(font4);
-        widget3 = new QWidget(page11_Anadir_Lugar);
-        widget3->setObjectName("widget3");
-        widget3->setGeometry(QRect(20, 20, 751, 46));
-        horizontalLayout = new QHBoxLayout(widget3);
+        layoutWidget3 = new QWidget(page11_Anadir_Lugar);
+        layoutWidget3->setObjectName("layoutWidget3");
+        layoutWidget3->setGeometry(QRect(20, 20, 751, 46));
+        horizontalLayout = new QHBoxLayout(layoutWidget3);
         horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        label_anada_lugar = new QLabel(widget3);
+        label_anada_lugar = new QLabel(layoutWidget3);
         label_anada_lugar->setObjectName("label_anada_lugar");
 
         horizontalLayout->addWidget(label_anada_lugar);
 
-        pushButton_Regresar_Anadir_Lugares = new QPushButton(widget3);
+        pushButton_Regresar_Anadir_Lugares = new QPushButton(layoutWidget3);
         pushButton_Regresar_Anadir_Lugares->setObjectName("pushButton_Regresar_Anadir_Lugares");
         pushButton_Regresar_Anadir_Lugares->setEnabled(true);
         pushButton_Regresar_Anadir_Lugares->setMaximumSize(QSize(226, 16777215));
@@ -721,10 +721,10 @@ public:
 
         horizontalLayout->addWidget(pushButton_Regresar_Anadir_Lugares, 0, Qt::AlignRight|Qt::AlignVCenter);
 
-        widget4 = new QWidget(page11_Anadir_Lugar);
-        widget4->setObjectName("widget4");
-        widget4->setGeometry(QRect(160, 90, 451, 387));
-        formLayout_2 = new QFormLayout(widget4);
+        layoutWidget4 = new QWidget(page11_Anadir_Lugar);
+        layoutWidget4->setObjectName("layoutWidget4");
+        layoutWidget4->setGeometry(QRect(160, 90, 451, 387));
+        formLayout_2 = new QFormLayout(layoutWidget4);
         formLayout_2->setObjectName("formLayout_2");
         formLayout_2->setSizeConstraint(QLayout::SetDefaultConstraint);
         formLayout_2->setFieldGrowthPolicy(QFormLayout::ExpandingFieldsGrow);
@@ -734,63 +734,63 @@ public:
         formLayout_2->setHorizontalSpacing(16);
         formLayout_2->setVerticalSpacing(39);
         formLayout_2->setContentsMargins(3, 3, 3, 3);
-        label_nombre_lugar = new QLabel(widget4);
+        label_nombre_lugar = new QLabel(layoutWidget4);
         label_nombre_lugar->setObjectName("label_nombre_lugar");
 
         formLayout_2->setWidget(0, QFormLayout::LabelRole, label_nombre_lugar);
 
-        lineEdit_nombre = new QLineEdit(widget4);
+        lineEdit_nombre = new QLineEdit(layoutWidget4);
         lineEdit_nombre->setObjectName("lineEdit_nombre");
         lineEdit_nombre->setMaximumSize(QSize(261, 28));
 
         formLayout_2->setWidget(0, QFormLayout::FieldRole, lineEdit_nombre);
 
-        label_capacidad = new QLabel(widget4);
+        label_capacidad = new QLabel(layoutWidget4);
         label_capacidad->setObjectName("label_capacidad");
 
         formLayout_2->setWidget(1, QFormLayout::LabelRole, label_capacidad);
 
-        lineEdit_capacidad = new QLineEdit(widget4);
+        lineEdit_capacidad = new QLineEdit(layoutWidget4);
         lineEdit_capacidad->setObjectName("lineEdit_capacidad");
 
         formLayout_2->setWidget(1, QFormLayout::FieldRole, lineEdit_capacidad);
 
-        label_disponibilidad = new QLabel(widget4);
+        label_disponibilidad = new QLabel(layoutWidget4);
         label_disponibilidad->setObjectName("label_disponibilidad");
 
         formLayout_2->setWidget(2, QFormLayout::LabelRole, label_disponibilidad);
 
-        lineEdit_disponibilidad = new QLineEdit(widget4);
+        lineEdit_disponibilidad = new QLineEdit(layoutWidget4);
         lineEdit_disponibilidad->setObjectName("lineEdit_disponibilidad");
 
         formLayout_2->setWidget(2, QFormLayout::FieldRole, lineEdit_disponibilidad);
 
-        label_precio = new QLabel(widget4);
+        label_precio = new QLabel(layoutWidget4);
         label_precio->setObjectName("label_precio");
 
         formLayout_2->setWidget(3, QFormLayout::LabelRole, label_precio);
 
-        lineEdit_precio = new QLineEdit(widget4);
+        lineEdit_precio = new QLineEdit(layoutWidget4);
         lineEdit_precio->setObjectName("lineEdit_precio");
 
         formLayout_2->setWidget(3, QFormLayout::FieldRole, lineEdit_precio);
 
-        label_localizacion = new QLabel(widget4);
+        label_localizacion = new QLabel(layoutWidget4);
         label_localizacion->setObjectName("label_localizacion");
 
         formLayout_2->setWidget(4, QFormLayout::LabelRole, label_localizacion);
 
-        lineEdit_localizacion = new QLineEdit(widget4);
+        lineEdit_localizacion = new QLineEdit(layoutWidget4);
         lineEdit_localizacion->setObjectName("lineEdit_localizacion");
 
         formLayout_2->setWidget(4, QFormLayout::FieldRole, lineEdit_localizacion);
 
-        label_bajo_techo = new QLabel(widget4);
+        label_bajo_techo = new QLabel(layoutWidget4);
         label_bajo_techo->setObjectName("label_bajo_techo");
 
         formLayout_2->setWidget(5, QFormLayout::LabelRole, label_bajo_techo);
 
-        comboBox_techo = new QComboBox(widget4);
+        comboBox_techo = new QComboBox(layoutWidget4);
         comboBox_techo->addItem(QString());
         comboBox_techo->addItem(QString());
         comboBox_techo->setObjectName("comboBox_techo");
