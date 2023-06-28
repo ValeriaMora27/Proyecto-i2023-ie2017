@@ -75,13 +75,22 @@ private slots:
     void on_pushButton_Cancelar_Eventos_clicked();
 
     /* Pantalla de Lugares */
+    void on_pushButton_Agregar_Lugares_clicked();
+    void on_pushButton_Eliminar_Lugares_clicked();
     void on_pushButton_Cancelar_Lugares_clicked();
 
-    /* Pantalla de Lugares */
+    /* Pantalla Añadir Lugares */
+    void on_pushButton_Regresar_Anadir_Lugares_clicked();
+
+
+    /* Pantalla de proveedores */
     void on_pushButton_Cancelar_Proveedores_clicked();
 
     /* Pantalla de Estadisticas */
     void on_pushButton_Cancelar_Estadisticas_clicked();
+
+    /* Pantalla de Solicitud */
+    void on_pushButton_Cancelar_Solicitud_clicked();
 
     /*Pantalla Crear Evento*/
     void on_pushButton_Cancelar_3_clicked();

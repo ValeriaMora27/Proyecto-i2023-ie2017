@@ -152,6 +152,7 @@ bool MainWindow::esAdministrador()
     return esAdministrador;
 }
 
+/* Menú superior izquierdo */
 void MainWindow::setupMenu()
 {
     /* Se crea una barra de menú y se establece como la barra de menú de la ventana principal */
@@ -213,6 +214,7 @@ void MainWindow::setupMenu()
     connect(ui->stackedWidget, &QStackedWidget::currentChanged, this, &MainWindow::onStackedWidgetCurrentChanged);
 }
 
+/* Determinar donde se muestra el menú superior */
 void MainWindow::onStackedWidgetCurrentChanged(int index)
 {
     /* Se verifica si el índice actual del QStackedWidget coincide con el índice de la página del menú */
@@ -225,7 +227,7 @@ void MainWindow::onStackedWidgetCurrentChanged(int index)
     }
 }
 
-/* Se definen los indices de las pantallas a las que se lleva al dar click en algún evento*/
+/* Se definen los índices de las pantallas a las que se lleva al dar click en algún evento*/
 void MainWindow::onEventosClicked()
 {
     ui->stackedWidget->setCurrentIndex(eventos);
@@ -301,10 +303,27 @@ void MainWindow::on_pushButton_Cancelar_Eventos_clicked()
 }
 
 /* Pantalla Lugares */
+void MainWindow::on_pushButton_Agregar_Lugares_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(agregar_lugares);
+}
+
+void MainWindow::on_pushButton_Eliminar_Lugares_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(lugares);
+}
+
 void MainWindow::on_pushButton_Cancelar_Lugares_clicked()
 {
     ui->stackedWidget->setCurrentIndex(principal);
 }
+
+/* Pantalla de añadir lugares */
+void MainWindow::on_pushButton_Regresar_Anadir_Lugares_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(lugares);
+}
+
 
 /* Pantalla Proveedores */
 void MainWindow::on_pushButton_Cancelar_Proveedores_clicked()
@@ -314,6 +333,12 @@ void MainWindow::on_pushButton_Cancelar_Proveedores_clicked()
 
 /* Pantalla Estadisticas */
 void MainWindow::on_pushButton_Cancelar_Estadisticas_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(principal);
+}
+
+/* Pantalla Solicitud */
+void MainWindow::on_pushButton_Cancelar_Solicitud_clicked()
 {
     ui->stackedWidget->setCurrentIndex(principal);
 }

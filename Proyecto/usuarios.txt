@@ -1,1 +1,2 @@
 Valeria Mora,valeria@gmail.com,Usuario,123
+segav,segav,Administrador,segav

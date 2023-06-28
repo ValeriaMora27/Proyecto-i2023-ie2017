@@ -13,7 +13,8 @@ enum Pantallas
     proveedores,
     estadisticas,
     solicitudes,
-    contacto
+    contacto,
+    agregar_lugares
 };
 
 #endif // ENUMS_H
