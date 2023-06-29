@@ -34,7 +34,7 @@ background-color: #E0E6F0;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page00_Inicio">
      <widget class="QLabel" name="label_2">
@@ -816,8 +816,65 @@ planificación, organización y gestión de eventos extraordinarios.</string>
        </rect>
       </property>
       <property name="text">
-       <string>Cancelar</string>
+       <string>Regresar</string>
       </property>
+     </widget>
+     <widget class="QTableWidget" name="tablaEventos">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>130</y>
+        <width>681</width>
+        <height>351</height>
+       </rect>
+      </property>
+      <column>
+       <property name="text">
+        <string>Evento</string>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+         <bold>false</bold>
+         <stylestrategy>PreferDefault</stylestrategy>
+        </font>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Cliente</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Fecha</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Hora inicio</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Hora fin</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Tipo de evento</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Servicios extra</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Costo</string>
+       </property>
+      </column>
      </widget>
     </widget>
     <widget class="QWidget" name="page05_CrearEvento">
@@ -949,7 +1006,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
         <widget class="QDateEdit" name="dateEdit">
          <property name="dateTime">
           <datetime>
-           <hour>0</hour>
+           <hour>6</hour>
            <minute>0</minute>
            <second>0</second>
            <year>2023</year>
@@ -959,7 +1016,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
          </property>
          <property name="minimumDateTime">
           <datetime>
-           <hour>0</hour>
+           <hour>6</hour>
            <minute>0</minute>
            <second>0</second>
            <year>2023</year>

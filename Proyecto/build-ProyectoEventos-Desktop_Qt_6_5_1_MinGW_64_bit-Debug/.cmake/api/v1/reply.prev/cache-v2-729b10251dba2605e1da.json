@@ -4754,6 +4754,18 @@
 			"value" : "ON"
 		},
 		{
+			"name" : "QT_FEATURE_sqlmodel",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Qt feature: sqlmodel (from target Qt6::Sql)"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "ON"
+		},
+		{
 			"name" : "QT_FEATURE_sse2",
 			"properties" : 
 			[
@@ -6026,6 +6038,30 @@
 			"value" : "C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Gui"
 		},
 		{
+			"name" : "Qt6SQL_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for Qt6SQL."
+				}
+			],
+			"type" : "PATH",
+			"value" : "C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Sql"
+		},
+		{
+			"name" : "Qt6Sql_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for Qt6Sql."
+				}
+			],
+			"type" : "PATH",
+			"value" : "C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Sql"
+		},
+		{
 			"name" : "Qt6WidgetsTools_DIR",
 			"properties" : 
 			[
@@ -6072,6 +6108,18 @@
 			],
 			"type" : "PATH",
 			"value" : "C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6"
+		},
+		{
+			"name" : "SQLITE_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "C:/msys64/mingw64/lib/libsqlite3.dll.a"
 		},
 		{
 			"name" : "Vulkan_GLSLANG_VALIDATOR_EXECUTABLE",

@@ -7,19 +7,55 @@
 #include "./ui_mainwindow.h"
 #include "usuario.h"
 #include "enums.h"
+#include "basedatos.h"
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>
 #include <string>
 #include <QMessageBox>
+#include <QString>
 
 
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::MainWindow)
+    : QMainWindow(parent),
+    ui(new Ui::MainWindow)
+
 {
     ui->setupUi(this);
+
+    /**
+     * @brief Para crear la base de datos
+     */
+    // nombre de la base
+    QString nombreBaseEventos;
+    nombreBaseEventos.append("basedatoseventos.sqlite");
+    dbEvento.setNombreDb(nombreBaseEventos);
+
+
+    // crear la base
+    if (dbEvento.crearBase()){
+        qDebug("Se creó la base de datos");
+        QString sqlEvento = "CREATE TABLE eventos("
+                            "Nombre TEXT PRIMARY KEY, "
+                            "Usuario TEXT, "
+                            "Fecha DATE, "
+                            "HoraInicio DATETIME, "
+                            "HoraFinal DATETIME, "
+                            "TipoEvento TEXT, "
+                            "ServiciosExtra TEXT, "
+                            "Costo DECIMAL(10, 2)"
+                            ")";
+        dbEvento.crearTabla(sqlEvento);
+
+    }
+    else {
+        qDebug("No se creó la base de datos");
+    }
+
+    // mensaje de creación
+
 
     /* Se configura el menú en el widget del índice 3 del stackedWidget */
     setupMenu();
@@ -27,6 +63,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    dbEvento.cerrarBase();
     delete ui;
 }
 
@@ -131,6 +168,7 @@ void MainWindow::on_pushButton_Registrar_clicked()
     ui->InputRol->setCurrentIndex(0);
     ui->InputContra->clear();
 
+
     // Muestra una ventana de mensaje indicando que el registro fue exitoso
     QMessageBox::information(this, tr("Registro"), tr("El registro fue exitoso."));
     ui->stackedWidget->setCurrentIndex(inicio);
@@ -160,7 +198,7 @@ void MainWindow::setupMenu()
     setMenuBar(menuBar);
 
     /* Se crea un menú principal llamado "Menu" */
-    QMenu *menu = new QMenu("Menu", this);
+    QMenu *menu = new QMenu("Menú", this);
     menuBar->addMenu(menu);
 
     /* Acción "Eventos" */

@@ -13,6 +13,12 @@
  * @brief Clase que representa a un usuario.
  */
 class Usuario {
+private:
+    std::string nombre; /**< El nombre del usuario. */
+    std::string correo; /**< El correo electrónico del usuario. */
+    std::string rol; /**< El rol del usuario. */
+    std::string contrasena; /**< La contraseña del usuario. */
+
 public:
     /**
      * @brief Constructor de la clase Usuario.
@@ -22,7 +28,10 @@ public:
      * @param rol El rol del usuario.
      * @param contrasena La contraseña del usuario.
      */
-    Usuario(const std::string& nombre, const std::string& correo, const std::string& rol, const std::string& contrasena);
+    Usuario(const std::string& nombre,
+            const std::string& correo,
+            const std::string& rol,
+            const std::string& contrasena);
 
     /**
      * @brief Obtiene el nombre del usuario.
@@ -52,11 +61,6 @@ public:
      */
     std::string getContrasena() const;
 
-private:
-    std::string nombre; /**< El nombre del usuario. */
-    std::string correo; /**< El correo electrónico del usuario. */
-    std::string rol; /**< El rol del usuario. */
-    std::string contrasena; /**< La contraseña del usuario. */
 };
 
 #endif // USUARIO_H

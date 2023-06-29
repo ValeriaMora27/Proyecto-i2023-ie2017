@@ -12,10 +12,15 @@
  * @param rol El rol del usuario.
  * @param contrasena La contraseña del usuario.
  */
-Usuario::Usuario(const std::string& nombre, const std::string& correo, const std::string& rol, const std::string& contrasena)
+Usuario::Usuario(const std::string& nombre,
+                 const std::string& correo,
+                 const std::string& rol,
+                 const std::string& contrasena)
     : nombre(nombre), correo(correo), rol(rol), contrasena(contrasena)
 {
 }
+
+// Getters
 
 /**
  * @brief Obtiene el nombre del usuario.

@@ -11,6 +11,7 @@
 #include <QMenuBar>
 #include <QStackedWidget>
 #include "usuario.h"
+#include "basedatos.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -28,6 +29,11 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    /**
+     * @brief Se utiliza en la interfaz para invocar los métodos de la db
+     */
+    BaseDatos dbEvento;
+
     /**
      * @brief Constructor de la clase MainWindow.
      *

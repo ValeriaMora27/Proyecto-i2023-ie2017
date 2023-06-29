@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-c76409178a566eb681a5.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "ProyectoEventos",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ProyectoEventos::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ProyectoEventos-Debug-ce3e5a5592ba86bd0bbb.json",
+					"name" : "ProyectoEventos",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ProyectoEventos_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ProyectoEventos_autogen-Debug-d5e533e5b923d534e18e.json",
+					"name" : "ProyectoEventos_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ProyectoEventos_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ProyectoEventos_autogen_timestamp_deps-Debug-8ef726cae6f8220bc012.json",
+					"name" : "ProyectoEventos_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug",
+		"source" : "C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

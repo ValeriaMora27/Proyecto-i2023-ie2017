@@ -15,6 +15,7 @@
 #include <QtWidgets/QDateEdit>
 #include <QtWidgets/QFormLayout>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
@@ -22,6 +23,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QTimeEdit>
 #include <QtWidgets/QWidget>
 
@@ -79,6 +81,7 @@ public:
     QWidget *page04_Eventos;
     QLabel *label_11;
     QPushButton *pushButton_Cancelar_Eventos;
+    QTableWidget *tablaEventos;
     QWidget *page05_CrearEvento;
     QLabel *label_10;
     QPushButton *pushButton_Cancelar_3;
@@ -417,6 +420,32 @@ public:
         pushButton_Cancelar_Eventos = new QPushButton(page04_Eventos);
         pushButton_Cancelar_Eventos->setObjectName("pushButton_Cancelar_Eventos");
         pushButton_Cancelar_Eventos->setGeometry(QRect(20, 520, 83, 29));
+        tablaEventos = new QTableWidget(page04_Eventos);
+        if (tablaEventos->columnCount() < 8)
+            tablaEventos->setColumnCount(8);
+        QFont font9;
+        font9.setPointSize(9);
+        font9.setBold(false);
+        font9.setStyleStrategy(QFont::PreferDefault);
+        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        __qtablewidgetitem->setFont(font9);
+        tablaEventos->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        tablaEventos->setHorizontalHeaderItem(1, __qtablewidgetitem1);
+        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        tablaEventos->setHorizontalHeaderItem(2, __qtablewidgetitem2);
+        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
+        tablaEventos->setHorizontalHeaderItem(3, __qtablewidgetitem3);
+        QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
+        tablaEventos->setHorizontalHeaderItem(4, __qtablewidgetitem4);
+        QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
+        tablaEventos->setHorizontalHeaderItem(5, __qtablewidgetitem5);
+        QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
+        tablaEventos->setHorizontalHeaderItem(6, __qtablewidgetitem6);
+        QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
+        tablaEventos->setHorizontalHeaderItem(7, __qtablewidgetitem7);
+        tablaEventos->setObjectName("tablaEventos");
+        tablaEventos->setGeometry(QRect(70, 130, 681, 351));
         stackedWidget->addWidget(page04_Eventos);
         page05_CrearEvento = new QWidget();
         page05_CrearEvento->setObjectName("page05_CrearEvento");
@@ -463,8 +492,8 @@ public:
 
         dateEdit = new QDateEdit(layoutWidget1);
         dateEdit->setObjectName("dateEdit");
-        dateEdit->setDateTime(QDateTime(QDate(2023, 9, 17), QTime(0, 0, 0)));
-        dateEdit->setMinimumDateTime(QDateTime(QDate(2023, 1, 4), QTime(0, 0, 0)));
+        dateEdit->setDateTime(QDateTime(QDate(2023, 9, 17), QTime(6, 0, 0)));
+        dateEdit->setMinimumDateTime(QDateTime(QDate(2023, 1, 4), QTime(6, 0, 0)));
 
         formLayout_3->setWidget(1, QFormLayout::FieldRole, dateEdit);
 
@@ -806,7 +835,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(0);
         pushButton_Cancelar_2->setDefault(false);
         pushButton_Iniciar_2->setDefault(false);
         pushButton_Cancelar->setDefault(false);
@@ -860,7 +889,23 @@ public:
         pushButton_conciertos->setText(QString());
         pushButton_bodas->setText(QString());
         label_11->setText(QCoreApplication::translate("MainWindow", "Eventos pr\303\263ximos", nullptr));
-        pushButton_Cancelar_Eventos->setText(QCoreApplication::translate("MainWindow", "Cancelar", nullptr));
+        pushButton_Cancelar_Eventos->setText(QCoreApplication::translate("MainWindow", "Regresar", nullptr));
+        QTableWidgetItem *___qtablewidgetitem = tablaEventos->horizontalHeaderItem(0);
+        ___qtablewidgetitem->setText(QCoreApplication::translate("MainWindow", "Evento", nullptr));
+        QTableWidgetItem *___qtablewidgetitem1 = tablaEventos->horizontalHeaderItem(1);
+        ___qtablewidgetitem1->setText(QCoreApplication::translate("MainWindow", "Cliente", nullptr));
+        QTableWidgetItem *___qtablewidgetitem2 = tablaEventos->horizontalHeaderItem(2);
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("MainWindow", "Fecha", nullptr));
+        QTableWidgetItem *___qtablewidgetitem3 = tablaEventos->horizontalHeaderItem(3);
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("MainWindow", "Hora inicio", nullptr));
+        QTableWidgetItem *___qtablewidgetitem4 = tablaEventos->horizontalHeaderItem(4);
+        ___qtablewidgetitem4->setText(QCoreApplication::translate("MainWindow", "Hora fin", nullptr));
+        QTableWidgetItem *___qtablewidgetitem5 = tablaEventos->horizontalHeaderItem(5);
+        ___qtablewidgetitem5->setText(QCoreApplication::translate("MainWindow", "Tipo de evento", nullptr));
+        QTableWidgetItem *___qtablewidgetitem6 = tablaEventos->horizontalHeaderItem(6);
+        ___qtablewidgetitem6->setText(QCoreApplication::translate("MainWindow", "Servicios extra", nullptr));
+        QTableWidgetItem *___qtablewidgetitem7 = tablaEventos->horizontalHeaderItem(7);
+        ___qtablewidgetitem7->setText(QCoreApplication::translate("MainWindow", "Costo", nullptr));
         label_10->setText(QCoreApplication::translate("MainWindow", "Crear evento", nullptr));
         pushButton_Cancelar_3->setText(QCoreApplication::translate("MainWindow", "Cancelar", nullptr));
         pushButton_Crear->setText(QCoreApplication::translate("MainWindow", "Crear", nullptr));
