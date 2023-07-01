@@ -14,6 +14,7 @@
 #include <string>
 #include <QMessageBox>
 #include <QString>
+#include <regex>
 
 
 using namespace std;
@@ -55,10 +56,6 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     // mensaje de creación
-
-
-    /* Se configura el menú en el widget del índice 3 del stackedWidget */
-    setupMenu();
 }
 
 MainWindow::~MainWindow()
@@ -91,7 +88,7 @@ void MainWindow::on_pushButton_Iniciar_2_clicked()
     std::string correo = ui->InputNombre_2->text().toStdString();
     std::string contrasena = ui->InputContra_3->text().toStdString();
 
-    bool loginExitoso = false; // Inicia asumiendo que el login no será exitoso.
+    bool loginExitoso = false; /* Inicia asumiendo que el login no será exitoso. */
 
     QFile file("../usuarios.txt");
     if (!file.open(QIODevice::ReadOnly)) {
@@ -104,11 +101,13 @@ void MainWindow::on_pushButton_Iniciar_2_clicked()
         QString linea = in.readLine();
         QStringList campos = linea.split(",");
         std::string correoArchivo = campos[1].toStdString();
+        QString rolUsuario = campos[2];
         std::string contrasenaArchivo = campos[3].toStdString();
 
         if (correo == correoArchivo && contrasena == contrasenaArchivo) {
             qDebug() << "Inicio de sesión exitoso!";
-            loginExitoso = true; // Si las credenciales coinciden, entonces el login es exitoso.
+            loginExitoso = true; /* Si las credenciales coinciden, entonces el login es exitoso. */
+            rolUsuarioActual = rolUsuario; /* Almacenamos el rol del usuario que ha iniciado sesión. */
             break;
         }
     }
@@ -116,10 +115,12 @@ void MainWindow::on_pushButton_Iniciar_2_clicked()
     file.close();
 
     if (!loginExitoso) {
-        // Muestra una ventana de mensaje indicando que el inicio de sesión no fue exitoso
+        /* Muestra una ventana de mensaje indicando que el inicio de sesión no fue exitoso */
         QMessageBox::warning(this, tr("Iniciar sesión"), tr("Correo o contraseña incorrecta."));
     }
     else {
+        /* Se configura el menú en el widget del índice 3 del stackedWidget */
+        setupMenu();
         ui->stackedWidget->setCurrentIndex(principal);
     }
 }
@@ -132,44 +133,83 @@ void MainWindow::on_pushButton_Cancelar_clicked()
 
 void MainWindow::on_pushButton_Registrar_clicked()
 {
-    // Verificar si alguna de las entradas está vacía
+    /* Definir el patrón para un correo electrónico válido */
+    std::regex pattern("(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+");
+
+    /* Verificar si alguna de las entradas está vacía */
     if (ui->InputNombre->text().isEmpty() ||
         ui->InputCorreo->text().isEmpty() ||
         ui->InputContra->text().isEmpty()) {
-        // Muestra un mensaje de error si alguna entrada está vacía
+        // Muestra un mensaje de error si alguna entrada está vacía */
         QMessageBox::warning(this, tr("Registro"), tr("Por favor, completa todos los campos."));
-        return;  // No continúes con el proceso de registro
+        return;
     }
 
-    // Crear un nuevo usuario con los datos introducidos
+    /* Verificar si el correo es válido */
+    std::string correo = ui->InputCorreo->text().toStdString();
+    if (!std::regex_match(correo, pattern)) {
+        /* Muestra un mensaje de error si el correo no es válido */
+        QMessageBox::warning(this, tr("Registro"), tr("Por favor, ingresa un correo válido."));
+        return;
+    }
+
+    /* Verificar si las contraseñas coinciden */
+    if (ui->InputContra->text() != ui->InputContra_2->text()) {
+        /* Muestra un mensaje de error si las contraseñas no coinciden */
+        QMessageBox::warning(this, tr("Registro"), tr("Las contraseñas no coinciden."));
+            return;
+    }
+
+    /* Verificar si el correo ya existe en el archivo */
+    std::string correoIngresado = ui->InputCorreo->text().toStdString();
+    QFile file("../usuarios.txt");
+    if (!file.open(QIODevice::ReadOnly)) {
+            qDebug() << "No se pudo abrir el archivo para lectura";
+            return;
+    }
+
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+            QString linea = in.readLine();
+            QStringList campos = linea.split(",");
+            std::string correoArchivo = campos[1].toStdString();
+
+            if (correoIngresado == correoArchivo) {
+            /* Muestra un mensaje de error si el correo ya existe */
+            QMessageBox::warning(this, tr("Registro"), tr("Este correo ya está en uso."));
+                return;
+            }
+    }
+    file.close();
+
+    /* Crear un nuevo usuario con los datos introducidos */
     Usuario usuario(ui->InputNombre->text().toStdString(),
                     ui->InputCorreo->text().toStdString(),
                     ui->InputRol->currentText().toStdString(),
                     ui->InputContra->text().toStdString());
 
-    // Abrir el archivo en modo de escritura
-    QFile file("../usuarios.txt");
+    /* Abrir el archivo en modo de escritura */
     if (!file.open(QIODevice::Append | QIODevice::Text)) {
         qDebug() << "No se pudo abrir el archivo para escritura";
         return;
     }
 
     QTextStream out(&file);
-    // Escribir los datos del usuario en el archivo
+    /* Escribir los datos del usuario en el archivo */
     out << QString::fromStdString(usuario.getNombre()) << ","
         << QString::fromStdString(usuario.getCorreo()) << ","
         << QString::fromStdString(usuario.getRol()) << ","
         << QString::fromStdString(usuario.getContrasena()) << "\n";
     file.close();
 
-    // Limpiar los campos de entrada
+    /* Limpiar los campos de entrada */
     ui->InputNombre->clear();
     ui->InputCorreo->clear();
     ui->InputRol->setCurrentIndex(0);
     ui->InputContra->clear();
+    ui->InputContra_2->clear();
 
-
-    // Muestra una ventana de mensaje indicando que el registro fue exitoso
+    /* Muestra una ventana de mensaje indicando que el registro fue exitoso */
     QMessageBox::information(this, tr("Registro"), tr("El registro fue exitoso."));
     ui->stackedWidget->setCurrentIndex(inicio);
 }
@@ -178,10 +218,9 @@ void MainWindow::on_pushButton_Registrar_clicked()
 /* Pantalla Principal */
 bool MainWindow::esAdministrador()
 {
-    /* Modificar esto según datos al registrarse*/
-    string usuario = "Administrador";
+    /* Verificar el rol del usuario actual */
     bool esAdministrador;
-    if (usuario == "Administrador"){
+    if (rolUsuarioActual == "Administrador"){
         esAdministrador = true;
     }else{
         esAdministrador = false;
@@ -211,6 +250,11 @@ void MainWindow::setupMenu()
         QAction *contactenosAction = new QAction("Contáctenos", this);
         connect(contactenosAction, &QAction::triggered, this, &MainWindow::onContactenosClicked);
         menu->addAction(contactenosAction);
+
+        /* Acción para  cerrar sesión */
+        QAction *cerrarSesionAction = new QAction("Cerrar sesión", this);
+        connect(cerrarSesionAction, &QAction::triggered, this, &MainWindow::onCerrarSesionClicked);
+        menu->addAction(cerrarSesionAction);
     }
 
     /* Se verifica si el usuario es un administrador y se
@@ -311,6 +355,8 @@ void MainWindow::onAdminContactenosClicked()
 void MainWindow::onCerrarSesionClicked()
 {
     ui->stackedWidget->setCurrentIndex(inicio);
+    ui->InputNombre_2->clear();
+    ui->InputContra_3->clear();
 }
 
 

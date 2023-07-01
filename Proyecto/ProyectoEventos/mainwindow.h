@@ -110,6 +110,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui; /**< Interfaz de usuario de la ventana principal. */
+    QString rolUsuarioActual;
 
     /**
      * @brief Configura el menú de la ventana principal.
