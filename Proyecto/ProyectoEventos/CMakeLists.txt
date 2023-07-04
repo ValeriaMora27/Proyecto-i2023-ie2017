@@ -31,6 +31,8 @@ set(PROJECT_SOURCES
         lugares.cpp
         proveedor.h
         proveedor.cpp
+        solicitudes.h
+        solicitudes.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

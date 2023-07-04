@@ -1094,7 +1094,7 @@ evento</string>
         <widget class="QComboBox" name="tipoEvento">
          <item>
           <property name="text">
-           <string>Bodas</string>
+           <string>Conciertos</string>
           </property>
          </item>
          <item>
@@ -1435,6 +1435,29 @@ existentes</string>
        <string>Regresar</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_Eliminar_Solicitud">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>110</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Eliminar solicitud</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tablaSolicitudes">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>160</y>
+        <width>601</width>
+        <height>321</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page10_Contacto">
      <widget class="QLabel" name="label_5">
@@ -1535,7 +1558,7 @@ existentes</string>
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QLineEdit" name="InputNombre_7"/>
+        <widget class="QLineEdit" name="InputCorreoE"/>
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="label_nombre">
@@ -1550,7 +1573,7 @@ existentes</string>
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QLineEdit" name="InputNombre_8"/>
+        <widget class="QLineEdit" name="InputNombreE"/>
        </item>
        <item row="4" column="0">
         <widget class="QLabel" name="label_telefono">
@@ -1565,7 +1588,7 @@ existentes</string>
         </widget>
        </item>
        <item row="4" column="1">
-        <widget class="QLineEdit" name="InputNombre_9"/>
+        <widget class="QLineEdit" name="InputTelefonoE"/>
        </item>
        <item row="6" column="0">
         <widget class="QLabel" name="label_tipo_evento">
@@ -1583,7 +1606,7 @@ existentes</string>
         <widget class="QComboBox" name="comboBox_2">
          <item>
           <property name="text">
-           <string>Bodas</string>
+           <string>Conciertos</string>
           </property>
          </item>
          <item>
@@ -1609,7 +1632,7 @@ existentes</string>
         </widget>
        </item>
        <item row="8" column="1">
-        <widget class="QLineEdit" name="InputNombre_10"/>
+        <widget class="QLineEdit" name="InputPresupuestoE"/>
        </item>
        <item row="10" column="0">
         <widget class="QLabel" name="label__acerca_de">
@@ -1631,7 +1654,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
         </widget>
        </item>
        <item row="10" column="1">
-        <widget class="QLineEdit" name="InputNombre_11"/>
+        <widget class="QLineEdit" name="InputAcercaEvento"/>
        </item>
        <item row="8" column="0">
         <widget class="QLabel" name="label_presupuesto">

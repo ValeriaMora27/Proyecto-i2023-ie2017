@@ -11,6 +11,7 @@
 #include "evento.h"
 #include "lugares.h"
 #include "proveedor.h"
+#include "solicitudes.h"
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>
@@ -39,6 +40,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tablaProveedores->setColumnCount(titlesProveedor.size());
     ui->tablaProveedores->setHorizontalHeaderLabels(titlesProveedor);
     cargarDatosProveedores();
+
+    const QStringList titlesSolicitudes{"Correo","Nombre","Teléfono","Tipo de evento","Presupuesto", "Detalles"};
+    ui->tablaSolicitudes->setColumnCount(titlesSolicitudes.size());
+    ui->tablaSolicitudes->setHorizontalHeaderLabels(titlesSolicitudes);
+    cargarDatosSolicitudes();
 
     /**
      * @brief Para crear la base de datos
@@ -615,7 +621,173 @@ void MainWindow::on_pushButton_Regresar_clicked()
 
 void MainWindow::on_pushButton_Enviar_clicked()
 {
+    /* Verificar si alguna de las entradas está vacía */
+    if (ui->InputCorreoE->text().isEmpty() ||
+        ui->InputNombreE->text().isEmpty() ||
+        ui->InputTelefonoE->text().isEmpty() ||
+        ui->comboBox_2->currentIndex() == -1 ||
+        ui->InputPresupuestoE->text().isEmpty() ||
+        ui->InputAcercaEvento->text().isEmpty()) {
+        /* Mostrar un mensaje de error si alguna entrada está vacía */
+        QMessageBox::warning(this, tr("Solicitud de Evento"), tr("Por favor, completa todos los campos."));
+        return;
+    }
+
+    /* Extraer los datos introducidos por el usuario */
+    QString correo = ui->InputCorreoE->text();
+    QString nombre = ui->InputNombreE->text();
+    QString telefono = ui->InputTelefonoE->text();
+    QString tipoEvento = ui->comboBox_2->currentText();
+    QString presupuestoString = ui->InputPresupuestoE->text();
+    QString detalles = ui->InputAcercaEvento->text();
+
+    /* Validar el correo */
+    QRegularExpression correoRegex(R"(\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b)");
+    QRegularExpressionMatch correoMatch = correoRegex.match(correo);
+    if (!correoMatch.hasMatch()) {
+        QMessageBox::warning(this, "Error", "Por favor, ingresa un correo válido.");
+            return;
+    }
+
+    /* Validar el número de teléfono */
+    QRegularExpression telefonoRegex(R"(\b\d{8}\b)");
+    QRegularExpressionMatch telefonoMatch = telefonoRegex.match(telefono);
+    if (!telefonoMatch.hasMatch()) {
+        QMessageBox::warning(this, "Error", "Por favor, ingresa un número de teléfono válido (8 dígitos).");
+        return;
+    }
+
+    /* Convertir el presupuesto a un número decimal */
+    bool ok;
+    double presupuesto = presupuestoString.toDouble(&ok);
+    if (!ok || presupuesto < 0) {
+        QMessageBox::warning(this, "Error", "El presupuesto debe ser un número válido.");
+        return;
+    }
+
+    /* Crear un nuevo objeto Solicitud con los datos introducidos */
+    Solicitud solicitud;
+    solicitud.setCorreo(correo);
+    solicitud.setNombre(nombre);
+    solicitud.setTelefono(telefono);
+    solicitud.setTipoEvento(tipoEvento);
+    solicitud.setPresupuesto(presupuesto);
+    solicitud.setDetalles(detalles);
+
+    /* Añadir la solicitud a la tabla de solicitudes */
+    int row = ui->tablaSolicitudes->rowCount();
+    ui->tablaSolicitudes->insertRow(row);
+    ui->tablaSolicitudes->setItem(row, 0, new QTableWidgetItem(solicitud.getCorreo()));
+    ui->tablaSolicitudes->setItem(row, 1, new QTableWidgetItem(solicitud.getNombre()));
+    ui->tablaSolicitudes->setItem(row, 2, new QTableWidgetItem(solicitud.getTelefono()));
+    ui->tablaSolicitudes->setItem(row, 3, new QTableWidgetItem(solicitud.getTipoEvento()));
+    ui->tablaSolicitudes->setItem(row, 4, new QTableWidgetItem(QString::number(solicitud.getPresupuesto())));
+    ui->tablaSolicitudes->setItem(row, 5, new QTableWidgetItem(solicitud.getDetalles()));
+
+    /* Limpiar los campos de entrada */
+    ui->InputCorreoE->clear();
+    ui->InputNombreE->clear();
+    ui->InputTelefonoE->clear();
+    ui->comboBox_2->setCurrentIndex(-1);
+    ui->InputPresupuestoE->clear();
+    ui->InputAcercaEvento->clear();
+
+    /* Almacenar los datos en un archivo de texto */
+    QFile file("../solicitudes.txt");
+    if (file.open(QIODevice::Append | QIODevice::Text)) {
+        QTextStream out(&file);
+        out << solicitud.getCorreo() << ","
+            << solicitud.getNombre() << ","
+            << solicitud.getTelefono() << ","
+            << solicitud.getTipoEvento() << ","
+            << solicitud.getPresupuesto() << ","
+            << solicitud.getDetalles() << "\n";
+        file.close();
+    }
+
+    /* Mostrar un mensaje de éxito */
+    QMessageBox::information(this, tr("Éxito"), tr("Solicitud de evento enviada."));
     ui->stackedWidget->setCurrentIndex(principal);
+}
+
+void MainWindow::cargarDatosSolicitudes()
+{
+    QFile file("../solicitudes.txt");
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return;
+
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        QStringList datos = line.split(",");
+        if (datos.size() == 6) {
+            QString correo = datos[0];
+            QString nombre = datos[1];
+            QString telefono = datos[2];
+            QString tipoEvento = datos[3];
+            double presupuesto = datos[4].toDouble();
+            QString detalles = datos[5];
+
+            /* Crear un nuevo objeto Solicitud y añadirlo a la tabla */
+            Solicitud solicitud;
+            solicitud.setCorreo(correo);
+            solicitud.setNombre(nombre);
+            solicitud.setTelefono(telefono);
+            solicitud.setTipoEvento(tipoEvento);
+            solicitud.setPresupuesto(presupuesto);
+            solicitud.setDetalles(detalles);
+
+            int row = ui->tablaSolicitudes->rowCount();
+            ui->tablaSolicitudes->insertRow(row);
+            ui->tablaSolicitudes->setItem(row, 0, new QTableWidgetItem(solicitud.getCorreo()));
+            ui->tablaSolicitudes->setItem(row, 1, new QTableWidgetItem(solicitud.getNombre()));
+            ui->tablaSolicitudes->setItem(row, 2, new QTableWidgetItem(solicitud.getTelefono()));
+            ui->tablaSolicitudes->setItem(row, 3, new QTableWidgetItem(solicitud.getTipoEvento()));
+            ui->tablaSolicitudes->setItem(row, 4, new QTableWidgetItem(QString::number(solicitud.getPresupuesto())));
+            ui->tablaSolicitudes->setItem(row, 5, new QTableWidgetItem(solicitud.getDetalles()));
+        }
+    }
+
+    file.close();
+}
+
+void MainWindow::eliminarSolicitudActual()
+{
+    /* Obtener la fila seleccionada */
+    int row = ui->tablaSolicitudes->currentRow();
+    if (row >= 0) {
+        /* Eliminar la fila de la tabla */
+        ui->tablaSolicitudes->removeRow(row);
+
+        /* Actualizar el archivo de texto */
+        QFile file("../solicitudes.txt");
+        if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+            QTextStream out(&file);
+            int rowCount = ui->tablaSolicitudes->rowCount();
+            for (int i = 0; i < rowCount; ++i) {
+                QString correo = ui->tablaSolicitudes->item(i, 0)->text();
+                QString nombre = ui->tablaSolicitudes->item(i, 1)->text();
+                QString telefono = ui->tablaSolicitudes->item(i, 2)->text();
+                QString tipoEvento = ui->tablaSolicitudes->item(i, 3)->text();
+                QString presupuesto = ui->tablaSolicitudes->item(i, 4)->text();
+                QString detalles = ui->tablaSolicitudes->item(i, 5)->text();
+
+                out << correo << ","
+                    << nombre << ","
+                    << telefono << ","
+                    << tipoEvento << ","
+                    << presupuesto << ","
+                    << detalles << "\n";
+            }
+            file.close();
+        }
+    }
+}
+
+void MainWindow::on_pushButton_Eliminar_Solicitud_clicked()
+{
+    eliminarSolicitudActual();
+    ui->stackedWidget->setCurrentIndex(solicitudes);
 }
 
 void MainWindow::on_pushButton_Eventos_clicked()

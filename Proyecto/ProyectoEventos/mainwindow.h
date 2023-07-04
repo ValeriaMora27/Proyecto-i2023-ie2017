@@ -105,6 +105,8 @@ private slots:
 
     /* Pantalla de Solicitud */
     void on_pushButton_Cancelar_Solicitud_clicked();
+    void cargarDatosSolicitudes();
+    void eliminarSolicitudActual();
 
     /*Pantalla Crear Evento*/
     void on_pushButton_Cancelar_3_clicked();
@@ -122,6 +124,8 @@ private slots:
     void on_pushButton_Regresar_Anadir_Proveedor_clicked();
 
     void on_pushButton_Eliminar_Proveedor_clicked();
+
+    void on_pushButton_Eliminar_Solicitud_clicked();
 
 private:
     Ui::MainWindow *ui; /**< Interfaz de usuario de la ventana principal. */
