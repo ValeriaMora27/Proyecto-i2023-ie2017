@@ -27,6 +27,8 @@ set(PROJECT_SOURCES
         evento.h
         basedatos.cpp
         basedatos.h
+        lugares.h
+        lugares.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

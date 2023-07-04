@@ -12,6 +12,7 @@
 #include <QStackedWidget>
 #include "usuario.h"
 #include "basedatos.h"
+#include "lugares.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -87,10 +88,12 @@ private slots:
     void on_pushButton_Agregar_Lugares_clicked();
     void on_pushButton_Eliminar_Lugares_clicked();
     void on_pushButton_Cancelar_Lugares_clicked();
+    void cargarDatos();
+    void eliminarLugarActual();
 
     /* Pantalla Añadir Lugares */
     void on_pushButton_Regresar_Anadir_Lugares_clicked();
-
+    void on_pushButton_anadir_lugar_clicked();
 
     /* Pantalla de proveedores */
     void on_pushButton_Cancelar_Proveedores_clicked();
@@ -106,12 +109,9 @@ private slots:
     void on_pushButton_Crear_clicked();
     void on_pushButton_Eventos_clicked();
 
-
     /*Pantalla Contáctenos*/
     void on_pushButton_Regresar_clicked();
     void on_pushButton_Enviar_clicked();
-
-
 
 private:
     Ui::MainWindow *ui; /**< Interfaz de usuario de la ventana principal. */

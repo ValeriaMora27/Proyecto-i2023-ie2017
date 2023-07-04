@@ -9,6 +9,7 @@
 #include "enums.h"
 #include "basedatos.h"
 #include "evento.h"
+#include "lugares.h"
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>
@@ -17,6 +18,8 @@
 #include <QString>
 #include <regex>
 
+#include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -26,6 +29,10 @@ MainWindow::MainWindow(QWidget *parent)
 
 {
     ui->setupUi(this);
+    const QStringList titles{"Lugar","Capacidad","Disponibilidad","Precio","Localización","¿Es bajo techo?"};
+    ui->tablaLugares->setColumnCount(titles.size());
+    ui->tablaLugares->setHorizontalHeaderLabels(titles);
+    cargarDatos();
 
     /**
      * @brief Para crear la base de datos
@@ -444,6 +451,7 @@ void MainWindow::on_pushButton_Agregar_Lugares_clicked()
 
 void MainWindow::on_pushButton_Eliminar_Lugares_clicked()
 {
+    eliminarLugarActual();
     ui->stackedWidget->setCurrentIndex(lugares);
 }
 
@@ -616,6 +624,157 @@ void MainWindow::on_pushButton_irCrearEvento_clicked()
 
 }
 
+/* Pantalla Añadir Lugares */
+
+void MainWindow::on_pushButton_anadir_lugar_clicked()
+{
+    /* Verificar si alguna de las entradas está vacía */
+    if (ui->lineEdit_nombre->text().isEmpty() ||
+        ui->lineEdit_capacidad->text().isEmpty() ||
+        ui->lineEdit_disponibilidad->text().isEmpty() ||
+        ui->lineEdit_precio->text().isEmpty() ||
+        ui->lineEdit_localizacion->text().isEmpty()) {
+        // Muestra un mensaje de error si alguna entrada está vacía
+        QMessageBox::warning(this, tr("Lugar"), tr("Por favor, completa todos los campos."));
+        return;
+    }
+
+    /* Extrae los datos introducidos por el usuario */
+    QString nombre = ui->lineEdit_nombre->text();
+    bool ok;
+    int capacidad = ui->lineEdit_capacidad->text().toInt(&ok);
+    if (!ok || capacidad <= 0) {
+        QMessageBox::warning(this, "Error", "La capacidad debe ser un número positivo.");
+            return;
+    }
+    QString disponibilidad = ui->lineEdit_disponibilidad->text();
+    double precio = ui->lineEdit_precio->text().toDouble(&ok);
+    if (!ok || precio < 0) {
+        QMessageBox::warning(this, "Error", "El precio debe ser un número positivo.");
+            return;
+    }
+    QString localizacion = ui->lineEdit_localizacion->text();
+    bool bajoTecho = ui->comboBox_techo->currentIndex() == 0;  // Suponiendo que la opción 0 es "bajo techo"
+
+    /* Crea un nuevo objeto Lugar con los datos introducidos */
+    Lugar lugar;
+    lugar.setNombre(nombre);
+    lugar.setCapacidad(capacidad);
+    lugar.setDisponibilidad(disponibilidad);
+    lugar.setPrecio(precio);
+    lugar.setLocalizacion(localizacion);
+    lugar.setBajoTecho(bajoTecho);
+
+    /* Añade el lugar a la tabla */
+
+    int row = ui->tablaLugares->rowCount();
+    ui->tablaLugares->insertRow(row);
+    ui->tablaLugares->setItem(row, 0, new QTableWidgetItem(lugar.getNombre()));
+    ui->tablaLugares->setItem(row, 1, new QTableWidgetItem(QString::number(lugar.getCapacidad())));
+    ui->tablaLugares->setItem(row, 2, new QTableWidgetItem(lugar.getDisponibilidad()));
+    ui->tablaLugares->setItem(row, 3, new QTableWidgetItem(QString::number(lugar.getPrecio())));
+    ui->tablaLugares->setItem(row, 4, new QTableWidgetItem(lugar.getLocalizacion()));
+    ui->tablaLugares->setItem(row, 5, new QTableWidgetItem(lugar.getBajoTecho() ? "Sí" : "No"));
+
+    /* Limpiar los campos de entrada */
+    ui->lineEdit_nombre->clear();
+    ui->lineEdit_capacidad->clear();
+    ui->lineEdit_disponibilidad->clear();
+    ui->lineEdit_precio->clear();
+    ui->lineEdit_localizacion->clear();
+    ui->comboBox_techo->setCurrentIndex(0);
+
+    /* Almacena los datos en un archivo de texto */
+    QFile file("../lugares.txt");
+    if(file.open(QIODevice::Append | QIODevice::Text)) {
+        QTextStream out(&file);
+        out << lugar.getNombre() << ","
+            << QString::number(lugar.getCapacidad()) << ","
+            << lugar.getDisponibilidad() << ","
+            << QString::number(lugar.getPrecio()) << ","
+            << lugar.getLocalizacion() << ","
+            << (lugar.getBajoTecho() ? "Sí" : "No") << "\n";
+        file.close();
+    }
+    /* Mensaje de éxito */
+    QMessageBox::information(this, "Éxito", "Lugar agregado.");
+}
+
+void MainWindow::cargarDatos() {
+    QFile file("../lugares.txt");
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return;
+
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        QStringList datos = line.split(",");
+        if (datos.size() == 6) {
+            QString nombre = datos[0];
+            int capacidad = datos[1].toInt();
+            QString disponibilidad = datos[2];
+            double precio = datos[3].toDouble();
+            QString localizacion = datos[4];
+            bool bajoTecho = datos[5].trimmed().toLower() == "sí";
+
+            // crear un nuevo Lugar y añadirlo a la tabla
+            Lugar lugar;
+            lugar.setNombre(nombre);
+            lugar.setCapacidad(capacidad);
+            lugar.setDisponibilidad(disponibilidad);
+            lugar.setPrecio(precio);
+            lugar.setLocalizacion(localizacion);
+            lugar.setBajoTecho(bajoTecho);
+
+            int row = ui->tablaLugares->rowCount();
+            ui->tablaLugares->insertRow(row);
+            ui->tablaLugares->setItem(row, 0, new QTableWidgetItem(lugar.getNombre()));
+            ui->tablaLugares->setItem(row, 1, new QTableWidgetItem(QString::number(lugar.getCapacidad())));
+            ui->tablaLugares->setItem(row, 2, new QTableWidgetItem(lugar.getDisponibilidad()));
+            ui->tablaLugares->setItem(row, 3, new QTableWidgetItem(QString::number(lugar.getPrecio())));
+            ui->tablaLugares->setItem(row, 4, new QTableWidgetItem(lugar.getLocalizacion()));
+            ui->tablaLugares->setItem(row, 5, new QTableWidgetItem(lugar.getBajoTecho() ? "Sí" : "No"));
+        }
+    }
+
+    file.close();
+}
 
 
+void MainWindow::eliminarLugarActual()
+{
+    // Obtener la fila seleccionada
+    int row = ui->tablaLugares->currentRow();
+    if (row >= 0) {
+        // Obtener el nombre del lugar en la fila seleccionada
+        QTableWidgetItem* itemNombre = ui->tablaLugares->item(row, 0);
+        if (itemNombre) {
+            QString nombreLugar = itemNombre->text();
 
+            // Eliminar la fila de la tabla
+            ui->tablaLugares->removeRow(row);
+
+            // Eliminar el registro del archivo de texto
+            QFile file("../lugares.txt");
+            if (file.open(QIODevice::ReadWrite | QIODevice::Text)) {
+                QTextStream in(&file);
+                QStringList lines;
+                while (!in.atEnd()) {
+                    QString line = in.readLine();
+                    QStringList datos = line.split(",");
+                    if (datos.size() == 6 && datos[0] != nombreLugar) {
+                        lines.append(line);
+                    }
+                }
+                file.resize(0);
+                QTextStream out(&file);
+                foreach (const QString& line, lines) {
+                    out << line << "\n";
+                }
+                file.close();
+
+                QMessageBox::information(this, "Eliminar lugar", "El lugar ha sido eliminado correctamente.");
+            }
+        }
+    }
+}

@@ -1040,22 +1040,22 @@ evento</string>
         <widget class="QDateEdit" name="fechaEvento">
          <property name="dateTime">
           <datetime>
-           <hour>18</hour>
+           <hour>0</hour>
            <minute>0</minute>
            <second>0</second>
            <year>2023</year>
            <month>9</month>
-           <day>17</day>
+           <day>18</day>
           </datetime>
          </property>
          <property name="minimumDateTime">
           <datetime>
-           <hour>18</hour>
+           <hour>0</hour>
            <minute>0</minute>
            <second>0</second>
            <year>2023</year>
            <month>1</month>
-           <day>4</day>
+           <day>5</day>
           </datetime>
          </property>
         </widget>
@@ -1282,6 +1282,16 @@ existentes</string>
       </property>
       <property name="text">
        <string>Agregar lugar</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tablaLugares">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>160</y>
+        <width>601</width>
+        <height>321</height>
+       </rect>
       </property>
      </widget>
     </widget>
