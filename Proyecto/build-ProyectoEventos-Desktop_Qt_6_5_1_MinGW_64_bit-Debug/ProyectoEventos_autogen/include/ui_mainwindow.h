@@ -81,6 +81,7 @@ public:
     QLabel *label_11;
     QPushButton *pushButton_Cancelar_Eventos;
     QTableWidget *tablaEventos;
+    QPushButton *pushButton_irCrearEvento;
     QWidget *page05_CrearEvento;
     QLabel *label_10;
     QPushButton *pushButton_Cancelar_3;
@@ -178,7 +179,7 @@ public:
         centralwidget->setEnabled(true);
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName("stackedWidget");
-        stackedWidget->setGeometry(QRect(-10, 0, 811, 641));
+        stackedWidget->setGeometry(QRect(0, 0, 811, 641));
         page00_Inicio = new QWidget();
         page00_Inicio->setObjectName("page00_Inicio");
         label_2 = new QLabel(page00_Inicio);
@@ -423,16 +424,19 @@ public:
         label_11->setAlignment(Qt::AlignCenter);
         pushButton_Cancelar_Eventos = new QPushButton(page04_Eventos);
         pushButton_Cancelar_Eventos->setObjectName("pushButton_Cancelar_Eventos");
-        pushButton_Cancelar_Eventos->setGeometry(QRect(20, 520, 83, 29));
-        tablaEventos = new QTableWidget(page04_Eventos);
-        if (tablaEventos->columnCount() < 8)
-            tablaEventos->setColumnCount(8);
+        pushButton_Cancelar_Eventos->setGeometry(QRect(220, 510, 131, 61));
         QFont font9;
-        font9.setPointSize(9);
-        font9.setBold(false);
-        font9.setStyleStrategy(QFont::PreferDefault);
+        font9.setPointSize(16);
+        pushButton_Cancelar_Eventos->setFont(font9);
+        tablaEventos = new QTableWidget(page04_Eventos);
+        if (tablaEventos->columnCount() < 10)
+            tablaEventos->setColumnCount(10);
+        QFont font10;
+        font10.setPointSize(9);
+        font10.setBold(false);
+        font10.setStyleStrategy(QFont::PreferDefault);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
-        __qtablewidgetitem->setFont(font9);
+        __qtablewidgetitem->setFont(font10);
         tablaEventos->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
         tablaEventos->setHorizontalHeaderItem(1, __qtablewidgetitem1);
@@ -448,8 +452,18 @@ public:
         tablaEventos->setHorizontalHeaderItem(6, __qtablewidgetitem6);
         QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
         tablaEventos->setHorizontalHeaderItem(7, __qtablewidgetitem7);
+        QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
+        tablaEventos->setHorizontalHeaderItem(8, __qtablewidgetitem8);
+        QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
+        tablaEventos->setHorizontalHeaderItem(9, __qtablewidgetitem9);
         tablaEventos->setObjectName("tablaEventos");
-        tablaEventos->setGeometry(QRect(70, 130, 681, 351));
+        tablaEventos->setGeometry(QRect(70, 120, 681, 351));
+        pushButton_irCrearEvento = new QPushButton(page04_Eventos);
+        pushButton_irCrearEvento->setObjectName("pushButton_irCrearEvento");
+        pushButton_irCrearEvento->setGeometry(QRect(470, 510, 131, 61));
+        QFont font11;
+        font11.setPointSize(14);
+        pushButton_irCrearEvento->setFont(font11);
         stackedWidget->addWidget(page04_Eventos);
         page05_CrearEvento = new QWidget();
         page05_CrearEvento->setObjectName("page05_CrearEvento");
@@ -596,9 +610,7 @@ public:
         pushButton_Eventos = new QPushButton(page05_CrearEvento);
         pushButton_Eventos->setObjectName("pushButton_Eventos");
         pushButton_Eventos->setGeometry(QRect(590, 370, 171, 81));
-        QFont font10;
-        font10.setPointSize(14);
-        pushButton_Eventos->setFont(font10);
+        pushButton_Eventos->setFont(font11);
         stackedWidget->addWidget(page05_CrearEvento);
         page06_Lugares = new QWidget();
         page06_Lugares->setObjectName("page06_Lugares");
@@ -865,7 +877,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(4);
+        stackedWidget->setCurrentIndex(0);
         pushButton_Cancelar_2->setDefault(false);
         pushButton_Iniciar_2->setDefault(false);
         pushButton_Cancelar->setDefault(false);
@@ -933,9 +945,15 @@ public:
         QTableWidgetItem *___qtablewidgetitem5 = tablaEventos->horizontalHeaderItem(5);
         ___qtablewidgetitem5->setText(QCoreApplication::translate("MainWindow", "Tipo de evento", nullptr));
         QTableWidgetItem *___qtablewidgetitem6 = tablaEventos->horizontalHeaderItem(6);
-        ___qtablewidgetitem6->setText(QCoreApplication::translate("MainWindow", "Servicios extra", nullptr));
+        ___qtablewidgetitem6->setText(QCoreApplication::translate("MainWindow", "Dj", nullptr));
         QTableWidgetItem *___qtablewidgetitem7 = tablaEventos->horizontalHeaderItem(7);
-        ___qtablewidgetitem7->setText(QCoreApplication::translate("MainWindow", "Costo", nullptr));
+        ___qtablewidgetitem7->setText(QCoreApplication::translate("MainWindow", "New Column", nullptr));
+        QTableWidgetItem *___qtablewidgetitem8 = tablaEventos->horizontalHeaderItem(8);
+        ___qtablewidgetitem8->setText(QCoreApplication::translate("MainWindow", "Comparsa", nullptr));
+        QTableWidgetItem *___qtablewidgetitem9 = tablaEventos->horizontalHeaderItem(9);
+        ___qtablewidgetitem9->setText(QCoreApplication::translate("MainWindow", "Costo", nullptr));
+        pushButton_irCrearEvento->setText(QCoreApplication::translate("MainWindow", "Ir a crear \n"
+"evento", nullptr));
         label_10->setText(QCoreApplication::translate("MainWindow", "Crear evento", nullptr));
         pushButton_Cancelar_3->setText(QCoreApplication::translate("MainWindow", "Regresar", nullptr));
         pushButton_Crear->setText(QCoreApplication::translate("MainWindow", "Crear", nullptr));

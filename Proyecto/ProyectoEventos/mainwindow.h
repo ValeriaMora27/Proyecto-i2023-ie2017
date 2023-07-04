@@ -80,6 +80,8 @@ private slots:
 
     /*Pantalla de Eventos Existentes*/
     void on_pushButton_Cancelar_Eventos_clicked();
+    void on_pushButton_irCrearEvento_clicked();
+
 
     /* Pantalla de Lugares */
     void on_pushButton_Agregar_Lugares_clicked();
@@ -102,13 +104,14 @@ private slots:
     /*Pantalla Crear Evento*/
     void on_pushButton_Cancelar_3_clicked();
     void on_pushButton_Crear_clicked();
+    void on_pushButton_Eventos_clicked();
+
 
     /*Pantalla Contáctenos*/
     void on_pushButton_Regresar_clicked();
     void on_pushButton_Enviar_clicked();
 
 
-    void on_pushButton_Eventos_clicked();
 
 private:
     Ui::MainWindow *ui; /**< Interfaz de usuario de la ventana principal. */

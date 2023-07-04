@@ -18,6 +18,7 @@
  * @param serviciosExtra Servicios adicionales al evento
  * @param costo El precio a pagar por el evento
  */
+/*
 Evento::Evento(const QString& nombre,
                const QString& cliente,
                const QDateTime& fecha,
@@ -38,6 +39,8 @@ Evento::Evento(const QString& nombre,
     catering(catering),
     comparsa(comparsa),
     costo(costo){}
+*/
+Evento::Evento(){}
 
 // Setters
 

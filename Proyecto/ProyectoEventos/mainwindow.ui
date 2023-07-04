@@ -27,14 +27,14 @@ background-color: #E0E6F0;
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>-10</x>
+      <x>0</x>
       <y>0</y>
       <width>811</width>
       <height>641</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page00_Inicio">
      <widget class="QLabel" name="label_2">
@@ -809,11 +809,16 @@ planificación, organización y gestión de eventos extraordinarios.</string>
      <widget class="QPushButton" name="pushButton_Cancelar_Eventos">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>520</y>
-        <width>83</width>
-        <height>29</height>
+        <x>220</x>
+        <y>510</y>
+        <width>131</width>
+        <height>61</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
       </property>
       <property name="text">
        <string>Regresar</string>
@@ -823,7 +828,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       <property name="geometry">
        <rect>
         <x>70</x>
-        <y>130</y>
+        <y>120</y>
         <width>681</width>
         <height>351</height>
        </rect>
@@ -867,7 +872,17 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       </column>
       <column>
        <property name="text">
-        <string>Servicios extra</string>
+        <string>Dj</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>New Column</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Comparsa</string>
        </property>
       </column>
       <column>
@@ -875,6 +890,25 @@ planificación, organización y gestión de eventos extraordinarios.</string>
         <string>Costo</string>
        </property>
       </column>
+     </widget>
+     <widget class="QPushButton" name="pushButton_irCrearEvento">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>510</y>
+        <width>131</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Ir a crear 
+evento</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="page05_CrearEvento">

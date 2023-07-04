@@ -43,6 +43,7 @@ public:
      * @param tipoEvento El tipo de evento (fiesta, baile, graduación)
      * @param costo El precio a pagar por el evento
      */
+    /*
     Evento(const QString& nombre,
            const QString& cliente,
            const QDateTime& fecha,
@@ -53,6 +54,11 @@ public:
            const QString& catering,
            const QString& comparsa,
            const float& costo);
+    */
+
+    // Constructor por defecto
+
+    Evento();
 
     // Setters
 

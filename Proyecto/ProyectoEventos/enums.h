@@ -17,4 +17,18 @@ enum Pantallas
     agregar_lugares
 };
 
+enum ComponentesEvento
+{
+    numNombre = 0,
+    numCliente,
+    numFecha,
+    numHoraInicio,
+    numHoraFin,
+    numTipoEvento,
+    numDj,
+    numCatering,
+    numComparsa,
+    numCosto
+};
+
 #endif // ENUMS_H

@@ -3,6 +3,7 @@
  * @brief Implemetación de la clase BaseDatos.
  */
 #include "basedatos.h"
+#include "enums.h"
 
 // Constructor por defecto
 
@@ -88,7 +89,7 @@ bool BaseDatos::agregarEvento(const QString& nombreEvento,
     }
 
     QSqlQuery query(db);
-    query.prepare("INSERT INTO evento "
+    query.prepare("INSERT INTO eventos "
                   "(Nombre, Cliente, Fecha, HoraInicio, HoraFinal, TipoEvento, Dj, Catering, Comparsa, Presupuesto) "
                   "VALUES (:Nombre, :Cliente, :Fecha, :HoraInicio, :HoraFinal, :TipoEvento, :Dj, :Catering, :Comparsa, :Presupuesto);");
     query.bindValue(":Nombre", nombreEvento);
@@ -111,6 +112,62 @@ bool BaseDatos::agregarEvento(const QString& nombreEvento,
         return false;
     }
 }
+
+
+/**
+* @brief obtenerEvento permite obtener todos los datos de la base de datos
+* @return La lista de eventos
+*/
+QList<Evento> BaseDatos::obtenerEventos() const {
+    QList<Evento> eventos;
+
+    if (!db.isOpen()) {
+        qDebug() << "Error: La base de datos no está abierta.";
+            return eventos;
+    }
+
+    QSqlQuery query(db);
+    query.prepare("SELECT * FROM eventos;");
+
+    if (query.exec()) {
+        while (query.next()) {
+            QString nombre = query.value(numNombre).toString();
+            QString cliente = query.value(numCliente).toString();
+            QDateTime fecha = query.value(numFecha).toDateTime();
+            QDateTime horaInicio = query.value(numHoraInicio).toDateTime();
+            QDateTime horaFin = query.value(numHoraFin).toDateTime();
+            QString tipoEvento = query.value(numTipoEvento).toString();
+            QString dj = query.value(numDj).toString();
+            QString catering = query.value(numCatering).toString();
+            QString comparsa = query.value(numComparsa).toString();
+            float costo = query.value(numCosto).toFloat();
+
+            Evento evento; // Utilizar constructor por defecto
+
+            evento.setNombre(nombre);
+            evento.setCliente(cliente);
+            evento.setFecha(fecha);
+            evento.setHoraInicio(horaInicio);
+            evento.setHoraFin(horaFin);
+            evento.setTipoEvento(tipoEvento);
+            evento.setDj(dj);
+            evento.setCatering(catering);
+            evento.setComparsa(comparsa);
+            evento.setCosto(costo); // Utilizar método setter correspondiente
+
+            eventos.append(evento);
+        }
+    } else {
+        qDebug() << "Error al obtener eventos:" << query.lastError().text();
+    }
+
+    return eventos;
+}
+
+
+
+
+
 
 
 
