@@ -1,5 +1,6 @@
 C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/ProyectoEventos_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/mainwindow.h \
   C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/ProyectoEventos_autogen/moc_predefs.h \
+  C:/Qt/6.5.1/mingw_64/include/QtCore/QDateTime \
   C:/Qt/6.5.1/mingw_64/include/QtCore/QDebug \
   C:/Qt/6.5.1/mingw_64/include/QtCore/QString \
   C:/Qt/6.5.1/mingw_64/include/QtCore/q20memory.h \
@@ -18,6 +19,7 @@ C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desk
   C:/Qt/6.5.1/mingw_64/include/QtCore/qbytearrayalgorithms.h \
   C:/Qt/6.5.1/mingw_64/include/QtCore/qbytearraylist.h \
   C:/Qt/6.5.1/mingw_64/include/QtCore/qbytearrayview.h \
+  C:/Qt/6.5.1/mingw_64/include/QtCore/qcalendar.h \
   C:/Qt/6.5.1/mingw_64/include/QtCore/qchar.h \
   C:/Qt/6.5.1/mingw_64/include/QtCore/qcompare.h \
   C:/Qt/6.5.1/mingw_64/include/QtCore/qcompare_impl.h \
@@ -30,6 +32,7 @@ C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desk
   C:/Qt/6.5.1/mingw_64/include/QtCore/qcontiguouscache.h \
   C:/Qt/6.5.1/mingw_64/include/QtCore/qdarwinhelpers.h \
   C:/Qt/6.5.1/mingw_64/include/QtCore/qdatastream.h \
+  C:/Qt/6.5.1/mingw_64/include/QtCore/qdatetime.h \
   C:/Qt/6.5.1/mingw_64/include/QtCore/qdebug.h \
   C:/Qt/6.5.1/mingw_64/include/QtCore/qexceptionhandling.h \
   C:/Qt/6.5.1/mingw_64/include/QtCore/qflags.h \
@@ -46,6 +49,7 @@ C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desk
   C:/Qt/6.5.1/mingw_64/include/QtCore/qiterator.h \
   C:/Qt/6.5.1/mingw_64/include/QtCore/qline.h \
   C:/Qt/6.5.1/mingw_64/include/QtCore/qlist.h \
+  C:/Qt/6.5.1/mingw_64/include/QtCore/qlocale.h \
   C:/Qt/6.5.1/mingw_64/include/QtCore/qlogging.h \
   C:/Qt/6.5.1/mingw_64/include/QtCore/qmalloc.h \
   C:/Qt/6.5.1/mingw_64/include/QtCore/qmap.h \

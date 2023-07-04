@@ -27,14 +27,14 @@ background-color: #E0E6F0;
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>-10</x>
       <y>0</y>
       <width>811</width>
       <height>641</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="page00_Inicio">
      <widget class="QLabel" name="label_2">
@@ -902,19 +902,19 @@ planificación, organización y gestión de eventos extraordinarios.</string>
      <widget class="QPushButton" name="pushButton_Cancelar_3">
       <property name="geometry">
        <rect>
-        <x>300</x>
-        <y>530</y>
-        <width>111</width>
-        <height>41</height>
+        <x>600</x>
+        <y>270</y>
+        <width>151</width>
+        <height>61</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
+        <pointsize>18</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>Cancelar</string>
+       <string>Regresar</string>
       </property>
       <property name="autoDefault">
        <bool>false</bool>
@@ -929,15 +929,15 @@ planificación, organización y gestión de eventos extraordinarios.</string>
      <widget class="QPushButton" name="pushButton_Crear">
       <property name="geometry">
        <rect>
-        <x>510</x>
-        <y>530</y>
-        <width>111</width>
-        <height>41</height>
+        <x>600</x>
+        <y>170</y>
+        <width>151</width>
+        <height>61</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
+        <pointsize>18</pointsize>
        </font>
       </property>
       <property name="text">
@@ -947,10 +947,10 @@ planificación, organización y gestión de eventos extraordinarios.</string>
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>200</x>
+        <x>70</x>
         <y>70</y>
-        <width>439</width>
-        <height>434</height>
+        <width>431</width>
+        <height>502</height>
        </rect>
       </property>
       <layout class="QFormLayout" name="formLayout_3">
@@ -961,22 +961,22 @@ planificación, organización y gestión de eventos extraordinarios.</string>
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
        <property name="verticalSpacing">
-        <number>21</number>
+        <number>20</number>
        </property>
        <property name="leftMargin">
-        <number>3</number>
+        <number>0</number>
        </property>
        <property name="topMargin">
-        <number>3</number>
+        <number>0</number>
        </property>
        <property name="rightMargin">
-        <number>3</number>
+        <number>0</number>
        </property>
        <property name="bottomMargin">
-        <number>3</number>
+        <number>0</number>
        </property>
        <item row="0" column="0">
-        <widget class="QLabel" name="label_18">
+        <widget class="QLabel" name="nombreEventoLabel">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -988,10 +988,10 @@ planificación, organización y gestión de eventos extraordinarios.</string>
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QLineEdit" name="InputNombre_3"/>
+        <widget class="QLineEdit" name="nombreEvento"/>
        </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="label_19">
+       <item row="2" column="0">
+        <widget class="QLabel" name="fechaLabel">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -1002,11 +1002,11 @@ planificación, organización y gestión de eventos extraordinarios.</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="1">
-        <widget class="QDateEdit" name="dateEdit">
+       <item row="2" column="1">
+        <widget class="QDateEdit" name="fechaEvento">
          <property name="dateTime">
           <datetime>
-           <hour>12</hour>
+           <hour>18</hour>
            <minute>0</minute>
            <second>0</second>
            <year>2023</year>
@@ -1016,7 +1016,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
          </property>
          <property name="minimumDateTime">
           <datetime>
-           <hour>12</hour>
+           <hour>18</hour>
            <minute>0</minute>
            <second>0</second>
            <year>2023</year>
@@ -1026,8 +1026,8 @@ planificación, organización y gestión de eventos extraordinarios.</string>
          </property>
         </widget>
        </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_20">
+       <item row="3" column="0">
+        <widget class="QLabel" name="horaInicioLabel">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -1038,11 +1038,14 @@ planificación, organización y gestión de eventos extraordinarios.</string>
          </property>
         </widget>
        </item>
-       <item row="2" column="1">
-        <widget class="QTimeEdit" name="timeEdit"/>
+       <item row="3" column="1">
+        <widget class="QTimeEdit" name="horaInicio"/>
        </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="label_31">
+       <item row="4" column="1">
+        <widget class="QTimeEdit" name="horaFin"/>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="tipoEventoLabel">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -1053,8 +1056,8 @@ planificación, organización y gestión de eventos extraordinarios.</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="1">
-        <widget class="QComboBox" name="comboBox">
+       <item row="5" column="1">
+        <widget class="QComboBox" name="tipoEvento">
          <item>
           <property name="text">
            <string>Bodas</string>
@@ -1082,74 +1085,108 @@ planificación, organización y gestión de eventos extraordinarios.</string>
          </item>
         </widget>
        </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="label_27">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Lugar del evento</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1">
-        <widget class="QLineEdit" name="InputNombre_4"/>
-       </item>
-       <item row="5" column="0">
-        <widget class="QLabel" name="label_28">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Proveedores</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="1">
-        <widget class="QLineEdit" name="InputNombre_5"/>
-       </item>
        <item row="6" column="0">
-        <widget class="QLabel" name="label_29">
+        <widget class="QLabel" name="djLabel">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
           </font>
          </property>
          <property name="text">
-          <string>Costo del evento</string>
+          <string>Dj</string>
          </property>
         </widget>
        </item>
        <item row="6" column="1">
-        <widget class="QLineEdit" name="InputNombre_6"/>
+        <widget class="QLineEdit" name="dj"/>
        </item>
        <item row="7" column="0">
-        <widget class="QLabel" name="label_30">
+        <widget class="QLabel" name="cateringLabel">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
           </font>
          </property>
          <property name="text">
-          <string>Detalles</string>
+          <string>Catering</string>
          </property>
         </widget>
        </item>
        <item row="7" column="1">
-        <widget class="QPlainTextEdit" name="plainTextEdit">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777213</height>
-          </size>
+        <widget class="QLineEdit" name="catering"/>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="comparsaLabel">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Comparsa</string>
          </property>
         </widget>
        </item>
+       <item row="8" column="1">
+        <widget class="QLineEdit" name="comparsa"/>
+       </item>
+       <item row="9" column="0">
+        <widget class="QLabel" name="presupuestoLabel">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Presupuesto</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="horaFinLabel">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Hora de finalización&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="clienteLabel">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Cliente</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="cliente"/>
+       </item>
+       <item row="9" column="1">
+        <widget class="QLineEdit" name="presupuesto"/>
+       </item>
       </layout>
+     </widget>
+     <widget class="QPushButton" name="pushButton_Eventos">
+      <property name="geometry">
+       <rect>
+        <x>590</x>
+        <y>370</y>
+        <width>171</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Ir a eventos 
+existentes</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="page06_Lugares">

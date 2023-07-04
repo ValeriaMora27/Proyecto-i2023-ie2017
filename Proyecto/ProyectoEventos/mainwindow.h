@@ -108,6 +108,8 @@ private slots:
     void on_pushButton_Enviar_clicked();
 
 
+    void on_pushButton_Eventos_clicked();
+
 private:
     Ui::MainWindow *ui; /**< Interfaz de usuario de la ventana principal. */
     QString rolUsuarioActual;

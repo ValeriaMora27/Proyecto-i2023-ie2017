@@ -24,7 +24,9 @@ Evento::Evento(const QString& nombre,
                const QDateTime& horaInicio,
                const QDateTime& horaFin,
                const QString& tipoEvento,
-               const QString& serviciosExtra,
+               const QString& dj,
+               const QString& catering,
+               const QString& comparsa,               
                const float& costo)
     : nombre(nombre), 
     cliente(cliente),
@@ -32,7 +34,9 @@ Evento::Evento(const QString& nombre,
     horaInicio(horaInicio),
     horaFin(horaFin),
     tipoEvento(tipoEvento),
-    serviciosExtra(serviciosExtra),
+    dj(dj),
+    catering(catering),
+    comparsa(comparsa),
     costo(costo){}
 
 // Setters
@@ -86,11 +90,27 @@ void Evento::setTipoEvento(QString& newTipoEvento) {
 }
 
 /**
- * @brief setServiciosExtra establece los servicios adicionales del evento.
- * @param newServiciosExtra Los servicios adicionales del evento.
+ * @brief setDj establece el dj del evento.
+ * @param newDj El Dj del evento.
  */
-void Evento::setServiciosExtra(QString& newServiciosExtra) {
-    serviciosExtra = newServiciosExtra;
+void Evento::setDj(QString& newDj){
+    dj = newDj;
+}
+
+/**
+ * @brief setCatering establece el catering del evento.
+ * @param newCatering El catering del evento.
+ */
+void Evento::setCatering(QString& newCatering){
+    catering = newCatering;
+}
+
+/**
+ * @brief setComparsa establece la comparsa del evento.
+ * @param newComparsa La comparsa del evento.
+ */
+void Evento::setComparsa(QString& newComparsa){
+    comparsa = newComparsa;
 }
 
 /**
@@ -152,11 +172,27 @@ QString Evento::getTipoEvento() const {
 }
 
 /**
- * @brief getServiciosExtra devuelve los servicios adicionales del evento.
- * @return Los servicios adicionales del evento.
+ * @brief getDj devuelve el dj del evento.
+ * @return El dj del evento.
  */
-QString Evento::getServiciosExtra() const {
-    return serviciosExtra;
+QString Evento::getDj() const{
+    return dj;
+}
+
+/**
+ * @brief getCatering devuelve el catering del evento.
+ * @return El catering del evento.
+ */
+QString Evento::getCatering() const{
+    return catering;
+}
+
+/**
+ * @brief getComparsa devuelve la comparsa del evento.
+ * @return La comparsa del evento.
+ */
+QString Evento::getComparsa() const{
+    return comparsa;
 }
 
 /**
@@ -166,3 +202,4 @@ QString Evento::getServiciosExtra() const {
 float Evento::getCosto() const {
     return costo;
 }
+

@@ -5,6 +5,7 @@ C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/mainwindow
  mmc:Q_OBJECT
  mdp:C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/mainwindow.h
  mdp:C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/ProyectoEventos_autogen/moc_predefs.h
+ mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/QDateTime
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/QDebug
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/QString
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/q20memory.h
@@ -23,6 +24,7 @@ C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/mainwindow
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/qbytearrayalgorithms.h
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/qbytearraylist.h
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/qbytearrayview.h
+ mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/qcalendar.h
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/qchar.h
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/qcompare.h
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/qcompare_impl.h
@@ -35,6 +37,7 @@ C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/mainwindow
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/qcontiguouscache.h
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/qdarwinhelpers.h
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/qdatastream.h
+ mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/qdatetime.h
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/qdebug.h
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/qexceptionhandling.h
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/qflags.h
@@ -51,6 +54,7 @@ C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/mainwindow
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/qiterator.h
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/qline.h
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/qlist.h
+ mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/qlocale.h
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/qlogging.h
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/qmalloc.h
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/qmap.h

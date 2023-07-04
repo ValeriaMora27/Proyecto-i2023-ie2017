@@ -51,15 +51,8 @@ void BaseDatos::cerrarBase(){
 /**
  * @brief crearTabla
  * 
- * @param q Permite crear los campos de la tabla
+ * @param sqlStatement Permite crear los campos de la tabla
  */
-// void BaseDatos::crearTabla(QString q){
-//     QSqlQuery query(q);
-//     if (!query.isActive()){
-//         qDebug("Error de conexión");
-//     }
-// }
-
 bool BaseDatos::crearTabla(const QString& sqlStatement) {
     QSqlQuery query(db);
     if (query.exec(sqlStatement)) {
@@ -68,6 +61,53 @@ bool BaseDatos::crearTabla(const QString& sqlStatement) {
     } else {
         // Table creation failed
         qDebug() << "Error creating table:" << query.lastError().text();
+        return false;
+    }
+}
+
+/**
+ * @brief agregarEvento añade un nuevo evento a la base de datos.
+ * @param nombreEvento El nombre del evento.
+ * @param fechaEvento La fecha del evento.
+ * @param horaInicio La hora de inicio del evento.
+ * @return true si se agregó correctamente, false en caso contrario.
+ */
+bool BaseDatos::agregarEvento(const QString& nombreEvento,
+                              const QString& cliente,
+                              const QDate& fechaEvento,
+                              const QTime& horaInicio,
+                              const QTime& horaFinal,
+                              const QString& tipoEvento,
+                              const QString& dj,
+                              const QString& catering,
+                              const QString& comparsa,
+                              const QString& presupuesto) {
+    if (!db.isOpen()) {
+        qDebug() << "Error: La base de datos no está abierta.";
+        return false;
+    }
+
+    QSqlQuery query(db);
+    query.prepare("INSERT INTO evento "
+                  "(Nombre, Cliente, Fecha, HoraInicio, HoraFinal, TipoEvento, Dj, Catering, Comparsa, Presupuesto) "
+                  "VALUES (:Nombre, :Cliente, :Fecha, :HoraInicio, :HoraFinal, :TipoEvento, :Dj, :Catering, :Comparsa, :Presupuesto);");
+    query.bindValue(":Nombre", nombreEvento);
+    query.bindValue(":Cliente", cliente);
+    query.bindValue(":Fecha", fechaEvento);
+    query.bindValue(":HoraInicio", horaInicio);
+    query.bindValue(":HoraFinal", horaFinal);
+    query.bindValue(":TipoEvento", tipoEvento);
+    query.bindValue(":Dj", dj);
+    query.bindValue(":Catering", catering);
+    query.bindValue(":Comparsa", comparsa);
+    query.bindValue(":Presupuesto", presupuesto);
+
+    if (query.exec()) {
+        // Registro agregado correctamente
+        return true;
+    } else {
+        // Error al agregar el registro
+        qDebug() << "Error al agregar el evento:" << query.lastError().text();
         return false;
     }
 }

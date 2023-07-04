@@ -40,13 +40,15 @@ MainWindow::MainWindow(QWidget *parent)
         qDebug("Se creó la base de datos");
         QString sqlEvento = "CREATE TABLE eventos("
                             "Nombre TEXT PRIMARY KEY, "
-                            "Usuario TEXT, "
+                            "Cliente TEXT, "
                             "Fecha DATE, "
                             "HoraInicio DATETIME, "
                             "HoraFinal DATETIME, "
                             "TipoEvento TEXT, "
-                            "ServiciosExtra TEXT, "
-                            "Costo DECIMAL(10, 2)"
+                            "Dj TEXT, "
+                            "Catering TEXT, "
+                            "Comparsa TEXT, "
+                            "Presupuesto DECIMAL(10, 2)"
                             ")";
         dbEvento.crearTabla(sqlEvento);
 
@@ -74,7 +76,6 @@ void MainWindow::on_pushButton_Registrarse_clicked()
 {
     ui->stackedWidget->setCurrentIndex(registro);
 }
-
 
 /* Pantalla Iniciar Sesión */
 void MainWindow::on_pushButton_Cancelar_2_clicked()
@@ -140,7 +141,7 @@ void MainWindow::on_pushButton_Registrar_clicked()
     if (ui->InputNombre->text().isEmpty() ||
         ui->InputCorreo->text().isEmpty() ||
         ui->InputContra->text().isEmpty()) {
-        // Muestra un mensaje de error si alguna entrada está vacía */
+        // Muestra un mensaje de error si alguna entrada está vacía
         QMessageBox::warning(this, tr("Registro"), tr("Por favor, completa todos los campos."));
         return;
     }
@@ -443,7 +444,72 @@ void MainWindow::on_pushButton_Cancelar_3_clicked()
 
 void MainWindow::on_pushButton_Crear_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(eventos);
+    /*
+    if (los campos estan vacíos){
+        muestre un mensaje de error
+    }
+    else {
+        cree el evento
+    }
+    */
+
+    if (ui->nombreEvento->text().isEmpty() ||
+        ui->cliente->text().isEmpty() ||
+        ui->dj->text().isEmpty() ||
+        ui->catering->text().isEmpty() ||
+        ui->comparsa->text().isEmpty() ||
+        ui->presupuesto->text().isEmpty()){
+        // Mostrar mensaje de error
+        QMessageBox::warning(this, 
+                             tr("Crear Evento"),
+                             tr("Por favor, completa todos los campos."));
+        return;
+    }
+    else {
+        QString nombreEvento = ui->nombreEvento->text();
+        QString cliente = ui->cliente->text();
+        QDate fechaEvento = ui->fechaEvento->date();
+        QTime horaInicio = ui->horaInicio->time();
+        QTime horaFinal = ui->horaFin->time();
+        QString tipoEvento = ui->tipoEvento->currentText();
+        QString dj = ui->dj->text();
+        QString catering = ui->catering->text();
+        QString comparsa = ui->comparsa->text();
+        QString presupuesto = ui->presupuesto->text();
+
+        if (dbEvento.agregarEvento(nombreEvento,
+                                   cliente,
+                                   fechaEvento,
+                                   horaInicio,
+                                   horaFinal,
+                                   tipoEvento,
+                                   dj,
+                                   catering,
+                                   comparsa,
+                                   presupuesto)) {
+            // Éxito al agregar el evento
+            QMessageBox::information(this,
+                                     tr("Crear Evento"),
+                                     tr("Evento agregado correctamente."));
+
+            // Limpiar los campos
+            ui->nombreEvento->clear();
+            ui->cliente->clear();
+            ui->dj->clear();
+            ui->catering->clear();
+            ui->comparsa->clear();
+            ui->presupuesto->clear();
+        } else {
+            // Error al agregar el evento
+            QMessageBox::warning(this,
+                                 tr("Crear Evento"),
+                                 tr("No se pudo agregar el evento."));
+        }
+    }
+
+
+    // Se dirige a la ventana de eventos existentes
+    //ui->stackedWidget->setCurrentIndex(eventos);
 }
 
 /* Pantalla Contáctenos */
@@ -457,3 +523,9 @@ void MainWindow::on_pushButton_Enviar_clicked()
 {
     ui->stackedWidget->setCurrentIndex(principal);
 }
+
+void MainWindow::on_pushButton_Eventos_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(eventos);
+}
+

@@ -9,7 +9,7 @@
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlError>
-
+#include <QDateTime>
 #include <QDebug>
 /**
  * @brief La clase BaseDatos proporciona funcionalidad para crear y administrar una base de datos.
@@ -60,6 +60,24 @@ public:
      * @param q Permite crear los campos de la tabla
      */
     bool crearTabla(const QString& sqlStatement);
+
+    /**
+     * @brief agregarEvento añade un nuevo evento a la base de datos.
+     * @param nombreEvento El nombre del evento.
+     * @param fechaEvento La fecha del evento.
+     * @param horaInicio La hora de inicio del evento.
+     * @return true si se agregó correctamente, false en caso contrario.
+     */
+    bool agregarEvento(const QString& nombreEvento,
+                       const QString& cliente,
+                       const QDate& fechaEvento, 
+                       const QTime& horaInicio,
+                       const QTime& horaFinal,
+                       const QString& tipoEvento,
+                       const QString& dj,
+                       const QString& catering,
+                       const QString& comparsa,
+                       const QString& presupuesto);
 };
 
 #endif // BASEDATOS_H

@@ -19,7 +19,6 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
@@ -88,22 +87,27 @@ public:
     QPushButton *pushButton_Crear;
     QWidget *layoutWidget1;
     QFormLayout *formLayout_3;
-    QLabel *label_18;
-    QLineEdit *InputNombre_3;
-    QLabel *label_19;
-    QDateEdit *dateEdit;
-    QLabel *label_20;
-    QTimeEdit *timeEdit;
-    QLabel *label_31;
-    QComboBox *comboBox;
-    QLabel *label_27;
-    QLineEdit *InputNombre_4;
-    QLabel *label_28;
-    QLineEdit *InputNombre_5;
-    QLabel *label_29;
-    QLineEdit *InputNombre_6;
-    QLabel *label_30;
-    QPlainTextEdit *plainTextEdit;
+    QLabel *nombreEventoLabel;
+    QLineEdit *nombreEvento;
+    QLabel *fechaLabel;
+    QDateEdit *fechaEvento;
+    QLabel *horaInicioLabel;
+    QTimeEdit *horaInicio;
+    QTimeEdit *horaFin;
+    QLabel *tipoEventoLabel;
+    QComboBox *tipoEvento;
+    QLabel *djLabel;
+    QLineEdit *dj;
+    QLabel *cateringLabel;
+    QLineEdit *catering;
+    QLabel *comparsaLabel;
+    QLineEdit *comparsa;
+    QLabel *presupuestoLabel;
+    QLabel *horaFinLabel;
+    QLabel *clienteLabel;
+    QLineEdit *cliente;
+    QLineEdit *presupuesto;
+    QPushButton *pushButton_Eventos;
     QWidget *page06_Lugares;
     QLabel *label_9;
     QPushButton *pushButton_Cancelar_Lugares;
@@ -174,7 +178,7 @@ public:
         centralwidget->setEnabled(true);
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName("stackedWidget");
-        stackedWidget->setGeometry(QRect(0, 0, 811, 641));
+        stackedWidget->setGeometry(QRect(-10, 0, 811, 641));
         page00_Inicio = new QWidget();
         page00_Inicio->setObjectName("page00_Inicio");
         label_2 = new QLabel(page00_Inicio);
@@ -456,119 +460,145 @@ public:
         label_10->setAlignment(Qt::AlignCenter);
         pushButton_Cancelar_3 = new QPushButton(page05_CrearEvento);
         pushButton_Cancelar_3->setObjectName("pushButton_Cancelar_3");
-        pushButton_Cancelar_3->setGeometry(QRect(300, 530, 111, 41));
-        pushButton_Cancelar_3->setFont(font4);
+        pushButton_Cancelar_3->setGeometry(QRect(600, 270, 151, 61));
+        pushButton_Cancelar_3->setFont(font);
         pushButton_Cancelar_3->setAutoDefault(false);
         pushButton_Cancelar_3->setFlat(false);
         pushButton_Crear = new QPushButton(page05_CrearEvento);
         pushButton_Crear->setObjectName("pushButton_Crear");
-        pushButton_Crear->setGeometry(QRect(510, 530, 111, 41));
-        pushButton_Crear->setFont(font4);
+        pushButton_Crear->setGeometry(QRect(600, 170, 151, 61));
+        pushButton_Crear->setFont(font);
         layoutWidget1 = new QWidget(page05_CrearEvento);
         layoutWidget1->setObjectName("layoutWidget1");
-        layoutWidget1->setGeometry(QRect(200, 70, 439, 434));
+        layoutWidget1->setGeometry(QRect(70, 70, 431, 502));
         formLayout_3 = new QFormLayout(layoutWidget1);
         formLayout_3->setObjectName("formLayout_3");
         formLayout_3->setFieldGrowthPolicy(QFormLayout::ExpandingFieldsGrow);
         formLayout_3->setLabelAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        formLayout_3->setVerticalSpacing(21);
-        formLayout_3->setContentsMargins(3, 3, 3, 3);
-        label_18 = new QLabel(layoutWidget1);
-        label_18->setObjectName("label_18");
-        label_18->setFont(font4);
+        formLayout_3->setVerticalSpacing(20);
+        formLayout_3->setContentsMargins(0, 0, 0, 0);
+        nombreEventoLabel = new QLabel(layoutWidget1);
+        nombreEventoLabel->setObjectName("nombreEventoLabel");
+        nombreEventoLabel->setFont(font4);
 
-        formLayout_3->setWidget(0, QFormLayout::LabelRole, label_18);
+        formLayout_3->setWidget(0, QFormLayout::LabelRole, nombreEventoLabel);
 
-        InputNombre_3 = new QLineEdit(layoutWidget1);
-        InputNombre_3->setObjectName("InputNombre_3");
+        nombreEvento = new QLineEdit(layoutWidget1);
+        nombreEvento->setObjectName("nombreEvento");
 
-        formLayout_3->setWidget(0, QFormLayout::FieldRole, InputNombre_3);
+        formLayout_3->setWidget(0, QFormLayout::FieldRole, nombreEvento);
 
-        label_19 = new QLabel(layoutWidget1);
-        label_19->setObjectName("label_19");
-        label_19->setFont(font4);
+        fechaLabel = new QLabel(layoutWidget1);
+        fechaLabel->setObjectName("fechaLabel");
+        fechaLabel->setFont(font4);
 
-        formLayout_3->setWidget(1, QFormLayout::LabelRole, label_19);
+        formLayout_3->setWidget(2, QFormLayout::LabelRole, fechaLabel);
 
-        dateEdit = new QDateEdit(layoutWidget1);
-        dateEdit->setObjectName("dateEdit");
-        dateEdit->setDateTime(QDateTime(QDate(2023, 9, 17), QTime(6, 0, 0)));
-        dateEdit->setMinimumDateTime(QDateTime(QDate(2023, 1, 4), QTime(6, 0, 0)));
+        fechaEvento = new QDateEdit(layoutWidget1);
+        fechaEvento->setObjectName("fechaEvento");
+        fechaEvento->setDateTime(QDateTime(QDate(2023, 9, 17), QTime(18, 0, 0)));
+        fechaEvento->setMinimumDateTime(QDateTime(QDate(2023, 1, 4), QTime(18, 0, 0)));
 
-        formLayout_3->setWidget(1, QFormLayout::FieldRole, dateEdit);
+        formLayout_3->setWidget(2, QFormLayout::FieldRole, fechaEvento);
 
-        label_20 = new QLabel(layoutWidget1);
-        label_20->setObjectName("label_20");
-        label_20->setFont(font4);
+        horaInicioLabel = new QLabel(layoutWidget1);
+        horaInicioLabel->setObjectName("horaInicioLabel");
+        horaInicioLabel->setFont(font4);
 
-        formLayout_3->setWidget(2, QFormLayout::LabelRole, label_20);
+        formLayout_3->setWidget(3, QFormLayout::LabelRole, horaInicioLabel);
 
-        timeEdit = new QTimeEdit(layoutWidget1);
-        timeEdit->setObjectName("timeEdit");
+        horaInicio = new QTimeEdit(layoutWidget1);
+        horaInicio->setObjectName("horaInicio");
 
-        formLayout_3->setWidget(2, QFormLayout::FieldRole, timeEdit);
+        formLayout_3->setWidget(3, QFormLayout::FieldRole, horaInicio);
 
-        label_31 = new QLabel(layoutWidget1);
-        label_31->setObjectName("label_31");
-        label_31->setFont(font4);
+        horaFin = new QTimeEdit(layoutWidget1);
+        horaFin->setObjectName("horaFin");
 
-        formLayout_3->setWidget(3, QFormLayout::LabelRole, label_31);
+        formLayout_3->setWidget(4, QFormLayout::FieldRole, horaFin);
 
-        comboBox = new QComboBox(layoutWidget1);
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->setObjectName("comboBox");
+        tipoEventoLabel = new QLabel(layoutWidget1);
+        tipoEventoLabel->setObjectName("tipoEventoLabel");
+        tipoEventoLabel->setFont(font4);
 
-        formLayout_3->setWidget(3, QFormLayout::FieldRole, comboBox);
+        formLayout_3->setWidget(5, QFormLayout::LabelRole, tipoEventoLabel);
 
-        label_27 = new QLabel(layoutWidget1);
-        label_27->setObjectName("label_27");
-        label_27->setFont(font4);
+        tipoEvento = new QComboBox(layoutWidget1);
+        tipoEvento->addItem(QString());
+        tipoEvento->addItem(QString());
+        tipoEvento->addItem(QString());
+        tipoEvento->addItem(QString());
+        tipoEvento->addItem(QString());
+        tipoEvento->setObjectName("tipoEvento");
 
-        formLayout_3->setWidget(4, QFormLayout::LabelRole, label_27);
+        formLayout_3->setWidget(5, QFormLayout::FieldRole, tipoEvento);
 
-        InputNombre_4 = new QLineEdit(layoutWidget1);
-        InputNombre_4->setObjectName("InputNombre_4");
+        djLabel = new QLabel(layoutWidget1);
+        djLabel->setObjectName("djLabel");
+        djLabel->setFont(font4);
 
-        formLayout_3->setWidget(4, QFormLayout::FieldRole, InputNombre_4);
+        formLayout_3->setWidget(6, QFormLayout::LabelRole, djLabel);
 
-        label_28 = new QLabel(layoutWidget1);
-        label_28->setObjectName("label_28");
-        label_28->setFont(font4);
+        dj = new QLineEdit(layoutWidget1);
+        dj->setObjectName("dj");
 
-        formLayout_3->setWidget(5, QFormLayout::LabelRole, label_28);
+        formLayout_3->setWidget(6, QFormLayout::FieldRole, dj);
 
-        InputNombre_5 = new QLineEdit(layoutWidget1);
-        InputNombre_5->setObjectName("InputNombre_5");
+        cateringLabel = new QLabel(layoutWidget1);
+        cateringLabel->setObjectName("cateringLabel");
+        cateringLabel->setFont(font4);
 
-        formLayout_3->setWidget(5, QFormLayout::FieldRole, InputNombre_5);
+        formLayout_3->setWidget(7, QFormLayout::LabelRole, cateringLabel);
 
-        label_29 = new QLabel(layoutWidget1);
-        label_29->setObjectName("label_29");
-        label_29->setFont(font4);
+        catering = new QLineEdit(layoutWidget1);
+        catering->setObjectName("catering");
 
-        formLayout_3->setWidget(6, QFormLayout::LabelRole, label_29);
+        formLayout_3->setWidget(7, QFormLayout::FieldRole, catering);
 
-        InputNombre_6 = new QLineEdit(layoutWidget1);
-        InputNombre_6->setObjectName("InputNombre_6");
+        comparsaLabel = new QLabel(layoutWidget1);
+        comparsaLabel->setObjectName("comparsaLabel");
+        comparsaLabel->setFont(font4);
 
-        formLayout_3->setWidget(6, QFormLayout::FieldRole, InputNombre_6);
+        formLayout_3->setWidget(8, QFormLayout::LabelRole, comparsaLabel);
 
-        label_30 = new QLabel(layoutWidget1);
-        label_30->setObjectName("label_30");
-        label_30->setFont(font4);
+        comparsa = new QLineEdit(layoutWidget1);
+        comparsa->setObjectName("comparsa");
 
-        formLayout_3->setWidget(7, QFormLayout::LabelRole, label_30);
+        formLayout_3->setWidget(8, QFormLayout::FieldRole, comparsa);
 
-        plainTextEdit = new QPlainTextEdit(layoutWidget1);
-        plainTextEdit->setObjectName("plainTextEdit");
-        plainTextEdit->setMaximumSize(QSize(16777215, 16777213));
+        presupuestoLabel = new QLabel(layoutWidget1);
+        presupuestoLabel->setObjectName("presupuestoLabel");
+        presupuestoLabel->setFont(font4);
 
-        formLayout_3->setWidget(7, QFormLayout::FieldRole, plainTextEdit);
+        formLayout_3->setWidget(9, QFormLayout::LabelRole, presupuestoLabel);
 
+        horaFinLabel = new QLabel(layoutWidget1);
+        horaFinLabel->setObjectName("horaFinLabel");
+
+        formLayout_3->setWidget(4, QFormLayout::LabelRole, horaFinLabel);
+
+        clienteLabel = new QLabel(layoutWidget1);
+        clienteLabel->setObjectName("clienteLabel");
+        clienteLabel->setFont(font4);
+
+        formLayout_3->setWidget(1, QFormLayout::LabelRole, clienteLabel);
+
+        cliente = new QLineEdit(layoutWidget1);
+        cliente->setObjectName("cliente");
+
+        formLayout_3->setWidget(1, QFormLayout::FieldRole, cliente);
+
+        presupuesto = new QLineEdit(layoutWidget1);
+        presupuesto->setObjectName("presupuesto");
+
+        formLayout_3->setWidget(9, QFormLayout::FieldRole, presupuesto);
+
+        pushButton_Eventos = new QPushButton(page05_CrearEvento);
+        pushButton_Eventos->setObjectName("pushButton_Eventos");
+        pushButton_Eventos->setGeometry(QRect(590, 370, 171, 81));
+        QFont font10;
+        font10.setPointSize(14);
+        pushButton_Eventos->setFont(font10);
         stackedWidget->addWidget(page05_CrearEvento);
         page06_Lugares = new QWidget();
         page06_Lugares->setObjectName("page06_Lugares");
@@ -835,7 +865,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(4);
         pushButton_Cancelar_2->setDefault(false);
         pushButton_Iniciar_2->setDefault(false);
         pushButton_Cancelar->setDefault(false);
@@ -907,22 +937,26 @@ public:
         QTableWidgetItem *___qtablewidgetitem7 = tablaEventos->horizontalHeaderItem(7);
         ___qtablewidgetitem7->setText(QCoreApplication::translate("MainWindow", "Costo", nullptr));
         label_10->setText(QCoreApplication::translate("MainWindow", "Crear evento", nullptr));
-        pushButton_Cancelar_3->setText(QCoreApplication::translate("MainWindow", "Cancelar", nullptr));
+        pushButton_Cancelar_3->setText(QCoreApplication::translate("MainWindow", "Regresar", nullptr));
         pushButton_Crear->setText(QCoreApplication::translate("MainWindow", "Crear", nullptr));
-        label_18->setText(QCoreApplication::translate("MainWindow", "Nombre del evento", nullptr));
-        label_19->setText(QCoreApplication::translate("MainWindow", "Fecha", nullptr));
-        label_20->setText(QCoreApplication::translate("MainWindow", "Hora de inicio", nullptr));
-        label_31->setText(QCoreApplication::translate("MainWindow", "Tipo del evento", nullptr));
-        comboBox->setItemText(0, QCoreApplication::translate("MainWindow", "Bodas", nullptr));
-        comboBox->setItemText(1, QCoreApplication::translate("MainWindow", "Bailes", nullptr));
-        comboBox->setItemText(2, QCoreApplication::translate("MainWindow", "Bodas", nullptr));
-        comboBox->setItemText(3, QCoreApplication::translate("MainWindow", "Conferencias", nullptr));
-        comboBox->setItemText(4, QCoreApplication::translate("MainWindow", "Graduaciones", nullptr));
+        nombreEventoLabel->setText(QCoreApplication::translate("MainWindow", "Nombre del evento", nullptr));
+        fechaLabel->setText(QCoreApplication::translate("MainWindow", "Fecha", nullptr));
+        horaInicioLabel->setText(QCoreApplication::translate("MainWindow", "Hora de inicio", nullptr));
+        tipoEventoLabel->setText(QCoreApplication::translate("MainWindow", "Tipo del evento", nullptr));
+        tipoEvento->setItemText(0, QCoreApplication::translate("MainWindow", "Bodas", nullptr));
+        tipoEvento->setItemText(1, QCoreApplication::translate("MainWindow", "Bailes", nullptr));
+        tipoEvento->setItemText(2, QCoreApplication::translate("MainWindow", "Bodas", nullptr));
+        tipoEvento->setItemText(3, QCoreApplication::translate("MainWindow", "Conferencias", nullptr));
+        tipoEvento->setItemText(4, QCoreApplication::translate("MainWindow", "Graduaciones", nullptr));
 
-        label_27->setText(QCoreApplication::translate("MainWindow", "Lugar del evento", nullptr));
-        label_28->setText(QCoreApplication::translate("MainWindow", "Proveedores", nullptr));
-        label_29->setText(QCoreApplication::translate("MainWindow", "Costo del evento", nullptr));
-        label_30->setText(QCoreApplication::translate("MainWindow", "Detalles", nullptr));
+        djLabel->setText(QCoreApplication::translate("MainWindow", "Dj", nullptr));
+        cateringLabel->setText(QCoreApplication::translate("MainWindow", "Catering", nullptr));
+        comparsaLabel->setText(QCoreApplication::translate("MainWindow", "Comparsa", nullptr));
+        presupuestoLabel->setText(QCoreApplication::translate("MainWindow", "Presupuesto", nullptr));
+        horaFinLabel->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt;\">Hora de finalizaci\303\263n</span></p></body></html>", nullptr));
+        clienteLabel->setText(QCoreApplication::translate("MainWindow", "Cliente", nullptr));
+        pushButton_Eventos->setText(QCoreApplication::translate("MainWindow", "Ir a eventos \n"
+"existentes", nullptr));
         label_9->setText(QCoreApplication::translate("MainWindow", "Lugares disponibles para eventos", nullptr));
         pushButton_Cancelar_Lugares->setText(QCoreApplication::translate("MainWindow", "Regresar", nullptr));
         pushButton_Eliminar_Lugares->setText(QCoreApplication::translate("MainWindow", "Eliminar lugar", nullptr));
