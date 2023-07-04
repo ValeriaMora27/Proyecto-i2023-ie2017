@@ -97,6 +97,8 @@ private slots:
 
     /* Pantalla de proveedores */
     void on_pushButton_Cancelar_Proveedores_clicked();
+    void cargarDatosProveedores();
+    void eliminarProveedorActual();
 
     /* Pantalla de Estadisticas */
     void on_pushButton_Cancelar_Estadisticas_clicked();
@@ -112,6 +114,14 @@ private slots:
     /*Pantalla Contáctenos*/
     void on_pushButton_Regresar_clicked();
     void on_pushButton_Enviar_clicked();
+
+
+    /* Pantalla de añadir proveedores */
+    void on_pushButton_anadir_proveedor_clicked();
+    void on_pushButton_Agregar_Proveedor_clicked();
+    void on_pushButton_Regresar_Anadir_Proveedor_clicked();
+
+    void on_pushButton_Eliminar_Proveedor_clicked();
 
 private:
     Ui::MainWindow *ui; /**< Interfaz de usuario de la ventana principal. */

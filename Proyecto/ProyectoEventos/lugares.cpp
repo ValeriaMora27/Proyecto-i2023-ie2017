@@ -1,9 +1,14 @@
+/**
+ * @file lugares.cpp
+ * @brief Implementación de la clase Lugar.
+ */
+
 #include "lugares.h"
 
-// Constructor por defecto
+/* Constructor por defecto */
 Lugar::Lugar(){}
 
-// Setters
+/* Establecer datos */
 void Lugar::setNombre(QString& newNombre) {
     nombre = newNombre;
 }
@@ -28,7 +33,7 @@ void Lugar::setBajoTecho(bool newBajoTecho) {
     bajoTecho = newBajoTecho;
 }
 
-// Getters
+/* Obtener datos */
 QString Lugar::getNombre() const {
     return nombre;
 }

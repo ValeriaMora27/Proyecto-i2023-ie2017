@@ -10,6 +10,7 @@
 #include "basedatos.h"
 #include "evento.h"
 #include "lugares.h"
+#include "proveedor.h"
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>
@@ -33,6 +34,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tablaLugares->setColumnCount(titles.size());
     ui->tablaLugares->setHorizontalHeaderLabels(titles);
     cargarDatos();
+
+    const QStringList titlesProveedor{"Tipo de servicio","Empresa","Cantidad de eventos","Valoración","Precio"};
+    ui->tablaProveedores->setColumnCount(titlesProveedor.size());
+    ui->tablaProveedores->setHorizontalHeaderLabels(titlesProveedor);
+    cargarDatosProveedores();
 
     /**
      * @brief Para crear la base de datos
@@ -778,3 +784,172 @@ void MainWindow::eliminarLugarActual()
         }
     }
 }
+
+
+/* Pantalla Añadir Proveedores */
+
+void MainWindow::on_pushButton_anadir_proveedor_clicked()
+{
+    /* Verificar si alguna de las entradas está vacía */
+    if (ui->lineEdit_servicio->text().isEmpty() ||
+        ui->lineEdit_empresa->text().isEmpty() ||
+        ui->lineEdit_cantidadEventos->text().isEmpty() ||
+        ui->lineEdit_valoracion->text().isEmpty() ||
+        ui->lineEdit_precio_2->text().isEmpty()) {
+        /*  Muestra un mensaje de error si alguna entrada está vacía */
+        QMessageBox::warning(this, tr("Proveedor"), tr("Por favor, completa todos los campos."));
+        return;
+    }
+
+    /* Extraer los datos introducidos por el usuario */
+    QString servicio = ui->lineEdit_servicio->text();
+    QString empresa = ui->lineEdit_empresa->text();
+    bool ok;
+    int eventos = ui->lineEdit_cantidadEventos->text().toInt(&ok);
+    if (!ok || eventos < 0) {
+        QMessageBox::warning(this, "Error", "La cantidad de eventos debe ser un número válido.");
+            return;
+    }
+    QString valoracion = ui->lineEdit_valoracion->text();
+    double precio = ui->lineEdit_precio_2->text().toDouble(&ok);
+    if (!ok || precio < 0) {
+        QMessageBox::warning(this, "Error", "El precio debe ser un número válido.");
+            return;
+    }
+
+    /* Crear un nuevo objeto Proveedor con los datos introducidos */
+    Proveedor proveedor;
+    proveedor.setServicio(servicio);
+    proveedor.setEmpresa(empresa);
+    proveedor.setEventos(eventos);
+    proveedor.setValoracion(valoracion);
+    proveedor.setPrecio(precio);
+
+    /* Añadir el proveedor a la tabla */
+
+    int row = ui->tablaProveedores->rowCount();
+    ui->tablaProveedores->insertRow(row);
+    ui->tablaProveedores->setItem(row, 0, new QTableWidgetItem(proveedor.getServicio()));
+    ui->tablaProveedores->setItem(row, 1, new QTableWidgetItem(proveedor.getEmpresa()));
+    ui->tablaProveedores->setItem(row, 2, new QTableWidgetItem(QString::number(proveedor.getEventos())));
+    ui->tablaProveedores->setItem(row, 3, new QTableWidgetItem(proveedor.getValoracion()));
+    ui->tablaProveedores->setItem(row, 4, new QTableWidgetItem(QString::number(proveedor.getPrecio())));
+
+    /* Limpiar los campos de entrada */
+    ui->lineEdit_servicio->clear();
+    ui->lineEdit_empresa->clear();
+    ui->lineEdit_cantidadEventos->clear();
+    ui->lineEdit_valoracion->clear();
+    ui->lineEdit_precio_2->clear();
+
+    /* Almacenar los datos en un archivo de texto */
+    QFile file("../proveedores.txt");
+    if (file.open(QIODevice::Append | QIODevice::Text)) {
+        QTextStream out(&file);
+        out << proveedor.getServicio() << ","
+            << proveedor.getEmpresa() << ","
+            << QString::number(proveedor.getEventos()) << ","
+            << proveedor.getValoracion() << ","
+            << QString::number(proveedor.getPrecio()) << "\n";
+        file.close();
+    }
+    /* Mostrar mensaje de éxito */
+    QMessageBox::information(this, "Éxito", "Proveedor agregado.");
+
+}
+
+void MainWindow::cargarDatosProveedores()
+{
+    QFile file("../proveedores.txt");
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return;
+
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        QStringList datos = line.split(",");
+        if (datos.size() == 5) {
+            QString servicio = datos[0];
+            QString empresa = datos[1];
+            int eventos = datos[2].toInt();
+            QString valoracion = datos[3];
+            double precio = datos[4].toDouble();
+
+            /* Crear un nuevo Proveedor y añadirlo a la tabla */
+            Proveedor proveedor;
+            proveedor.setServicio(servicio);
+            proveedor.setEmpresa(empresa);
+            proveedor.setEventos(eventos);
+            proveedor.setValoracion(valoracion);
+            proveedor.setPrecio(precio);
+
+            int row = ui->tablaProveedores->rowCount();
+            ui->tablaProveedores->insertRow(row);
+            ui->tablaProveedores->setItem(row, 0, new QTableWidgetItem(proveedor.getServicio()));
+            ui->tablaProveedores->setItem(row, 1, new QTableWidgetItem(proveedor.getEmpresa()));
+            ui->tablaProveedores->setItem(row, 2, new QTableWidgetItem(QString::number(proveedor.getEventos())));
+            ui->tablaProveedores->setItem(row, 3, new QTableWidgetItem(proveedor.getValoracion()));
+            ui->tablaProveedores->setItem(row, 4, new QTableWidgetItem(QString::number(proveedor.getPrecio())));
+        }
+    }
+
+    file.close();
+}
+
+
+void MainWindow::eliminarProveedorActual()
+{
+    /* Obtener el índice de la fila seleccionada */
+    int selectedRow = ui->tablaProveedores->currentRow();
+    if (selectedRow >= 0)
+    {
+        /* Eliminar la fila seleccionada de la tabla */
+        ui->tablaProveedores->removeRow(selectedRow);
+
+        /* Abrir el archivo de proveedores en modo escritura */
+        QFile file("../proveedores.txt");
+        if (file.open(QIODevice::WriteOnly | QIODevice::Text))
+        {
+            QTextStream out(&file);
+
+            /* Recorrer todas las filas de la tabla y guardar los datos en el archivo */
+            int rowCount = ui->tablaProveedores->rowCount();
+            for (int row = 0; row < rowCount; ++row)
+            {
+                QString servicio = ui->tablaProveedores->item(row, 0)->text();
+                QString empresa = ui->tablaProveedores->item(row, 1)->text();
+                int eventos = ui->tablaProveedores->item(row, 2)->text().toInt();
+                QString valoracion = ui->tablaProveedores->item(row, 3)->text();
+                double precio = ui->tablaProveedores->item(row, 4)->text().toDouble();
+
+                out << servicio << ","
+                    << empresa << ","
+                    << eventos << ","
+                    << valoracion << ","
+                    << precio << "\n";
+            }
+
+            file.close();
+        }
+    }
+}
+
+
+void MainWindow::on_pushButton_Agregar_Proveedor_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(agregar_proveedores);
+}
+
+
+void MainWindow::on_pushButton_Regresar_Anadir_Proveedor_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(proveedores);
+}
+
+
+void MainWindow::on_pushButton_Eliminar_Proveedor_clicked()
+{
+    eliminarProveedorActual();
+    ui->stackedWidget->setCurrentIndex(proveedores);
+}
+

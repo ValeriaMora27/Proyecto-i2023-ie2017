@@ -14,7 +14,8 @@ enum Pantallas
     estadisticas,
     solicitudes,
     contacto,
-    agregar_lugares
+    agregar_lugares,
+    agregar_proveedores
 };
 
 enum ComponentesEvento
