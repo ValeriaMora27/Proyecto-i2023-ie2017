@@ -248,59 +248,6 @@
 		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Widgets/Qt6QWindowsVistaStylePluginTargets.cmake",
 		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Widgets/Qt6QWindowsVistaStylePluginTargets-relwithdebinfo.cmake",
 		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Widgets/Qt6QWindowsVistaStylePluginAdditionalTargetInfo.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6/Qt6ConfigVersion.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6/Qt6ConfigVersionImpl.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6/Qt6Config.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6/Qt6ConfigExtras.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6/QtPublicCMakeVersionHelpers.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6/Qt6Targets.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6/Qt6VersionlessTargets.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6/QtFeature.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6/QtFeatureCommon.cmake",
-		"C:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CheckCXXCompilerFlag.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6/QtPublicAppleHelpers.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6/QtPublicFinalizerHelpers.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6/QtPublicPluginHelpers.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6/QtPublicTargetHelpers.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6/QtPublicWalkLibsHelpers.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6/QtPublicFindPackageHelpers.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6/QtPublicTestHelpers.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6/QtPublicToolHelpers.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6/QtPublicCMakeHelpers.cmake",
-		"C:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeFindDependencyMacro.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6/Qt6Dependencies.cmake",
-		"C:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/FindThreads.cmake",
-		"C:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CheckLibraryExists.cmake",
-		"C:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CheckIncludeFileCXX.cmake",
-		"C:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CheckCXXSourceCompiles.cmake",
-		"C:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/FindPackageHandleStandardArgs.cmake",
-		"C:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/FindPackageMessage.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Sql/Qt6SqlConfigVersion.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Sql/Qt6SqlConfigVersionImpl.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Sql/Qt6SqlConfig.cmake",
-		"C:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeFindDependencyMacro.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Sql/Qt6SqlDependencies.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Sql/Qt6SqlTargets.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Sql/Qt6SqlTargets-relwithdebinfo.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Sql/Qt6SqlAdditionalTargetInfo.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Sql/Qt6SqlVersionlessTargets.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Sql/Qt6SqlPlugins.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginConfig.cmake",
-		"C:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeFindDependencyMacro.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginTargets.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginTargets-relwithdebinfo.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginAdditionalTargetInfo.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginConfig.cmake",
-		"C:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeFindDependencyMacro.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginTargets.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginTargets-relwithdebinfo.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginAdditionalTargetInfo.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginConfig.cmake",
-		"C:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeFindDependencyMacro.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginTargets.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginTargets-relwithdebinfo.cmake",
-		"C:/Qt/6.5.1/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginAdditionalTargetInfo.cmake",
 		"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/imagenes.qrc"
 	],
 	"CMAKE_SOURCE_DIR" : "C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos",
@@ -312,6 +259,12 @@
 			"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/enums.h",
 			"MU",
 			"EWIEGA46WW/moc_enums.cpp",
+			null
+		],
+		[
+			"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/estadisticas.h",
+			"MU",
+			"EWIEGA46WW/moc_estadisticas.cpp",
 			null
 		],
 		[
@@ -349,6 +302,12 @@
 			"MU",
 			"EWIEGA46WW/moc_usuario.cpp",
 			null
+		],
+		[
+			"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/verificacion.h",
+			"MU",
+			"EWIEGA46WW/moc_verificacion.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -360,7 +319,6 @@
 		"QT_CORE_LIB",
 		"QT_GUI_LIB",
 		"QT_NEEDS_QMAIN",
-		"QT_SQL_LIB",
 		"QT_WIDGETS_LIB",
 		"UNICODE",
 		"WIN32",
@@ -383,7 +341,6 @@
 		"C:/Qt/6.5.1/mingw_64/mkspecs/win32-g++",
 		"C:/Qt/6.5.1/mingw_64/include/QtWidgets",
 		"C:/Qt/6.5.1/mingw_64/include/QtGui",
-		"C:/Qt/6.5.1/mingw_64/include/QtSql",
 		"C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++",
 		"C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32",
 		"C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward",
@@ -423,6 +380,11 @@
 	"SOURCES" : 
 	[
 		[
+			"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/estadisticas.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/evento.cpp",
 			"MU",
 			null
@@ -454,6 +416,11 @@
 		],
 		[
 			"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/usuario.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/verificacion.cpp",
 			"MU",
 			null
 		]

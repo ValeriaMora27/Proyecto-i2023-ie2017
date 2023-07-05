@@ -18,6 +18,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStackedWidget>
@@ -129,6 +130,19 @@ public:
     QWidget *page08_Estadisticas;
     QLabel *label_7;
     QPushButton *pushButton_Cancelar_Estadisticas;
+    QPushButton *pushButton_Refrescar;
+    QWidget *layoutWidget2;
+    QFormLayout *formLayout_6;
+    QLabel *label_cantEventos;
+    QLabel *label_numCantEventos;
+    QLabel *label_ingresos;
+    QLabel *label_numIngresos;
+    QLabel *label_solicitudesPendientes;
+    QLabel *label_numSolicitudesPendientes;
+    QListWidget *listWidget_EventoProx;
+    QLabel *label_EventoProx;
+    QLabel *label_EventoMayoRecaudacion;
+    QListWidget *listWidget_EventoMayorRecaudacion;
     QWidget *page09_SolicitudesE;
     QLabel *label_6;
     QPushButton *pushButton_Cancelar_Solicitud;
@@ -138,7 +152,7 @@ public:
     QLabel *label_5;
     QPushButton *pushButton_Regresar;
     QPushButton *pushButton_Enviar;
-    QWidget *layoutWidget2;
+    QWidget *layoutWidget3;
     QFormLayout *formLayout;
     QLabel *label_correo;
     QLineEdit *InputCorreoE;
@@ -154,11 +168,11 @@ public:
     QLabel *label_presupuesto;
     QWidget *page11_Anadir_Lugar;
     QPushButton *pushButton_anadir_lugar;
-    QWidget *layoutWidget3;
+    QWidget *layoutWidget4;
     QHBoxLayout *horizontalLayout;
     QLabel *label_anada_lugar;
     QPushButton *pushButton_Regresar_Anadir_Lugares;
-    QWidget *layoutWidget4;
+    QWidget *layoutWidget5;
     QFormLayout *formLayout_2;
     QLabel *label_nombre_lugar;
     QLineEdit *lineEdit_nombre;
@@ -542,8 +556,8 @@ public:
 
         dateEdit_fechaEvento = new QDateEdit(layoutWidget1);
         dateEdit_fechaEvento->setObjectName("dateEdit_fechaEvento");
-        dateEdit_fechaEvento->setDateTime(QDateTime(QDate(2023, 9, 18), QTime(6, 0, 0)));
-        dateEdit_fechaEvento->setMinimumDateTime(QDateTime(QDate(2023, 1, 5), QTime(6, 0, 0)));
+        dateEdit_fechaEvento->setDateTime(QDateTime(QDate(2023, 9, 18), QTime(18, 0, 0)));
+        dateEdit_fechaEvento->setMinimumDateTime(QDateTime(QDate(2023, 1, 5), QTime(18, 0, 0)));
 
         formLayout_3->setWidget(4, QFormLayout::FieldRole, dateEdit_fechaEvento);
 
@@ -688,6 +702,62 @@ public:
         pushButton_Cancelar_Estadisticas = new QPushButton(page08_Estadisticas);
         pushButton_Cancelar_Estadisticas->setObjectName("pushButton_Cancelar_Estadisticas");
         pushButton_Cancelar_Estadisticas->setGeometry(QRect(670, 40, 83, 29));
+        pushButton_Refrescar = new QPushButton(page08_Estadisticas);
+        pushButton_Refrescar->setObjectName("pushButton_Refrescar");
+        pushButton_Refrescar->setGeometry(QRect(550, 40, 83, 29));
+        layoutWidget2 = new QWidget(page08_Estadisticas);
+        layoutWidget2->setObjectName("layoutWidget2");
+        layoutWidget2->setGeometry(QRect(50, 130, 421, 151));
+        formLayout_6 = new QFormLayout(layoutWidget2);
+        formLayout_6->setObjectName("formLayout_6");
+        formLayout_6->setLabelAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        formLayout_6->setHorizontalSpacing(11);
+        formLayout_6->setVerticalSpacing(29);
+        formLayout_6->setContentsMargins(0, 0, 0, 0);
+        label_cantEventos = new QLabel(layoutWidget2);
+        label_cantEventos->setObjectName("label_cantEventos");
+        label_cantEventos->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        formLayout_6->setWidget(0, QFormLayout::LabelRole, label_cantEventos);
+
+        label_numCantEventos = new QLabel(layoutWidget2);
+        label_numCantEventos->setObjectName("label_numCantEventos");
+
+        formLayout_6->setWidget(0, QFormLayout::FieldRole, label_numCantEventos);
+
+        label_ingresos = new QLabel(layoutWidget2);
+        label_ingresos->setObjectName("label_ingresos");
+
+        formLayout_6->setWidget(1, QFormLayout::LabelRole, label_ingresos);
+
+        label_numIngresos = new QLabel(layoutWidget2);
+        label_numIngresos->setObjectName("label_numIngresos");
+
+        formLayout_6->setWidget(1, QFormLayout::FieldRole, label_numIngresos);
+
+        label_solicitudesPendientes = new QLabel(layoutWidget2);
+        label_solicitudesPendientes->setObjectName("label_solicitudesPendientes");
+        label_solicitudesPendientes->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        formLayout_6->setWidget(2, QFormLayout::LabelRole, label_solicitudesPendientes);
+
+        label_numSolicitudesPendientes = new QLabel(layoutWidget2);
+        label_numSolicitudesPendientes->setObjectName("label_numSolicitudesPendientes");
+
+        formLayout_6->setWidget(2, QFormLayout::FieldRole, label_numSolicitudesPendientes);
+
+        listWidget_EventoProx = new QListWidget(page08_Estadisticas);
+        listWidget_EventoProx->setObjectName("listWidget_EventoProx");
+        listWidget_EventoProx->setGeometry(QRect(60, 340, 691, 121));
+        label_EventoProx = new QLabel(page08_Estadisticas);
+        label_EventoProx->setObjectName("label_EventoProx");
+        label_EventoProx->setGeometry(QRect(60, 290, 266, 27));
+        label_EventoMayoRecaudacion = new QLabel(page08_Estadisticas);
+        label_EventoMayoRecaudacion->setObjectName("label_EventoMayoRecaudacion");
+        label_EventoMayoRecaudacion->setGeometry(QRect(550, 80, 211, 71));
+        listWidget_EventoMayorRecaudacion = new QListWidget(page08_Estadisticas);
+        listWidget_EventoMayorRecaudacion->setObjectName("listWidget_EventoMayorRecaudacion");
+        listWidget_EventoMayorRecaudacion->setGeometry(QRect(510, 160, 256, 161));
         stackedWidget->addWidget(page08_Estadisticas);
         page09_SolicitudesE = new QWidget();
         page09_SolicitudesE->setObjectName("page09_SolicitudesE");
@@ -723,53 +793,53 @@ public:
         pushButton_Enviar->setFont(font4);
         pushButton_Enviar->setAutoDefault(false);
         pushButton_Enviar->setFlat(false);
-        layoutWidget2 = new QWidget(page10_Contacto);
-        layoutWidget2->setObjectName("layoutWidget2");
-        layoutWidget2->setGeometry(QRect(130, 100, 481, 361));
-        formLayout = new QFormLayout(layoutWidget2);
+        layoutWidget3 = new QWidget(page10_Contacto);
+        layoutWidget3->setObjectName("layoutWidget3");
+        layoutWidget3->setGeometry(QRect(130, 100, 481, 361));
+        formLayout = new QFormLayout(layoutWidget3);
         formLayout->setObjectName("formLayout");
         formLayout->setLabelAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         formLayout->setContentsMargins(0, 0, 0, 0);
-        label_correo = new QLabel(layoutWidget2);
+        label_correo = new QLabel(layoutWidget3);
         label_correo->setObjectName("label_correo");
         label_correo->setFont(font4);
 
         formLayout->setWidget(0, QFormLayout::LabelRole, label_correo);
 
-        InputCorreoE = new QLineEdit(layoutWidget2);
+        InputCorreoE = new QLineEdit(layoutWidget3);
         InputCorreoE->setObjectName("InputCorreoE");
 
         formLayout->setWidget(0, QFormLayout::FieldRole, InputCorreoE);
 
-        label_nombre = new QLabel(layoutWidget2);
+        label_nombre = new QLabel(layoutWidget3);
         label_nombre->setObjectName("label_nombre");
         label_nombre->setFont(font4);
 
         formLayout->setWidget(2, QFormLayout::LabelRole, label_nombre);
 
-        InputNombreE = new QLineEdit(layoutWidget2);
+        InputNombreE = new QLineEdit(layoutWidget3);
         InputNombreE->setObjectName("InputNombreE");
 
         formLayout->setWidget(2, QFormLayout::FieldRole, InputNombreE);
 
-        label_telefono = new QLabel(layoutWidget2);
+        label_telefono = new QLabel(layoutWidget3);
         label_telefono->setObjectName("label_telefono");
         label_telefono->setFont(font4);
 
         formLayout->setWidget(4, QFormLayout::LabelRole, label_telefono);
 
-        InputTelefonoE = new QLineEdit(layoutWidget2);
+        InputTelefonoE = new QLineEdit(layoutWidget3);
         InputTelefonoE->setObjectName("InputTelefonoE");
 
         formLayout->setWidget(4, QFormLayout::FieldRole, InputTelefonoE);
 
-        label_tipo_evento = new QLabel(layoutWidget2);
+        label_tipo_evento = new QLabel(layoutWidget3);
         label_tipo_evento->setObjectName("label_tipo_evento");
         label_tipo_evento->setFont(font4);
 
         formLayout->setWidget(6, QFormLayout::LabelRole, label_tipo_evento);
 
-        comboBox_2 = new QComboBox(layoutWidget2);
+        comboBox_2 = new QComboBox(layoutWidget3);
         comboBox_2->addItem(QString());
         comboBox_2->addItem(QString());
         comboBox_2->addItem(QString());
@@ -779,23 +849,23 @@ public:
 
         formLayout->setWidget(6, QFormLayout::FieldRole, comboBox_2);
 
-        InputPresupuestoE = new QLineEdit(layoutWidget2);
+        InputPresupuestoE = new QLineEdit(layoutWidget3);
         InputPresupuestoE->setObjectName("InputPresupuestoE");
 
         formLayout->setWidget(8, QFormLayout::FieldRole, InputPresupuestoE);
 
-        label__acerca_de = new QLabel(layoutWidget2);
+        label__acerca_de = new QLabel(layoutWidget3);
         label__acerca_de->setObjectName("label__acerca_de");
         label__acerca_de->setFont(font4);
 
         formLayout->setWidget(10, QFormLayout::LabelRole, label__acerca_de);
 
-        InputAcercaEvento = new QLineEdit(layoutWidget2);
+        InputAcercaEvento = new QLineEdit(layoutWidget3);
         InputAcercaEvento->setObjectName("InputAcercaEvento");
 
         formLayout->setWidget(10, QFormLayout::FieldRole, InputAcercaEvento);
 
-        label_presupuesto = new QLabel(layoutWidget2);
+        label_presupuesto = new QLabel(layoutWidget3);
         label_presupuesto->setObjectName("label_presupuesto");
         label_presupuesto->setFont(font4);
 
@@ -808,18 +878,18 @@ public:
         pushButton_anadir_lugar->setObjectName("pushButton_anadir_lugar");
         pushButton_anadir_lugar->setGeometry(QRect(320, 500, 151, 51));
         pushButton_anadir_lugar->setFont(font4);
-        layoutWidget3 = new QWidget(page11_Anadir_Lugar);
-        layoutWidget3->setObjectName("layoutWidget3");
-        layoutWidget3->setGeometry(QRect(20, 20, 751, 46));
-        horizontalLayout = new QHBoxLayout(layoutWidget3);
+        layoutWidget4 = new QWidget(page11_Anadir_Lugar);
+        layoutWidget4->setObjectName("layoutWidget4");
+        layoutWidget4->setGeometry(QRect(20, 20, 751, 46));
+        horizontalLayout = new QHBoxLayout(layoutWidget4);
         horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        label_anada_lugar = new QLabel(layoutWidget3);
+        label_anada_lugar = new QLabel(layoutWidget4);
         label_anada_lugar->setObjectName("label_anada_lugar");
 
         horizontalLayout->addWidget(label_anada_lugar);
 
-        pushButton_Regresar_Anadir_Lugares = new QPushButton(layoutWidget3);
+        pushButton_Regresar_Anadir_Lugares = new QPushButton(layoutWidget4);
         pushButton_Regresar_Anadir_Lugares->setObjectName("pushButton_Regresar_Anadir_Lugares");
         pushButton_Regresar_Anadir_Lugares->setEnabled(true);
         pushButton_Regresar_Anadir_Lugares->setMaximumSize(QSize(226, 16777215));
@@ -833,10 +903,10 @@ public:
 
         horizontalLayout->addWidget(pushButton_Regresar_Anadir_Lugares, 0, Qt::AlignRight|Qt::AlignVCenter);
 
-        layoutWidget4 = new QWidget(page11_Anadir_Lugar);
-        layoutWidget4->setObjectName("layoutWidget4");
-        layoutWidget4->setGeometry(QRect(160, 90, 451, 387));
-        formLayout_2 = new QFormLayout(layoutWidget4);
+        layoutWidget5 = new QWidget(page11_Anadir_Lugar);
+        layoutWidget5->setObjectName("layoutWidget5");
+        layoutWidget5->setGeometry(QRect(160, 90, 451, 387));
+        formLayout_2 = new QFormLayout(layoutWidget5);
         formLayout_2->setObjectName("formLayout_2");
         formLayout_2->setSizeConstraint(QLayout::SetDefaultConstraint);
         formLayout_2->setFieldGrowthPolicy(QFormLayout::ExpandingFieldsGrow);
@@ -846,63 +916,63 @@ public:
         formLayout_2->setHorizontalSpacing(16);
         formLayout_2->setVerticalSpacing(39);
         formLayout_2->setContentsMargins(3, 3, 3, 3);
-        label_nombre_lugar = new QLabel(layoutWidget4);
+        label_nombre_lugar = new QLabel(layoutWidget5);
         label_nombre_lugar->setObjectName("label_nombre_lugar");
 
         formLayout_2->setWidget(0, QFormLayout::LabelRole, label_nombre_lugar);
 
-        lineEdit_nombre = new QLineEdit(layoutWidget4);
+        lineEdit_nombre = new QLineEdit(layoutWidget5);
         lineEdit_nombre->setObjectName("lineEdit_nombre");
         lineEdit_nombre->setMaximumSize(QSize(261, 28));
 
         formLayout_2->setWidget(0, QFormLayout::FieldRole, lineEdit_nombre);
 
-        label_capacidad = new QLabel(layoutWidget4);
+        label_capacidad = new QLabel(layoutWidget5);
         label_capacidad->setObjectName("label_capacidad");
 
         formLayout_2->setWidget(1, QFormLayout::LabelRole, label_capacidad);
 
-        lineEdit_capacidad = new QLineEdit(layoutWidget4);
+        lineEdit_capacidad = new QLineEdit(layoutWidget5);
         lineEdit_capacidad->setObjectName("lineEdit_capacidad");
 
         formLayout_2->setWidget(1, QFormLayout::FieldRole, lineEdit_capacidad);
 
-        label_disponibilidad = new QLabel(layoutWidget4);
+        label_disponibilidad = new QLabel(layoutWidget5);
         label_disponibilidad->setObjectName("label_disponibilidad");
 
         formLayout_2->setWidget(2, QFormLayout::LabelRole, label_disponibilidad);
 
-        lineEdit_disponibilidad = new QLineEdit(layoutWidget4);
+        lineEdit_disponibilidad = new QLineEdit(layoutWidget5);
         lineEdit_disponibilidad->setObjectName("lineEdit_disponibilidad");
 
         formLayout_2->setWidget(2, QFormLayout::FieldRole, lineEdit_disponibilidad);
 
-        label_precio = new QLabel(layoutWidget4);
+        label_precio = new QLabel(layoutWidget5);
         label_precio->setObjectName("label_precio");
 
         formLayout_2->setWidget(3, QFormLayout::LabelRole, label_precio);
 
-        lineEdit_precio = new QLineEdit(layoutWidget4);
+        lineEdit_precio = new QLineEdit(layoutWidget5);
         lineEdit_precio->setObjectName("lineEdit_precio");
 
         formLayout_2->setWidget(3, QFormLayout::FieldRole, lineEdit_precio);
 
-        label_localizacion = new QLabel(layoutWidget4);
+        label_localizacion = new QLabel(layoutWidget5);
         label_localizacion->setObjectName("label_localizacion");
 
         formLayout_2->setWidget(4, QFormLayout::LabelRole, label_localizacion);
 
-        lineEdit_localizacion = new QLineEdit(layoutWidget4);
+        lineEdit_localizacion = new QLineEdit(layoutWidget5);
         lineEdit_localizacion->setObjectName("lineEdit_localizacion");
 
         formLayout_2->setWidget(4, QFormLayout::FieldRole, lineEdit_localizacion);
 
-        label_bajo_techo = new QLabel(layoutWidget4);
+        label_bajo_techo = new QLabel(layoutWidget5);
         label_bajo_techo->setObjectName("label_bajo_techo");
 
         formLayout_2->setWidget(5, QFormLayout::LabelRole, label_bajo_techo);
 
-        comboBox_techo = new QComboBox(layoutWidget4);
+        comboBox_techo = new QComboBox(layoutWidget5);
         comboBox_techo->addItem(QString());
         comboBox_techo->addItem(QString());
         comboBox_techo->setObjectName("comboBox_techo");
@@ -1107,6 +1177,15 @@ public:
         pushButton_Eliminar_Proveedor->setText(QCoreApplication::translate("MainWindow", "Eliminar proveedor", nullptr));
         label_7->setText(QCoreApplication::translate("MainWindow", "Estad\303\255sticas de los eventos", nullptr));
         pushButton_Cancelar_Estadisticas->setText(QCoreApplication::translate("MainWindow", "Regresar", nullptr));
+        pushButton_Refrescar->setText(QCoreApplication::translate("MainWindow", "Refrescar", nullptr));
+        label_cantEventos->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt;\">Cantidad de eventos realizados:</span></p></body></html>", nullptr));
+        label_numCantEventos->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">0</span></p></body></html>", nullptr));
+        label_ingresos->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt;\">Ingresos totales</span></p></body></html>", nullptr));
+        label_numIngresos->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">0</span></p></body></html>", nullptr));
+        label_solicitudesPendientes->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt;\">Solicitudes pendientes:</span></p></body></html>", nullptr));
+        label_numSolicitudesPendientes->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">0</span></p></body></html>", nullptr));
+        label_EventoProx->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt;\">Los tres eventos m\303\241s pr\303\263ximos</span></p></body></html>", nullptr));
+        label_EventoMayoRecaudacion->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt;\">El evento de mayor</span></p><p><span style=\" font-size:12pt;\">recaudaci\303\263n</span></p></body></html>", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "Solicitudes de eventos", nullptr));
         pushButton_Cancelar_Solicitud->setText(QCoreApplication::translate("MainWindow", "Regresar", nullptr));
         pushButton_Eliminar_Solicitud->setText(QCoreApplication::translate("MainWindow", "Eliminar solicitud", nullptr));
