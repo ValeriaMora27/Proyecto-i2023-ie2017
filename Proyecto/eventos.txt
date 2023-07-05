@@ -1,1 +1,11 @@
-Fiesta Rafael,Rafel,86936548,UCR,Mon Sep 18 2023,,,Conciertos,h,b,c,1000
+Fiesta Mama 50 años,Maricel Vargas,7109-5555,Salon Goicoechea,Mon Sep 25 2023,00:00,03:00,Bailes,si,si,si,2000
+Fiesta Mama 60 años,Maricel Vargas,7109-5555,Salon Goicoechea,Mon Sep 25 2023,00:00,03:00,Bailes,si,no,si,5000
+Fiesta Abuela 85 años,Maricel Vargas,7109-5555,Salon Goicoechea,Mon Sep 25 2023,00:00,03:00,Bailes,si,no,si,5000
+Graduación Universitaria,Carlos Sánchez,7123-4567,Salón de Eventos XYZ,Sat Oct 7 2023,19:00,23:00,Graduaciones,no,si,no,8000
+Conferencia de Tecnología,Ana López,7123-7890,Auditorio Principal,Wed Oct 18 2023,09:00,12:00,Conferencias,no,no,no,1500
+Baile de Gala,Roberto Gómez,7123-1234,Salón Elegante,Thu Oct 26 2023,20:00,02:00,Bailes,si,si,si,10000
+Fiesta de Cumpleaños,María Rodríguez,7109-9876,Quinta Los Arcos,Sun Nov 12 2023,15:00,18:00,Cumpleaños,si,no,si,3000
+Evento 1,Ejemplo Cliente 1,1234-5678,Salón A,Mon Oct 10 2022,10:00,14:00,Categoría A,no,si,no,1500
+Evento 2,Ejemplo Cliente 2,9876-5432,Salón B,,16:00,20:00,Categoría B,si,si,si,2000
+Evento 3,Ejemplo Cliente 3,4567-8901,Salón C,Wed Sep 28 2022,18:00,22:00,Categoría C,no,no,si,3000
+a,a,a,b,Wed Sep 20 2023,02:00,03:00,Conciertos,sa,gf,hbfd,5
