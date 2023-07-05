@@ -31,6 +31,8 @@ set(PROJECT_SOURCES
         solicitudes.cpp
         estadisticas.h
         estadisticas.cpp
+        verificacion.h
+        verificacion.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

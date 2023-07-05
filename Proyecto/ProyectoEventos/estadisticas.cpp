@@ -1,5 +1,13 @@
+/**
+ * @file estadisticas.cpp
+ * @brief Contiene la implementación de las funciones para obtener estadísticas relacionadas con los eventos.
+ */
 #include "estadisticas.h"
 
+/**
+ * @brief Obtiene el número de eventos en el archivo de eventos.
+ * @return El número de eventos como una cadena de texto.
+ */
 QString estadisticaCantidadEventos()
 {
     // Abre el archivo
@@ -24,6 +32,10 @@ QString estadisticaCantidadEventos()
     return lineCountText;
 }
 
+/**
+ * @brief Calcula los ingresos previstos de todos los eventos.
+ * @return Los ingresos previstos como una cadena de texto.
+ */
 QString estIngresosPrevistos()
 {
     // Abre el archivo
@@ -55,6 +67,10 @@ QString estIngresosPrevistos()
     return totalIngresosText;
 }
 
+/**
+ * @brief Obtiene el número de solicitudes pendientes en el archivo de solicitudes.
+ * @return El número de solicitudes pendientes como una cadena de texto.
+ */
 QString estadisticaSolicitudesPendientes()
 {
     // Abre el archivo
@@ -79,7 +95,10 @@ QString estadisticaSolicitudesPendientes()
     return lineCountText;
 }
 
-
+/**
+ * @brief Obtiene el evento con la mayor recaudación que tenga una fecha anterior a la fecha actual.
+ * @return Una lista de cadenas de texto que contiene el nombre del evento, nombre del cliente, fecha y monto de recaudación.
+ */
 QStringList obtenerEventosProximos()
 {
     // Obtener la fecha actual
