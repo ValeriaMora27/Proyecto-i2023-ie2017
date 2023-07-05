@@ -11,8 +11,8 @@
 #include <QMenuBar>
 #include <QStackedWidget>
 #include "usuario.h"
-#include "basedatos.h"
 #include "lugares.h"
+#include "evento.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -31,9 +31,10 @@ class MainWindow : public QMainWindow
 
 public:
     /**
-     * @brief Se utiliza en la interfaz para invocar los métodos de la db
+     * @brief para manejar los eventos
      */
-    BaseDatos dbEvento;
+    Evento eventos;
+
 
     /**
      * @brief Constructor de la clase MainWindow.
@@ -112,6 +113,7 @@ private slots:
     void on_pushButton_Cancelar_3_clicked();
     void on_pushButton_Crear_clicked();
     void on_pushButton_Eventos_clicked();
+    void cargarDatosEventos();
 
     /*Pantalla Contáctenos*/
     void on_pushButton_Regresar_clicked();

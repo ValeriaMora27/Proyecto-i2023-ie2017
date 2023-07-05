@@ -1,6 +1,5 @@
 ProyectoEventos_autogen/timestamp: \
   C:/Qt/6.5.1/mingw_64/include/QtCore/QDateTime \
-  C:/Qt/6.5.1/mingw_64/include/QtCore/QDebug \
   C:/Qt/6.5.1/mingw_64/include/QtCore/QString \
   C:/Qt/6.5.1/mingw_64/include/QtCore/q20memory.h \
   C:/Qt/6.5.1/mingw_64/include/QtCore/q20type_traits.h \
@@ -137,15 +136,6 @@ ProyectoEventos_autogen/timestamp: \
   C:/Qt/6.5.1/mingw_64/include/QtGui/qtransform.h \
   C:/Qt/6.5.1/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.5.1/mingw_64/include/QtGui/qwindowdefs_win.h \
-  C:/Qt/6.5.1/mingw_64/include/QtSql/QSqlDatabase \
-  C:/Qt/6.5.1/mingw_64/include/QtSql/QSqlError \
-  C:/Qt/6.5.1/mingw_64/include/QtSql/QSqlQuery \
-  C:/Qt/6.5.1/mingw_64/include/QtSql/qsqldatabase.h \
-  C:/Qt/6.5.1/mingw_64/include/QtSql/qsqlerror.h \
-  C:/Qt/6.5.1/mingw_64/include/QtSql/qsqlquery.h \
-  C:/Qt/6.5.1/mingw_64/include/QtSql/qtsql-config.h \
-  C:/Qt/6.5.1/mingw_64/include/QtSql/qtsqlexports.h \
-  C:/Qt/6.5.1/mingw_64/include/QtSql/qtsqlglobal.h \
   C:/Qt/6.5.1/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.5.1/mingw_64/include/QtWidgets/QMenu \
   C:/Qt/6.5.1/mingw_64/include/QtWidgets/QMenuBar \
@@ -563,15 +553,19 @@ ProyectoEventos_autogen/timestamp: \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
   C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/CMakeLists.txt \
-  C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/basedatos.cpp \
-  C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/basedatos.h \
   C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/enums.h \
   C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/evento.cpp \
   C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/evento.h \
   C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/imagenes.qrc \
+  C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/lugares.cpp \
+  C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/lugares.h \
   C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/main.cpp \
   C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/mainwindow.cpp \
   C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/mainwindow.h \
+  C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/proveedor.cpp \
+  C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/proveedor.h \
+  C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/solicitudes.cpp \
+  C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/solicitudes.h \
   C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/usuario.cpp \
   C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/usuario.h \
   .qtc/package-manager/auto-setup.cmake \

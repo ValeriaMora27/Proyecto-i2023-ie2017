@@ -2,10 +2,12 @@
  * @file evento.cpp
  * @brief Implementación de la calse Evento
  */
+#include <QFile>
 #include "evento.h"
+#include "enums.h"
 
 
-// Constructor
+// Constructor por defecto
 /**
  * @brief Constructor de la clase Evento.
  *
@@ -58,6 +60,22 @@ void Evento::setNombre(QString& newNombre) {
  */
 void Evento::setCliente(QString& newCliente) {
     cliente = newCliente;
+}
+
+/**
+ * @brief setContacto establece el contacto del cliente asociado con el evento.
+ * @param newContacto El cliente asociado con el evento.
+ */
+void Evento::setContacto(QString& newContacto) {
+    contacto = newContacto;
+}
+
+/**
+ * @brief setLugar establece el lugar asociado con el evento.
+ * @param newLugar El lugar asociado con el evento.
+ */
+void Evento::setLugar(QString& newLugar){
+    lugar = newLugar;
 }
 
 /**
@@ -117,11 +135,11 @@ void Evento::setComparsa(QString& newComparsa){
 }
 
 /**
- * @brief setCosto establece el costo del evento.
- * @param newCosto El costo del evento.
+ * @brief setPresupuesto establece el presupuesto del evento.
+ * @param newPresupuesto El presupuesto del evento.
  */
-void Evento::setCosto(float newCosto) {
-    costo = newCosto;
+void Evento::setPresupuesto(float newPresupuesto) {
+    presupuesto = newPresupuesto;
 }
 
 // Getters
@@ -140,6 +158,22 @@ QString Evento::getNombre() const {
  */
 QString Evento::getCliente() const {
     return cliente;
+}
+
+/**
+ * @brief getContacto devuelve el telefono asociado con el cliente.
+ * @return El contacto asociado con el evento.
+ */
+QString Evento::getContacto() const {
+    return contacto;
+}
+
+/**
+ * @brief getLugar devuelve el lugar asociado con el evento.
+ * @return El lugar asociado con el evento.
+ */
+QString  Evento::getLugar() const {
+    return lugar;
 }
 
 /**
@@ -194,7 +228,7 @@ QString Evento::getCatering() const{
  * @brief getComparsa devuelve la comparsa del evento.
  * @return La comparsa del evento.
  */
-QString Evento::getComparsa() const{
+QString Evento::getComparsa() const {
     return comparsa;
 }
 
@@ -202,7 +236,9 @@ QString Evento::getComparsa() const{
  * @brief getCosto devuelve el costo del evento.
  * @return El costo del evento.
  */
-float Evento::getCosto() const {
-    return costo;
+float Evento::getPresupuesto() const {
+    return presupuesto;
 }
+
+// Métodos
 

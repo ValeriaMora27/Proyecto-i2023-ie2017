@@ -25,8 +25,6 @@ set(PROJECT_SOURCES
         usuario.h
         evento.cpp
         evento.h
-        basedatos.cpp
-        basedatos.h
         lugares.h
         lugares.cpp
         proveedor.h

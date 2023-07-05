@@ -1040,7 +1040,7 @@ evento</string>
         <widget class="QDateEdit" name="fechaEvento">
          <property name="dateTime">
           <datetime>
-           <hour>0</hour>
+           <hour>6</hour>
            <minute>0</minute>
            <second>0</second>
            <year>2023</year>
@@ -1050,7 +1050,7 @@ evento</string>
          </property>
          <property name="minimumDateTime">
           <datetime>
-           <hour>0</hour>
+           <hour>6</hour>
            <minute>0</minute>
            <second>0</second>
            <year>2023</year>

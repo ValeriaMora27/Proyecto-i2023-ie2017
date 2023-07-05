@@ -309,12 +309,6 @@
 	"HEADERS" : 
 	[
 		[
-			"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/basedatos.h",
-			"MU",
-			"EWIEGA46WW/moc_basedatos.cpp",
-			null
-		],
-		[
 			"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/enums.h",
 			"MU",
 			"EWIEGA46WW/moc_enums.cpp",
@@ -327,9 +321,27 @@
 			null
 		],
 		[
+			"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/lugares.h",
+			"MU",
+			"EWIEGA46WW/moc_lugares.cpp",
+			null
+		],
+		[
 			"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
+			null
+		],
+		[
+			"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/proveedor.h",
+			"MU",
+			"EWIEGA46WW/moc_proveedor.cpp",
+			null
+		],
+		[
+			"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/solicitudes.h",
+			"MU",
+			"EWIEGA46WW/moc_solicitudes.cpp",
 			null
 		],
 		[
@@ -411,12 +423,12 @@
 	"SOURCES" : 
 	[
 		[
-			"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/basedatos.cpp",
+			"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/evento.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/evento.cpp",
+			"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/lugares.cpp",
 			"MU",
 			null
 		],
@@ -427,6 +439,16 @@
 		],
 		[
 			"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/mainwindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/proveedor.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/solicitudes.cpp",
 			"MU",
 			null
 		],

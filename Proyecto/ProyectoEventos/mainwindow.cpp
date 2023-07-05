@@ -7,7 +7,6 @@
 #include "./ui_mainwindow.h"
 #include "usuario.h"
 #include "enums.h"
-#include "basedatos.h"
 #include "evento.h"
 #include "lugares.h"
 #include "proveedor.h"
@@ -19,7 +18,6 @@
 #include <QMessageBox>
 #include <QString>
 #include <regex>
-
 #include <fstream>
 #include <sstream>
 
@@ -46,9 +44,16 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tablaSolicitudes->setHorizontalHeaderLabels(titlesSolicitudes);
     cargarDatosSolicitudes();
 
+    const QStringList titlesEvento{"Nombre","Cliente","Contacto","Fecha","Hora de inicio","Hora de finalización","Tipo de evento","Dj", "Catering","Comparsa","Cotización"};
+    ui->tablaEventos->setColumnCount(titlesEvento.size());
+    ui->tablaEventos->setHorizontalHeaderLabels(titlesEvento);
+    cargarDatosEventos();
+
+
     /**
      * @brief Para crear la base de datos
      */
+    /*
     // nombre de la base
     QString nombreBaseEventos;
     nombreBaseEventos.append("basedatoseventos.sqlite");
@@ -119,11 +124,11 @@ MainWindow::MainWindow(QWidget *parent)
         ui->tablaEventos->setItem(row, numComparsa, comparsaItem);
         ui->tablaEventos->setItem(row, numCosto, costoItem);
     }
+    */
 }
 
 MainWindow::~MainWindow()
 {
-    dbEvento.cerrarBase();
     delete ui;
 }
 
@@ -376,7 +381,7 @@ void MainWindow::onStackedWidgetCurrentChanged(int index)
 /* Se definen los índices de las pantallas a las que se lleva al dar click en algún evento*/
 void MainWindow::onEventosClicked()
 {
-    ui->stackedWidget->setCurrentIndex(eventos);
+    ui->stackedWidget->setCurrentIndex(pantalla_eventos);
 }
 
 void MainWindow::onContactenosClicked()
@@ -426,27 +431,27 @@ void MainWindow::onCerrarSesionClicked()
 
 void MainWindow::on_pushButton_bailes_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(eventos);
+    ui->stackedWidget->setCurrentIndex(pantalla_eventos);
 }
 
 void MainWindow::on_pushButton_conciertos_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(eventos);
+    ui->stackedWidget->setCurrentIndex(pantalla_eventos);
 }
 
 void MainWindow::on_pushButton_graduaciones_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(eventos);
+    ui->stackedWidget->setCurrentIndex(pantalla_eventos);
 }
 
 void MainWindow::on_pushButton_bodas_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(eventos);
+    ui->stackedWidget->setCurrentIndex(pantalla_eventos);
 }
 
 void MainWindow::on_pushButton_conferencias_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(eventos);
+    ui->stackedWidget->setCurrentIndex(pantalla_eventos);
 }
 
 /* Pantalle de Eventos Existentes */
@@ -506,109 +511,7 @@ void MainWindow::on_pushButton_Cancelar_3_clicked()
 
 void MainWindow::on_pushButton_Crear_clicked()
 {
-    if (ui->nombreEvento->text().isEmpty() ||
-        ui->cliente->text().isEmpty() ||
-        ui->dj->text().isEmpty() ||
-        ui->catering->text().isEmpty() ||
-        ui->comparsa->text().isEmpty() ||
-        ui->presupuesto->text().isEmpty()){
-        // Mostrar mensaje de error
-        QMessageBox::warning(this, 
-                             tr("Crear Evento"),
-                             tr("Por favor, completa todos los campos."));
-        return;
-    }
-    else {
-        QString nombreEvento = ui->nombreEvento->text();
-        QString cliente = ui->cliente->text();
-        QDate fechaEvento = ui->fechaEvento->date();
-        QTime horaInicio = ui->horaInicio->time();
-        QTime horaFinal = ui->horaFin->time();
-        QString tipoEvento = ui->tipoEvento->currentText();
-        QString dj = ui->dj->text();
-        QString catering = ui->catering->text();
-        QString comparsa = ui->comparsa->text();
-        QString presupuesto = ui->presupuesto->text();
-
-        if (dbEvento.agregarEvento(nombreEvento,
-                                   cliente,
-                                   fechaEvento,
-                                   horaInicio,
-                                   horaFinal,
-                                   tipoEvento,
-                                   dj,
-                                   catering,
-                                   comparsa,
-                                   presupuesto)) {
-            // Éxito al agregar el evento
-            QMessageBox::information(this,
-                                     tr("Crear Evento"),
-                                     tr("Evento agregado correctamente."));
-
-            // Limpiar los campos
-            ui->nombreEvento->clear();
-            ui->cliente->clear();
-            ui->dj->clear();
-            ui->catering->clear();
-            ui->comparsa->clear();
-            ui->presupuesto->clear();
-        } else {
-            // Error al agregar el evento
-            QMessageBox::warning(this,
-                                 tr("Crear Evento"),
-                                 tr("No se pudo agregar el evento."));
-        }
-    }
-    /*
-    // Refrescar la tabla
-    int filaActual = ui->tablaEventos->rowCount();
-    ui->tablaEventos->clearContents();
-    ui->tablaEventos->setRowCount(0);
-    */
-
-    QList<Evento> eventos;
-
-    eventos = dbEvento.obtenerEventos();
-
-    // Configurar la tabla
-    int rowCount = eventos.size();
-    int columnCount = 10; // Número de columnas necesarias para mostrar los datos del evento
-    ui->tablaEventos->setRowCount(rowCount);
-    ui->tablaEventos->setColumnCount(columnCount);
-
-    // Configurar los encabezados de columna
-    //ui->tablaEventos->setHorizontalHeaderLabels(QStringList() << "Nombre" << "Cliente" << "Fecha" << "Hora de inicio" << "Hora de fin" << "Tipo de evento" << "Dj" << "Catering" << "Comparsa" << "Costo");
-
-    // Agregar los eventos a la tabla
-    for (int row = 0; row < rowCount; ++row) {
-        const Evento& evento = eventos.at(row);
-
-        // Agregar los valores a las celdas de la fila
-        QTableWidgetItem* nombreItem = new QTableWidgetItem(evento.getNombre());
-        QTableWidgetItem* clienteItem = new QTableWidgetItem(evento.getCliente());
-        QTableWidgetItem* fechaItem = new QTableWidgetItem(evento.getFecha().toString());
-        QTableWidgetItem* horaInicioItem = new QTableWidgetItem();
-        horaInicioItem->setData(Qt::DisplayRole, evento.getHoraInicio().toString("hh:mm:ss.zzz"));
-        QTableWidgetItem* horaFinItem = new QTableWidgetItem(evento.getHoraFin().toString());
-        horaFinItem->setData(Qt::DisplayRole, evento.getHoraFin().toString("hh:mm:ss.zzz"));
-        QTableWidgetItem* tipoEventoItem = new QTableWidgetItem(evento.getTipoEvento());
-        QTableWidgetItem* djItem = new QTableWidgetItem(evento.getDj());
-        QTableWidgetItem* cateringItem = new QTableWidgetItem(evento.getCatering());
-        QTableWidgetItem* comparsaItem = new QTableWidgetItem(evento.getComparsa());
-        QTableWidgetItem* costoItem = new QTableWidgetItem(QString::number(evento.getCosto()));
-
-        // Agregar las celdas a la tabla
-        ui->tablaEventos->setItem(row, numNombre, nombreItem);
-        ui->tablaEventos->setItem(row, numCliente, clienteItem);
-        ui->tablaEventos->setItem(row, numFecha, fechaItem);
-        ui->tablaEventos->setItem(row, numHoraInicio, horaInicioItem);
-        ui->tablaEventos->setItem(row, numHoraFin, horaFinItem);
-        ui->tablaEventos->setItem(row, numTipoEvento, tipoEventoItem);
-        ui->tablaEventos->setItem(row, numDj, djItem);
-        ui->tablaEventos->setItem(row, numCatering, cateringItem);
-        ui->tablaEventos->setItem(row, numComparsa, comparsaItem);
-        ui->tablaEventos->setItem(row, numCosto, costoItem);
-    }
+/////
 
 }
 
@@ -792,7 +695,7 @@ void MainWindow::on_pushButton_Eliminar_Solicitud_clicked()
 
 void MainWindow::on_pushButton_Eventos_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(eventos);
+    ui->stackedWidget->setCurrentIndex(pantalla_eventos);
 }
 
 
@@ -806,7 +709,7 @@ void MainWindow::on_pushButton_irCrearEvento_clicked()
 
 void MainWindow::on_pushButton_anadir_lugar_clicked()
 {
-    /* Verificar si alguna de las entradas está vacía */
+     /* Verificar si alguna de las entradas está vacía */
     if (ui->lineEdit_nombre->text().isEmpty() ||
         ui->lineEdit_capacidad->text().isEmpty() ||
         ui->lineEdit_disponibilidad->text().isEmpty() ||
@@ -1123,5 +1026,74 @@ void MainWindow::on_pushButton_Eliminar_Proveedor_clicked()
 {
     eliminarProveedorActual();
     ui->stackedWidget->setCurrentIndex(proveedores);
+}
+
+/**
+ * @brief cargarDatosEvento permite cargar en una tabla los datos de los
+ * eventos existentes.
+ */
+void MainWindow::cargarDatosEventos()
+{
+    QFile file("../eventos.txt");
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return;
+
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        QStringList datos = line.split(",");
+        if (datos.size() == componenentesEventoCount) {
+            QString nombre = datos[numNombre];
+            QString cliente = datos[numCliente];
+            QString contacto = datos[numContacto];
+            QString lugar = datos[numLugar];
+            QString fechaStr = datos[numFecha];
+            QString horaInicioStr = datos[numHoraInicio];
+            QString horaFinStr = datos[numHoraFin];
+            QString tipoEvento = datos[numTipoEvento];
+            QString dj = datos[numDj];
+            QString catering = datos[numCatering];
+            QString comparsa = datos[numComparsa];
+            float presupuesto = datos[numCosto].toFloat();
+
+            QDateTime fecha = QDateTime::fromString(fechaStr, "yyyy-MM-dd");
+            QDateTime horaInicio = QDateTime::fromString(horaInicioStr, "HH:mm:ss");
+            QDateTime horaFin = QDateTime::fromString(horaFinStr, "HH:mm:ss");
+
+
+        /* Crear un nuevo objeto Evento y añadirlo a la tabla */
+            Evento evento;
+
+            evento.setNombre(nombre);
+            evento.setCliente(cliente);
+            evento.setContacto(contacto);
+            evento.setLugar(lugar);
+            evento.setFecha(fecha);
+            evento.setHoraInicio(horaInicio);
+            evento.setHoraFin(horaFin);
+            evento.setTipoEvento(tipoEvento);
+            evento.setDj(dj);
+            evento.setCatering(catering);
+            evento.setComparsa(comparsa);
+            evento.setPresupuesto(presupuesto);
+
+
+            int row = ui->tablaEventos->rowCount();
+            ui->tablaEventos->insertRow(row);
+            ui->tablaEventos->setItem(row, numNombre, new QTableWidgetItem(evento.getNombre()));
+            ui->tablaEventos->setItem(row, numCliente, new QTableWidgetItem(evento.getCliente()));
+            ui->tablaEventos->setItem(row, numContacto, new QTableWidgetItem(evento.getContacto()));
+            ui->tablaEventos->setItem(row, numLugar, new QTableWidgetItem(evento.getLugar()));
+            ui->tablaEventos->setItem(row, numFecha, new QTableWidgetItem(evento.getFecha().toString()));
+            ui->tablaEventos->setItem(row, numHoraInicio, new QTableWidgetItem(evento.getHoraInicio().toString("hh:mm")));
+            ui->tablaEventos->setItem(row, numHoraFin, new QTableWidgetItem(evento.getHoraFin().toString("hh:mm")));
+            ui->tablaEventos->setItem(row, numTipoEvento, new QTableWidgetItem(evento.getTipoEvento()));
+            ui->tablaEventos->setItem(row, numDj, new QTableWidgetItem(evento.getDj()));
+            ui->tablaEventos->setItem(row, numCatering, new QTableWidgetItem(evento.getCatering()));
+            ui->tablaEventos->setItem(row, numComparsa, new QTableWidgetItem(evento.getComparsa()));
+            ui->tablaEventos->setItem(row, numCosto, new QTableWidgetItem(QString::number(evento.getPresupuesto())));
+        }
+    }
+    file.close();
 }
 

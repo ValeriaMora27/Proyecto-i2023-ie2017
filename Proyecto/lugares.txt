@@ -1,3 +1,1 @@
-Estadio Nacional,60000,40,200000,este,Sí
-Estadio Nacional,300,si,500000,Este,Sí
 Morera Soto,3000,no,200000,San Jose,Sí

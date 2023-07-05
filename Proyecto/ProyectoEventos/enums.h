@@ -7,7 +7,7 @@ enum Pantallas
     login,
     registro,
     principal,
-    eventos,
+    pantalla_eventos,
     crear_evento,
     lugares,
     proveedores,
@@ -15,13 +15,16 @@ enum Pantallas
     solicitudes,
     contacto,
     agregar_lugares,
-    agregar_proveedores
+    agregar_proveedores,
+    pantallas_count
 };
 
 enum ComponentesEvento
 {
     numNombre = 0,
     numCliente,
+    numContacto,
+    numLugar,
     numFecha,
     numHoraInicio,
     numHoraFin,
@@ -29,7 +32,8 @@ enum ComponentesEvento
     numDj,
     numCatering,
     numComparsa,
-    numCosto
+    numCosto,
+    componenentesEventoCount
 };
 
 #endif // ENUMS_H

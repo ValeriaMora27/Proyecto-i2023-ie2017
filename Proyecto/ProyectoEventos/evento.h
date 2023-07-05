@@ -17,6 +17,8 @@ class Evento
 private:
     QString nombre; /**< El nombre del evento. */
     QString cliente; /**< El cliente asociado con el evento. */
+    QString contacto; /**< Teléfono del cliente asociado con el evento. */
+    QString lugar; /**< El lugar donde se realiza el evento. */
     QDateTime fecha; /**< La fecha del evento. */
     QDateTime horaInicio; /**< La hora de inicio del evento. */
     QDateTime horaFin; /**< La hora de finalización del evento. */
@@ -24,7 +26,7 @@ private:
     QString dj; /**< Dj del evento. */
     QString catering; /**< Catering del evento. */
     QString comparsa; /**< Comparsa del evento. */
-    float costo; /**< El costo del evento. */
+    float presupuesto; /**< El presupuesto del evento. */
 
 public:
     // Constructor
@@ -32,8 +34,9 @@ public:
     /**
      * @brief Constructor de la clase Evento.
      *
-     * @param nombre El nombre del usuario.
+     * @param nombre El nombre del evento.
      * @param cliente El cliente asociado al evento
+     * @param contacto Teléfono del cliente asociado con el evento. 
      * @param fecha La fecha en la que se realizará el evento
      * @param horaInicio La hora de inicio del evento
      * @param horaFin La hora a la que termina el evento
@@ -73,6 +76,18 @@ public:
      * @param newCliente El cliente asociado con el evento.
      */
     void setCliente(QString& newCliente);
+
+    /**
+     * @brief setContacto establece el contacto del cliente asociado con el evento.
+     * @param newContacto El cliente asociado con el evento.
+     */
+    void setContacto(QString& newContacto);
+
+    /**
+     * @brief setLugar establece el lugar asociado con el evento.
+     * @param newLugar El lugar asociado con el evento.
+     */
+    void setLugar(QString& newLugar);
 
     /**
      * @brief setFecha establece la fecha del evento.
@@ -117,11 +132,10 @@ public:
     void setComparsa(QString& newComparsa);
 
     /**
-     * @brief setCosto establece el costo del evento.
-     * @param newCosto El costo del evento.
+     * @brief setPresupuesto establece el presupuesto para el evento.
+     * @param newPresupuesto El presupuesto del evento.
      */
-    void setCosto(float newCosto);
-
+    void setPresupuesto(float newPresupuesto);
 
     // Getters
 
@@ -136,6 +150,18 @@ public:
      * @return El cliente asociado con el evento.
      */
     QString getCliente() const;
+
+    /**
+     * @brief getContacto devuelve el telefono asociado con el cliente.
+     * @return El contacto asociado con el evento.
+     */
+    QString getContacto() const;
+
+    /**
+     * @brief getLugar devuelve el lugar asociado con el evento.
+     * @return El lugar asociado con el evento.
+     */
+    QString getLugar() const;
 
     /**
      * @brief getFecha devuelve la fecha del evento.
@@ -180,10 +206,13 @@ public:
     QString getComparsa() const;
 
     /**
-     * @brief getCosto devuelve el costo del evento.
-     * @return El costo del evento.
+     * @brief getPresupuesto devuelve el presupuesto del evento.
+     * @return El presupuesto del evento.
      */
-    float getCosto() const;
+    float getPresupuesto() const;
+
+    // Métodos
+
 };
 
 #endif // EVENTO_H
