@@ -1,0 +1,4 @@
+valeria@gmail.com,Valeria Mora,22222222,Bailes,2.5003e+06,Baile de 200 personas.
+carlos@gmail.com,Carlos ,88888888,Conferencias,2e+06,Grande
+sergio@gmail.com,Sergio,86936548,Bailes,10000,dj
+karla@hotmail.com,Karla Mora,83552363,Graduaciones,500500,Graduacion para 100 personas

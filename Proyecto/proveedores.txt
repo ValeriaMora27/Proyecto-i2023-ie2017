@@ -1,0 +1,6 @@
+Limpieza,Limpieza SA,0,3,2000
+DJ,SoundMix DJs,50,4.5/5,325000
+Comparsa,Ritmo Latino,30,4/5,720000
+Catering,Delicias Gourmet,100,4.8/5,19500
+Limpieza,CleanServ,200,4.7/5,120000
+Fotografía,ShutterWorks,80,4.9/5,448000
