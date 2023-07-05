@@ -37,7 +37,7 @@ endif
 all: cmake_build doc open
 
 cmake_build:
-	if not exist $(BUILD_DIR) mkdir $(BUILD_DIR)
+	mkdir -p $(BUILD_DIR)
 	cd $(BUILD_DIR) && cmake -G "Unix Makefiles" -DCMAKE_PREFIX_PATH=/usr ..
 	$(MAKE) -C $(BUILD_DIR)
 
