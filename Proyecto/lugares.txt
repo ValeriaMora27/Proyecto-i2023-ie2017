@@ -1,0 +1,8 @@
+Morera Soto,3000,no,200000,San Jose,Sí
+Estadio Nacional,300000,SI,500000,La Sabana,Sí
+Salon Goicoechea,100,SI,400000,Goicoechea,Sí
+Salón de Eventos XYZ,225,SI,554325,San José,Sí
+Salón Elegante,425,SI,625000,La Uruca,No
+Quinta Los Arcos,725,SI,900000,San rafael,Sí
+Salón A,300,Si,420000,Guanacaste,Sí
+Salón C,300000,SI,540000,Cartago,Sí

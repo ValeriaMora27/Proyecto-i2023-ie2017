@@ -1,3 +1,4 @@
 segav,segav@segav.com,Administrador,segav
 a,a@a.com,Administrador,a
 Usuario,user@user.com,Usuario,user
+Karla Mora,karla@hotmail.com,Usuario,123
