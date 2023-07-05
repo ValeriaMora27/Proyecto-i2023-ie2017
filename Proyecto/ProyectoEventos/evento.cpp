@@ -6,8 +6,20 @@
 #include "evento.h"
 #include "enums.h"
 
-// Constructor por defecto
 
+// Constructor por defecto
+/**
+ * @brief Constructor de la clase Evento.
+ *
+ * @param nombre El nombre del usuario.
+ * @param cliente El cliente asociado al evento
+ * @param fecha La fecha en la que se realizará el evento
+ * @param horaInicio La hora de inicio del evento
+ * @param horaFin La hora a la que termina el evento
+ * @param tipoEvento El tipo de evento (fiesta, baile, graduación)
+ * @param serviciosExtra Servicios adicionales al evento
+ * @param costo El precio a pagar por el evento
+ */
 /*
 Evento::Evento(const QString& nombre,
                const QString& cliente,
@@ -30,7 +42,7 @@ Evento::Evento(const QString& nombre,
     comparsa(comparsa),
     costo(costo){}
 */
-Evento::Evento() {}
+Evento::Evento(){}
 
 // Setters
 
@@ -38,8 +50,7 @@ Evento::Evento() {}
  * @brief setNombre establece el nombre del evento.
  * @param newNombre El nombre del evento.
  */
-void Evento::setNombre(QString &newNombre)
-{
+void Evento::setNombre(QString& newNombre) {
     nombre = newNombre;
 }
 
@@ -47,8 +58,7 @@ void Evento::setNombre(QString &newNombre)
  * @brief setCliente establece el cliente asociado con el evento.
  * @param newCliente El cliente asociado con el evento.
  */
-void Evento::setCliente(QString &newCliente)
-{
+void Evento::setCliente(QString& newCliente) {
     cliente = newCliente;
 }
 
@@ -56,8 +66,7 @@ void Evento::setCliente(QString &newCliente)
  * @brief setContacto establece el contacto del cliente asociado con el evento.
  * @param newContacto El cliente asociado con el evento.
  */
-void Evento::setContacto(QString &newContacto)
-{
+void Evento::setContacto(QString& newContacto) {
     contacto = newContacto;
 }
 
@@ -65,8 +74,7 @@ void Evento::setContacto(QString &newContacto)
  * @brief setLugar establece el lugar asociado con el evento.
  * @param newLugar El lugar asociado con el evento.
  */
-void Evento::setLugar(QString &newLugar)
-{
+void Evento::setLugar(QString& newLugar){
     lugar = newLugar;
 }
 
@@ -74,12 +82,7 @@ void Evento::setLugar(QString &newLugar)
  * @brief setFecha establece la fecha del evento.
  * @param newFecha La fecha del evento.
  */
-<<<<<<< HEAD
 void Evento::setFecha(QDate& newFecha) {
-=======
-void Evento::setFecha(QDateTime &newFecha)
-{
->>>>>>> 49dcb4d7537bab70e40586659e7e7e443814071b
     fecha = newFecha;
 }
 
@@ -87,12 +90,7 @@ void Evento::setFecha(QDateTime &newFecha)
  * @brief setHoraInicio establece la hora de inicio del evento.
  * @param newHoraInicio La hora de inicio del evento.
  */
-<<<<<<< HEAD
 void Evento::setHoraInicio(QTime& newHoraInicio) {
-=======
-void Evento::setHoraInicio(QDateTime &newHoraInicio)
-{
->>>>>>> 49dcb4d7537bab70e40586659e7e7e443814071b
     horaInicio = newHoraInicio;
 }
 
@@ -100,12 +98,7 @@ void Evento::setHoraInicio(QDateTime &newHoraInicio)
  * @brief setHoraFin establece la hora de finalización del evento.
  * @param newHoraFin La hora de finalización del evento.
  */
-<<<<<<< HEAD
 void Evento::setHoraFin(QTime& newHoraFin) {
-=======
-void Evento::setHoraFin(QDateTime &newHoraFin)
-{
->>>>>>> 49dcb4d7537bab70e40586659e7e7e443814071b
     horaFin = newHoraFin;
 }
 
@@ -113,8 +106,7 @@ void Evento::setHoraFin(QDateTime &newHoraFin)
  * @brief setTipoEvento establece el tipo de evento.
  * @param newTipoEvento El tipo de evento.
  */
-void Evento::setTipoEvento(QString &newTipoEvento)
-{
+void Evento::setTipoEvento(QString& newTipoEvento) {
     tipoEvento = newTipoEvento;
 }
 
@@ -122,8 +114,7 @@ void Evento::setTipoEvento(QString &newTipoEvento)
  * @brief setDj establece el dj del evento.
  * @param newDj El Dj del evento.
  */
-void Evento::setDj(QString &newDj)
-{
+void Evento::setDj(QString& newDj){
     dj = newDj;
 }
 
@@ -131,8 +122,7 @@ void Evento::setDj(QString &newDj)
  * @brief setCatering establece el catering del evento.
  * @param newCatering El catering del evento.
  */
-void Evento::setCatering(QString &newCatering)
-{
+void Evento::setCatering(QString& newCatering){
     catering = newCatering;
 }
 
@@ -140,8 +130,7 @@ void Evento::setCatering(QString &newCatering)
  * @brief setComparsa establece la comparsa del evento.
  * @param newComparsa La comparsa del evento.
  */
-void Evento::setComparsa(QString &newComparsa)
-{
+void Evento::setComparsa(QString& newComparsa){
     comparsa = newComparsa;
 }
 
@@ -149,8 +138,7 @@ void Evento::setComparsa(QString &newComparsa)
  * @brief setPresupuesto establece el presupuesto del evento.
  * @param newPresupuesto El presupuesto del evento.
  */
-void Evento::setPresupuesto(float newPresupuesto)
-{
+void Evento::setPresupuesto(float newPresupuesto) {
     presupuesto = newPresupuesto;
 }
 
@@ -160,8 +148,7 @@ void Evento::setPresupuesto(float newPresupuesto)
  * @brief getNombre devuelve el nombre del evento.
  * @return El nombre del evento.
  */
-QString Evento::getNombre() const
-{
+QString Evento::getNombre() const {
     return nombre;
 }
 
@@ -169,8 +156,7 @@ QString Evento::getNombre() const
  * @brief getCliente devuelve el cliente asociado con el evento.
  * @return El cliente asociado con el evento.
  */
-QString Evento::getCliente() const
-{
+QString Evento::getCliente() const {
     return cliente;
 }
 
@@ -178,8 +164,7 @@ QString Evento::getCliente() const
  * @brief getContacto devuelve el telefono asociado con el cliente.
  * @return El contacto asociado con el evento.
  */
-QString Evento::getContacto() const
-{
+QString Evento::getContacto() const {
     return contacto;
 }
 
@@ -187,8 +172,7 @@ QString Evento::getContacto() const
  * @brief getLugar devuelve el lugar asociado con el evento.
  * @return El lugar asociado con el evento.
  */
-QString Evento::getLugar() const
-{
+QString  Evento::getLugar() const {
     return lugar;
 }
 
@@ -196,12 +180,7 @@ QString Evento::getLugar() const
  * @brief getFecha devuelve la fecha del evento.
  * @return La fecha del evento.
  */
-<<<<<<< HEAD
 QDate Evento::getFecha() const {
-=======
-QDateTime Evento::getFecha() const
-{
->>>>>>> 49dcb4d7537bab70e40586659e7e7e443814071b
     return fecha;
 }
 
@@ -209,12 +188,7 @@ QDateTime Evento::getFecha() const
  * @brief getHoraInicio devuelve la hora de inicio del evento.
  * @return La hora de inicio del evento.
  */
-<<<<<<< HEAD
 QTime Evento::getHoraInicio() const {
-=======
-QDateTime Evento::getHoraInicio() const
-{
->>>>>>> 49dcb4d7537bab70e40586659e7e7e443814071b
     return horaInicio;
 }
 
@@ -222,12 +196,7 @@ QDateTime Evento::getHoraInicio() const
  * @brief getHoraFin devuelve la hora de finalización del evento.
  * @return La hora de finalización del evento.
  */
-<<<<<<< HEAD
 QTime Evento::getHoraFin() const {
-=======
-QDateTime Evento::getHoraFin() const
-{
->>>>>>> 49dcb4d7537bab70e40586659e7e7e443814071b
     return horaFin;
 }
 
@@ -235,8 +204,7 @@ QDateTime Evento::getHoraFin() const
  * @brief getTipoEvento devuelve el tipo de evento.
  * @return El tipo de evento.
  */
-QString Evento::getTipoEvento() const
-{
+QString Evento::getTipoEvento() const {
     return tipoEvento;
 }
 
@@ -244,8 +212,7 @@ QString Evento::getTipoEvento() const
  * @brief getDj devuelve el dj del evento.
  * @return El dj del evento.
  */
-QString Evento::getDj() const
-{
+QString Evento::getDj() const{
     return dj;
 }
 
@@ -253,8 +220,7 @@ QString Evento::getDj() const
  * @brief getCatering devuelve el catering del evento.
  * @return El catering del evento.
  */
-QString Evento::getCatering() const
-{
+QString Evento::getCatering() const{
     return catering;
 }
 
@@ -262,8 +228,7 @@ QString Evento::getCatering() const
  * @brief getComparsa devuelve la comparsa del evento.
  * @return La comparsa del evento.
  */
-QString Evento::getComparsa() const
-{
+QString Evento::getComparsa() const {
     return comparsa;
 }
 
@@ -271,9 +236,9 @@ QString Evento::getComparsa() const
  * @brief getCosto devuelve el costo del evento.
  * @return El costo del evento.
  */
-float Evento::getPresupuesto() const
-{
+float Evento::getPresupuesto() const {
     return presupuesto;
 }
 
 // Métodos
+
