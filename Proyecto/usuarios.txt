@@ -1,4 +1,0 @@
-Valeria Mora,valeria@gmail.com,Usuario,123
-segav,segav,Administrador,segav
-segav,segav,Usuario,segav
-v,a,Usuario,vv

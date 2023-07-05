@@ -1,0 +1,2 @@
+Morera Soto,3000,no,200000,San Jose,Sí
+Estadio Nacional,300000,SI,500000,La Sabana,Sí
