@@ -21,6 +21,7 @@
 #include <regex>
 #include <fstream>
 #include <sstream>
+#include <QStringList>
 
 using namespace std;
 
@@ -424,6 +425,13 @@ void MainWindow::on_pushButton_Refrescar_clicked()
     QString solicitudesPendientes = estadisticaSolicitudesPendientes();
     ui->label_numSolicitudesPendientes->setText(solicitudesPendientes);
 
+    QStringList tresEventosProx = obtenerEventosProximos();
+    ui->listWidget_EventoProx->clear();
+    ui->listWidget_EventoProx->addItems(tresEventosProx);
+
+    QStringList eventoMayorRecaudacion = obtenerEventoMayorRecaudacion();
+    ui->listWidget_EventoMayorRecaudacion->clear();
+    ui->listWidget_EventoMayorRecaudacion->addItems(eventoMayorRecaudacion);
 }
 
 

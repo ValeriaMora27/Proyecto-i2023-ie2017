@@ -69,9 +69,10 @@ clean:
 
 # Dependencies
 main.o: mainwindow.h
-mainwindow.o: mainwindow.h ui_mainwindow.h usuario.h enums.h evento.h lugares.h proveedor.h solicitudes.h
+mainwindow.o: mainwindow.h ui_mainwindow.h usuario.h enums.h evento.h lugares.h proveedor.h solicitudes.h estadisticas.h
 evento.o: evento.h enums.h
 lugares.o: lugares.h
 proveedor.o: proveedor.h
 solicitudes.o: solicitudes.h
 usuario.o: usuario.h
+estadisticas.o: estadisticas.h
