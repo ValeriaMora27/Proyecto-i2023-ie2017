@@ -1,6 +1,8 @@
 ProyectoEventos_autogen/timestamp: \
+	C:/Qt/6.5.1/mingw_64/include/QtCore/QDate \
 	C:/Qt/6.5.1/mingw_64/include/QtCore/QDateTime \
 	C:/Qt/6.5.1/mingw_64/include/QtCore/QString \
+	C:/Qt/6.5.1/mingw_64/include/QtCore/QTime \
 	C:/Qt/6.5.1/mingw_64/include/QtCore/q20memory.h \
 	C:/Qt/6.5.1/mingw_64/include/QtCore/q20type_traits.h \
 	C:/Qt/6.5.1/mingw_64/include/QtCore/qalgorithms.h \

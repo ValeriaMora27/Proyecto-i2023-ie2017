@@ -1,7 +1,9 @@
 C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/ProyectoEventos_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/mainwindow.h \
   C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/ProyectoEventos_autogen/moc_predefs.h \
+  C:/Qt/6.5.1/mingw_64/include/QtCore/QDate \
   C:/Qt/6.5.1/mingw_64/include/QtCore/QDateTime \
   C:/Qt/6.5.1/mingw_64/include/QtCore/QString \
+  C:/Qt/6.5.1/mingw_64/include/QtCore/QTime \
   C:/Qt/6.5.1/mingw_64/include/QtCore/q20memory.h \
   C:/Qt/6.5.1/mingw_64/include/QtCore/q20type_traits.h \
   C:/Qt/6.5.1/mingw_64/include/QtCore/qalgorithms.h \

@@ -82,7 +82,7 @@ void Evento::setLugar(QString& newLugar){
  * @brief setFecha establece la fecha del evento.
  * @param newFecha La fecha del evento.
  */
-void Evento::setFecha(QDateTime& newFecha) {
+void Evento::setFecha(QDate& newFecha) {
     fecha = newFecha;
 }
 
@@ -90,7 +90,7 @@ void Evento::setFecha(QDateTime& newFecha) {
  * @brief setHoraInicio establece la hora de inicio del evento.
  * @param newHoraInicio La hora de inicio del evento.
  */
-void Evento::setHoraInicio(QDateTime& newHoraInicio) {
+void Evento::setHoraInicio(QTime& newHoraInicio) {
     horaInicio = newHoraInicio;
 }
 
@@ -98,7 +98,7 @@ void Evento::setHoraInicio(QDateTime& newHoraInicio) {
  * @brief setHoraFin establece la hora de finalización del evento.
  * @param newHoraFin La hora de finalización del evento.
  */
-void Evento::setHoraFin(QDateTime& newHoraFin) {
+void Evento::setHoraFin(QTime& newHoraFin) {
     horaFin = newHoraFin;
 }
 
@@ -180,7 +180,7 @@ QString  Evento::getLugar() const {
  * @brief getFecha devuelve la fecha del evento.
  * @return La fecha del evento.
  */
-QDateTime Evento::getFecha() const {
+QDate Evento::getFecha() const {
     return fecha;
 }
 
@@ -188,7 +188,7 @@ QDateTime Evento::getFecha() const {
  * @brief getHoraInicio devuelve la hora de inicio del evento.
  * @return La hora de inicio del evento.
  */
-QDateTime Evento::getHoraInicio() const {
+QTime Evento::getHoraInicio() const {
     return horaInicio;
 }
 
@@ -196,7 +196,7 @@ QDateTime Evento::getHoraInicio() const {
  * @brief getHoraFin devuelve la hora de finalización del evento.
  * @return La hora de finalización del evento.
  */
-QDateTime Evento::getHoraFin() const {
+QTime Evento::getHoraFin() const {
     return horaFin;
 }
 

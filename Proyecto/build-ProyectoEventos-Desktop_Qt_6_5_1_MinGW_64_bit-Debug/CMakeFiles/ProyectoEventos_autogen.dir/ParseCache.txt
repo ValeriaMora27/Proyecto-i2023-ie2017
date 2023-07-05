@@ -6,8 +6,10 @@ C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/mainwindow
  mmc:Q_OBJECT
  mdp:C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/ProyectoEventos/mainwindow.h
  mdp:C:/Users/sergi/Desktop/Proyecto-i2023-ie2017/Proyecto/build-ProyectoEventos-Desktop_Qt_6_5_1_MinGW_64_bit-Debug/ProyectoEventos_autogen/moc_predefs.h
+ mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/QDate
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/QDateTime
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/QString
+ mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/QTime
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/q20memory.h
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/q20type_traits.h
  mdp:C:/Qt/6.5.1/mingw_64/include/QtCore/qalgorithms.h

@@ -44,87 +44,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tablaSolicitudes->setHorizontalHeaderLabels(titlesSolicitudes);
     cargarDatosSolicitudes();
 
-    const QStringList titlesEvento{"Nombre","Cliente","Contacto","Fecha","Hora de inicio","Hora de finalización","Tipo de evento","Dj", "Catering","Comparsa","Cotización"};
+    const QStringList titlesEvento{"Nombre","Cliente","Contacto","Lugar","Fecha","Hora de inicio","Hora de finalización","Tipo de evento","Dj", "Catering","Comparsa","Cotización"};
     ui->tablaEventos->setColumnCount(titlesEvento.size());
     ui->tablaEventos->setHorizontalHeaderLabels(titlesEvento);
     cargarDatosEventos();
 
-
-    /**
-     * @brief Para crear la base de datos
-     */
-    /*
-    // nombre de la base
-    QString nombreBaseEventos;
-    nombreBaseEventos.append("basedatoseventos.sqlite");
-    dbEvento.setNombreDb(nombreBaseEventos);
-
-
-    // crear la base
-    if (dbEvento.crearBase()){
-        qDebug("Se creó la base de datos");
-        QString sqlEvento = "CREATE TABLE eventos("
-                            "Nombre TEXT PRIMARY KEY, "
-                            "Cliente TEXT, "
-                            "Fecha DATE, "
-                            "HoraInicio DATETIME, "
-                            "HoraFinal DATETIME, "
-                            "TipoEvento TEXT, "
-                            "Dj TEXT, "
-                            "Catering TEXT, "
-                            "Comparsa TEXT, "
-                            "Presupuesto DECIMAL(10, 2)"
-                            ")";
-        dbEvento.crearTabla(sqlEvento);
-
-    }
-    else {
-        qDebug("No se creó la base de datos");
-    }
-
-    QList<Evento> eventos;
-
-    eventos = dbEvento.obtenerEventos();
-    // Configurar la tabla de eventos
-    int rowCount = eventos.size();
-    int columnCount = 10; // Número de columnas necesarias para mostrar los datos del evento
-    ui->tablaEventos->setRowCount(rowCount);
-    ui->tablaEventos->setColumnCount(columnCount);
-
-    // Configurar los encabezados de columna
-    //ui->tablaEventos->setHorizontalHeaderLabels(QStringList() << "Nombre" << "Cliente" << "Fecha" << "Hora de inicio" << "Hora de fin" << "Tipo de evento" << "Dj" << "Catering" << "Comparsa" << "Costo");
-
-    // Agregar los eventos a la tabla
-    for (int row = 0; row < rowCount; ++row) {
-        const Evento& evento = eventos.at(row);
-
-        // Agregar los valores a las celdas de la fila
-        QTableWidgetItem* nombreItem = new QTableWidgetItem(evento.getNombre());
-        QTableWidgetItem* clienteItem = new QTableWidgetItem(evento.getCliente());
-        QTableWidgetItem* fechaItem = new QTableWidgetItem(evento.getFecha().toString());
-        QTableWidgetItem* horaInicioItem = new QTableWidgetItem();
-        horaInicioItem->setData(Qt::DisplayRole, evento.getHoraInicio().toString("hh:mm:ss.zzz"));
-        QTableWidgetItem* horaFinItem = new QTableWidgetItem(evento.getHoraFin().toString());
-        horaFinItem->setData(Qt::DisplayRole, evento.getHoraFin().toString("hh:mm:ss.zzz"));
-        QTableWidgetItem* tipoEventoItem = new QTableWidgetItem(evento.getTipoEvento());
-        QTableWidgetItem* djItem = new QTableWidgetItem(evento.getDj());
-        QTableWidgetItem* cateringItem = new QTableWidgetItem(evento.getCatering());
-        QTableWidgetItem* comparsaItem = new QTableWidgetItem(evento.getComparsa());
-        QTableWidgetItem* costoItem = new QTableWidgetItem(QString::number(evento.getCosto()));
-
-        // Agregar las celdas a la tabla
-        ui->tablaEventos->setItem(row, numNombre, nombreItem);
-        ui->tablaEventos->setItem(row, numCliente, clienteItem);
-        ui->tablaEventos->setItem(row, numFecha, fechaItem);
-        ui->tablaEventos->setItem(row, numHoraInicio, horaInicioItem);
-        ui->tablaEventos->setItem(row, numHoraFin, horaFinItem);
-        ui->tablaEventos->setItem(row, numTipoEvento, tipoEventoItem);
-        ui->tablaEventos->setItem(row, numDj, djItem);
-        ui->tablaEventos->setItem(row, numCatering, cateringItem);
-        ui->tablaEventos->setItem(row, numComparsa, comparsaItem);
-        ui->tablaEventos->setItem(row, numCosto, costoItem);
-    }
-    */
 }
 
 MainWindow::~MainWindow()
@@ -454,11 +378,6 @@ void MainWindow::on_pushButton_conferencias_clicked()
     ui->stackedWidget->setCurrentIndex(pantalla_eventos);
 }
 
-/* Pantalle de Eventos Existentes */
-void MainWindow::on_pushButton_Cancelar_Eventos_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(principal);
-}
 
 /* Pantalla Lugares */
 void MainWindow::on_pushButton_Agregar_Lugares_clicked()
@@ -484,12 +403,11 @@ void MainWindow::on_pushButton_Regresar_Anadir_Lugares_clicked()
 }
 
 
-/* Pantalla Proveedores */
-void MainWindow::on_pushButton_Cancelar_Proveedores_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(principal);
-}
 
+
+
+
+/////////////////////////////////////////////////////////
 /* Pantalla Estadisticas */
 void MainWindow::on_pushButton_Cancelar_Estadisticas_clicked()
 {
@@ -501,7 +419,145 @@ void MainWindow::on_pushButton_Cancelar_Solicitud_clicked()
 {
     ui->stackedWidget->setCurrentIndex(principal);
 }
+////////////////////////////////////////////////////////////////
+/* Pantalle de Eventos Existentes */
+void MainWindow::on_pushButton_Cancelar_Eventos_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(principal);
+}
 
+void MainWindow::on_pushButton_irCrearEvento_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(crear_evento);
+
+}
+
+void MainWindow::on_pushButton_Eliminar_Evento_clicked()
+{
+    eliminarEventoActual();
+}
+
+/**
+ * @brief cargarDatosEvento permite cargar en una tabla los datos de los
+ * eventos existentes.
+ */
+void MainWindow::cargarDatosEventos()
+{
+    // Se abre el archivo
+    QFile file("../eventos.txt");
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return;
+
+    // Se lee el archivo en formato lectura
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        QStringList datos = line.split(",");
+        if (datos.size() == componenentesEventoCount) {
+            QString nombre = datos[numNombre];
+            QString cliente = datos[numCliente];
+            QString contacto = datos[numContacto];
+            QString lugar = datos[numLugar];
+            QString fechaStr = datos[numFecha];
+            QString horaInicioStr = datos[numHoraInicio];
+            QString horaFinStr = datos[numHoraFin];
+            QString tipoEvento = datos[numTipoEvento];
+            QString dj = datos[numDj];
+            QString catering = datos[numCatering];
+            QString comparsa = datos[numComparsa];
+            float presupuesto = datos[numCosto].toFloat();
+
+            QDate fecha = QDate::fromString(fechaStr, "yyyy-MM-dd");
+            QTime horaInicio = QTime::fromString(horaInicioStr, "HH:mm:ss");
+            QTime horaFin = QTime::fromString(horaFinStr, "HH:mm:ss");
+
+
+            /* Crear un nuevo objeto Evento y añadirlo a la tabla */
+            Evento evento;
+
+            evento.setNombre(nombre);
+            evento.setCliente(cliente);
+            evento.setContacto(contacto);
+            evento.setLugar(lugar);
+            evento.setFecha(fecha);
+            evento.setHoraInicio(horaInicio);
+            evento.setHoraFin(horaFin);
+            evento.setTipoEvento(tipoEvento);
+            evento.setDj(dj);
+            evento.setCatering(catering);
+            evento.setComparsa(comparsa);
+            evento.setPresupuesto(presupuesto);
+
+            // Se inserta en tablaEventos
+            int row = ui->tablaEventos->rowCount();
+            ui->tablaEventos->insertRow(row);
+            ui->tablaEventos->setItem(row, numNombre, new QTableWidgetItem(evento.getNombre()));
+            ui->tablaEventos->setItem(row, numCliente, new QTableWidgetItem(evento.getCliente()));
+            ui->tablaEventos->setItem(row, numContacto, new QTableWidgetItem(evento.getContacto()));
+            ui->tablaEventos->setItem(row, numLugar, new QTableWidgetItem(evento.getLugar()));
+            ui->tablaEventos->setItem(row, numFecha, new QTableWidgetItem(evento.getFecha().toString()));
+            ui->tablaEventos->setItem(row, numHoraInicio, new QTableWidgetItem(evento.getHoraInicio().toString("hh:mm")));
+            ui->tablaEventos->setItem(row, numHoraFin, new QTableWidgetItem(evento.getHoraFin().toString("hh:mm")));
+            ui->tablaEventos->setItem(row, numTipoEvento, new QTableWidgetItem(evento.getTipoEvento()));
+            ui->tablaEventos->setItem(row, numDj, new QTableWidgetItem(evento.getDj()));
+            ui->tablaEventos->setItem(row, numCatering, new QTableWidgetItem(evento.getCatering()));
+            ui->tablaEventos->setItem(row, numComparsa, new QTableWidgetItem(evento.getComparsa()));
+            ui->tablaEventos->setItem(row, numCosto, new QTableWidgetItem(QString::number(evento.getPresupuesto())));
+        }
+    }
+    file.close();
+}
+
+void MainWindow::eliminarEventoActual()
+{
+    /* Obtener el índice de la fila seleccionada */
+    int selectedRow = ui->tablaEventos->currentRow();
+    if (selectedRow >= 0) {
+        /* Eliminar la fila seleccionada de la tabla */
+        ui->tablaEventos->removeRow(selectedRow);
+
+        /* Abrir el archivo de proveedores en modo escritura */
+        QFile file("../eventos.txt");
+        if (file.open(QIODevice::WriteOnly | QIODevice::Text)){
+            QTextStream out(&file);
+
+            /* Recorrer todas las filas de la tabla y guardar los datos en el archivo */
+            int rowCount = ui->tablaEventos->rowCount();
+            for (int row = 0; row < rowCount; ++row)
+            {
+                QString nombre = ui->tablaEventos->item(row, numNombre)->text();
+                QString cliente = ui->tablaEventos->item(row, numCliente)->text();
+                QString contacto = ui->tablaEventos->item(row, numContacto)->text();
+                QString lugar = ui->tablaEventos->item(row, numLugar)->text();
+                QString fecha = ui->tablaEventos->item(row, numFecha)->text();
+                QString horaInicio = ui->tablaEventos->item(row, numHoraInicio)->text();
+                QString horaFin = ui->tablaEventos->item(row, numHoraFin)->text();
+                QString tipoEvento = ui->tablaEventos->item(row, numTipoEvento)->text();
+                QString dj = ui->tablaEventos->item(row, numDj)->text();
+                QString catering = ui->tablaEventos->item(row, numCatering)->text();
+                QString comparsa = ui->tablaEventos->item(row, numComparsa)->text();
+                float presupuesto = ui->tablaEventos->item(row, numCosto)->text().toFloat();
+
+                out << nombre << ","
+                    << cliente << ","
+                    << contacto << ","
+                    << lugar << ","
+                    << fecha << ","
+                    << horaInicio << ","
+                    << horaFin << ","
+                    << tipoEvento << ","
+                    << dj << ","
+                    << catering << ","
+                    << comparsa << ","
+                    << presupuesto << "\n";
+            }
+            file.close();
+        }
+    }
+}
+
+
+/////////////////////////////////////////////////////////////
 /* Pantalla Crear evento */
 
 void MainWindow::on_pushButton_Cancelar_3_clicked()
@@ -511,10 +567,118 @@ void MainWindow::on_pushButton_Cancelar_3_clicked()
 
 void MainWindow::on_pushButton_Crear_clicked()
 {
-/////
+    anadirEvento();
+}
+
+void MainWindow::on_pushButton_Eventos_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(pantalla_eventos);
+}
+
+void MainWindow::anadirEvento()
+{
+    /* Verificar si alguna de las entradas está vacía */
+    if (ui->lineEdit_nombreEvento->text().isEmpty() ||
+        ui->lineEdit_cliente->text().isEmpty() ||
+        ui->lineEdit_lugar->text().isEmpty() ||
+        ui->lineEdit_dj->text().isEmpty() ||
+        ui->lineEdit_catering->text().isEmpty() ||
+        ui->lineEdit_comparsa->text().isEmpty() ||
+        ui->lineEdit_presupuesto->text().isEmpty()) {
+        /*  Muestra un mensaje de error si alguna entrada está vacía */
+        QMessageBox::warning(this, tr("Proveedor"), tr("Por favor, completa todos los campos."));
+        return;
+    }
+
+    /* Extraer los datos introducidos por el usuario */
+    QString nombreEvento = ui->lineEdit_nombreEvento->text();
+    QString cliente = ui->lineEdit_cliente->text();
+    QString contacto = ui->lineEdit_contacto->text();
+    QString lugar = ui->lineEdit_lugar->text();
+    QDate fecha = ui->dateEdit_fechaEvento->date();
+    QString fechaStr= fecha.toString("dd/MM/yyyy");
+    QTime horaInicio = ui->dateEdit_horaInicio->time();
+    QString horaInicioStr = horaInicio.toString("hh:mm:ss");
+    QTime horaFin = ui->dateEdit_horaFin->time();
+    QString horaFinStr = horaFin.toString("hh:mm:ss");
+    if (!verificarHoras(horaInicio, horaFin)) {return;}
+    QString tipoEvento = ui->lineEdit_tipoEvento->currentText();
+    QString dj = ui->lineEdit_dj->text();
+    QString catering = ui->lineEdit_catering->text();
+    QString comparsa = ui->lineEdit_comparsa->text();
+    QString presupuestoStr = ui->lineEdit_presupuesto->text();
+    float presupuesto;
+    if (!verificarPresupuesto(presupuestoStr, presupuesto)) {return;}
+
+
+    /* Crear un nuevo objeto Evento con los datos introducidos */
+    Evento eventoNuevo;
+    eventoNuevo.setNombre(nombreEvento);
+    eventoNuevo.setCliente(cliente);
+    eventoNuevo.setContacto(contacto);
+    eventoNuevo.setLugar(lugar);
+    eventoNuevo.setFecha(fecha);
+    eventoNuevo.setHoraInicio(horaInicio);
+    eventoNuevo.setHoraFin(horaFin);
+    eventoNuevo.setTipoEvento(tipoEvento);
+    eventoNuevo.setDj(dj);
+    eventoNuevo.setCatering(catering);
+    eventoNuevo.setComparsa(comparsa);
+    eventoNuevo.setPresupuesto(presupuesto);
+
+    /* Añadir el evento a la tabla */
+
+    int row = ui->tablaEventos->rowCount();
+    ui->tablaEventos->insertRow(row);
+    ui->tablaEventos->setItem(row, numNombre, new QTableWidgetItem(eventoNuevo.getNombre()));
+    ui->tablaEventos->setItem(row, numCliente, new QTableWidgetItem(eventoNuevo.getCliente()));
+    ui->tablaEventos->setItem(row, numContacto, new QTableWidgetItem(eventoNuevo.getContacto()));
+    ui->tablaEventos->setItem(row, numLugar, new QTableWidgetItem(eventoNuevo.getLugar()));
+    ui->tablaEventos->setItem(row, numFecha, new QTableWidgetItem(eventoNuevo.getFecha().toString()));
+    ui->tablaEventos->setItem(row, numHoraInicio, new QTableWidgetItem(eventoNuevo.getHoraInicio().toString("hh:mm")));
+    ui->tablaEventos->setItem(row, numHoraFin, new QTableWidgetItem(eventoNuevo.getHoraFin().toString("hh:mm")));
+    ui->tablaEventos->setItem(row, numTipoEvento, new QTableWidgetItem(eventoNuevo.getTipoEvento()));
+    ui->tablaEventos->setItem(row, numDj, new QTableWidgetItem(eventoNuevo.getDj()));
+    ui->tablaEventos->setItem(row, numCatering, new QTableWidgetItem(eventoNuevo.getCatering()));
+    ui->tablaEventos->setItem(row, numComparsa, new QTableWidgetItem(eventoNuevo.getComparsa()));
+    ui->tablaEventos->setItem(row, numCosto, new QTableWidgetItem(QString::number(eventoNuevo.getPresupuesto())));
+
+
+    /* Limpiar los campos de entrada */
+    ui->lineEdit_nombreEvento->clear();
+    ui->lineEdit_cliente->clear();
+    ui->lineEdit_contacto->clear();
+    ui->lineEdit_lugar->clear();
+    ui->lineEdit_dj->clear();
+    ui->lineEdit_catering->clear();
+    ui->lineEdit_comparsa->clear();
+    ui->lineEdit_presupuesto->clear();
+
+    /* Almacenar los datos en un archivo de texto */
+    QFile file("../eventos.txt");
+    if (file.open(QIODevice::Append | QIODevice::Text)) {
+        QTextStream out(&file);
+        out << eventoNuevo.getNombre() << ","
+            << eventoNuevo.getCliente() << ","
+            << eventoNuevo.getContacto() << ","
+            << eventoNuevo.getLugar() << ","
+            << eventoNuevo.getFecha().toString("yyyy-MM-dd") << ","
+            << eventoNuevo.getHoraInicio().toString("hh:mm") << ","
+            << eventoNuevo.getHoraFin().toString("hh:mm") << ","
+            << eventoNuevo.getTipoEvento() << ","
+            << eventoNuevo.getDj() << ","
+            << eventoNuevo.getCatering() << ","
+            << eventoNuevo.getComparsa() << ","
+            << eventoNuevo.getPresupuesto() << "\n";
+        file.close();
+    }
+    /* Mostrar mensaje de éxito */
+    QMessageBox::information(this, "Éxito", "Evento agregado.");
 
 }
 
+
+////////////////////////////////////////////////////////////////////////////
 /* Pantalla Contáctenos */
 
 void MainWindow::on_pushButton_Regresar_clicked()
@@ -693,18 +857,8 @@ void MainWindow::on_pushButton_Eliminar_Solicitud_clicked()
     ui->stackedWidget->setCurrentIndex(solicitudes);
 }
 
-void MainWindow::on_pushButton_Eventos_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(pantalla_eventos);
-}
 
-
-void MainWindow::on_pushButton_irCrearEvento_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(crear_evento);
-
-}
-
+///////////////////////////////////////////////////////////////////////
 /* Pantalla Añadir Lugares */
 
 void MainWindow::on_pushButton_anadir_lugar_clicked()
@@ -860,10 +1014,118 @@ void MainWindow::eliminarLugarActual()
     }
 }
 
+////////////////////////////////////////////////////////////////////////
+/* Pantalla Proveedores */
+void MainWindow::on_pushButton_Cancelar_Proveedores_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(principal);
+}
 
+void MainWindow::on_pushButton_Agregar_Proveedor_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(agregar_proveedores);
+}
+
+void MainWindow::on_pushButton_Eliminar_Proveedor_clicked()
+{
+    eliminarProveedorActual();
+    ui->stackedWidget->setCurrentIndex(proveedores);
+}
+
+void MainWindow::cargarDatosProveedores()
+{
+    // Se abre el archivo
+    QFile file("../proveedores.txt");
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return;
+
+    // Se lee el archivo
+    QTextStream in(&file);
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        QStringList datos = line.split(",");
+        if (datos.size() == 5) {
+            QString servicio = datos[0];
+            QString empresa = datos[1];
+            int eventos = datos[2].toInt();
+            QString valoracion = datos[3];
+            double precio = datos[4].toDouble();
+
+            /* Crear un nuevo Proveedor y añadirlo a la tabla */
+            Proveedor proveedor;
+            proveedor.setServicio(servicio);
+            proveedor.setEmpresa(empresa);
+            proveedor.setEventos(eventos);
+            proveedor.setValoracion(valoracion);
+            proveedor.setPrecio(precio);
+
+            // Se inserta en la tablaProveedores
+            int row = ui->tablaProveedores->rowCount();
+            ui->tablaProveedores->insertRow(row);
+            ui->tablaProveedores->setItem(row, 0, new QTableWidgetItem(proveedor.getServicio()));
+            ui->tablaProveedores->setItem(row, 1, new QTableWidgetItem(proveedor.getEmpresa()));
+            ui->tablaProveedores->setItem(row, 2, new QTableWidgetItem(QString::number(proveedor.getEventos())));
+            ui->tablaProveedores->setItem(row, 3, new QTableWidgetItem(proveedor.getValoracion()));
+            ui->tablaProveedores->setItem(row, 4, new QTableWidgetItem(QString::number(proveedor.getPrecio())));
+        }
+    }
+
+    // Se cierra el archivo
+    file.close();
+}
+
+
+void MainWindow::eliminarProveedorActual()
+{
+    /* Obtener el índice de la fila seleccionada */
+    int selectedRow = ui->tablaProveedores->currentRow();
+    if (selectedRow >= 0)
+    {
+        /* Eliminar la fila seleccionada de la tabla */
+        ui->tablaProveedores->removeRow(selectedRow);
+
+        /* Abrir el archivo de proveedores en modo escritura */
+        QFile file("../proveedores.txt");
+        if (file.open(QIODevice::WriteOnly | QIODevice::Text))
+        {
+            QTextStream out(&file);
+
+            /* Recorrer todas las filas de la tabla y guardar los datos en el archivo */
+            int rowCount = ui->tablaProveedores->rowCount();
+            for (int row = 0; row < rowCount; ++row)
+            {
+                QString servicio = ui->tablaProveedores->item(row, 0)->text();
+                QString empresa = ui->tablaProveedores->item(row, 1)->text();
+                int eventos = ui->tablaProveedores->item(row, 2)->text().toInt();
+                QString valoracion = ui->tablaProveedores->item(row, 3)->text();
+                double precio = ui->tablaProveedores->item(row, 4)->text().toDouble();
+
+                out << servicio << ","
+                    << empresa << ","
+                    << eventos << ","
+                    << valoracion << ","
+                    << precio << "\n";
+            }
+
+            file.close();
+        }
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 /* Pantalla Añadir Proveedores */
 
+void MainWindow::on_pushButton_Regresar_Anadir_Proveedor_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(proveedores);
+}
+
 void MainWindow::on_pushButton_anadir_proveedor_clicked()
+{
+    anadirProvedor();
+}
+
+void MainWindow::anadirProvedor()
 {
     /* Verificar si alguna de las entradas está vacía */
     if (ui->lineEdit_servicio->text().isEmpty() ||
@@ -930,170 +1192,30 @@ void MainWindow::on_pushButton_anadir_proveedor_clicked()
     }
     /* Mostrar mensaje de éxito */
     QMessageBox::information(this, "Éxito", "Proveedor agregado.");
-
 }
+//////////////////////////////////////////////////////////////
 
-void MainWindow::cargarDatosProveedores()
-{
-    QFile file("../proveedores.txt");
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-        return;
 
-    QTextStream in(&file);
-    while (!in.atEnd()) {
-        QString line = in.readLine();
-        QStringList datos = line.split(",");
-        if (datos.size() == 5) {
-            QString servicio = datos[0];
-            QString empresa = datos[1];
-            int eventos = datos[2].toInt();
-            QString valoracion = datos[3];
-            double precio = datos[4].toDouble();
 
-            /* Crear un nuevo Proveedor y añadirlo a la tabla */
-            Proveedor proveedor;
-            proveedor.setServicio(servicio);
-            proveedor.setEmpresa(empresa);
-            proveedor.setEventos(eventos);
-            proveedor.setValoracion(valoracion);
-            proveedor.setPrecio(precio);
+///////////////////// FUNCIONALIDAD DE VERIFICACION PASABLE A OTRO ARCHIVO /////////////
 
-            int row = ui->tablaProveedores->rowCount();
-            ui->tablaProveedores->insertRow(row);
-            ui->tablaProveedores->setItem(row, 0, new QTableWidgetItem(proveedor.getServicio()));
-            ui->tablaProveedores->setItem(row, 1, new QTableWidgetItem(proveedor.getEmpresa()));
-            ui->tablaProveedores->setItem(row, 2, new QTableWidgetItem(QString::number(proveedor.getEventos())));
-            ui->tablaProveedores->setItem(row, 3, new QTableWidgetItem(proveedor.getValoracion()));
-            ui->tablaProveedores->setItem(row, 4, new QTableWidgetItem(QString::number(proveedor.getPrecio())));
-        }
+bool verificarPresupuesto(const QString& presupuestoStr, float& presupuesto) {
+    bool presupuestoValido;
+    presupuesto = presupuestoStr.toFloat(&presupuestoValido);
+    if (!presupuestoValido || presupuesto < 0.0) {
+        QMessageBox::warning(nullptr, "Error", "Presupuesto no válido");
+        return false;
     }
+    return true;
+}
 
-    file.close();
+bool verificarHoras(QTime horaInicio, QTime horaFin) {
+    QMessageBox::warning(nullptr, "Error", "La hora de fin debe ser posterior a la hora de inicio");
+    return horaFin > horaInicio;
 }
 
 
-void MainWindow::eliminarProveedorActual()
-{
-    /* Obtener el índice de la fila seleccionada */
-    int selectedRow = ui->tablaProveedores->currentRow();
-    if (selectedRow >= 0)
-    {
-        /* Eliminar la fila seleccionada de la tabla */
-        ui->tablaProveedores->removeRow(selectedRow);
-
-        /* Abrir el archivo de proveedores en modo escritura */
-        QFile file("../proveedores.txt");
-        if (file.open(QIODevice::WriteOnly | QIODevice::Text))
-        {
-            QTextStream out(&file);
-
-            /* Recorrer todas las filas de la tabla y guardar los datos en el archivo */
-            int rowCount = ui->tablaProveedores->rowCount();
-            for (int row = 0; row < rowCount; ++row)
-            {
-                QString servicio = ui->tablaProveedores->item(row, 0)->text();
-                QString empresa = ui->tablaProveedores->item(row, 1)->text();
-                int eventos = ui->tablaProveedores->item(row, 2)->text().toInt();
-                QString valoracion = ui->tablaProveedores->item(row, 3)->text();
-                double precio = ui->tablaProveedores->item(row, 4)->text().toDouble();
-
-                out << servicio << ","
-                    << empresa << ","
-                    << eventos << ","
-                    << valoracion << ","
-                    << precio << "\n";
-            }
-
-            file.close();
-        }
-    }
-}
 
 
-void MainWindow::on_pushButton_Agregar_Proveedor_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(agregar_proveedores);
-}
 
-
-void MainWindow::on_pushButton_Regresar_Anadir_Proveedor_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(proveedores);
-}
-
-
-void MainWindow::on_pushButton_Eliminar_Proveedor_clicked()
-{
-    eliminarProveedorActual();
-    ui->stackedWidget->setCurrentIndex(proveedores);
-}
-
-/**
- * @brief cargarDatosEvento permite cargar en una tabla los datos de los
- * eventos existentes.
- */
-void MainWindow::cargarDatosEventos()
-{
-    QFile file("../eventos.txt");
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-        return;
-
-    QTextStream in(&file);
-    while (!in.atEnd()) {
-        QString line = in.readLine();
-        QStringList datos = line.split(",");
-        if (datos.size() == componenentesEventoCount) {
-            QString nombre = datos[numNombre];
-            QString cliente = datos[numCliente];
-            QString contacto = datos[numContacto];
-            QString lugar = datos[numLugar];
-            QString fechaStr = datos[numFecha];
-            QString horaInicioStr = datos[numHoraInicio];
-            QString horaFinStr = datos[numHoraFin];
-            QString tipoEvento = datos[numTipoEvento];
-            QString dj = datos[numDj];
-            QString catering = datos[numCatering];
-            QString comparsa = datos[numComparsa];
-            float presupuesto = datos[numCosto].toFloat();
-
-            QDateTime fecha = QDateTime::fromString(fechaStr, "yyyy-MM-dd");
-            QDateTime horaInicio = QDateTime::fromString(horaInicioStr, "HH:mm:ss");
-            QDateTime horaFin = QDateTime::fromString(horaFinStr, "HH:mm:ss");
-
-
-        /* Crear un nuevo objeto Evento y añadirlo a la tabla */
-            Evento evento;
-
-            evento.setNombre(nombre);
-            evento.setCliente(cliente);
-            evento.setContacto(contacto);
-            evento.setLugar(lugar);
-            evento.setFecha(fecha);
-            evento.setHoraInicio(horaInicio);
-            evento.setHoraFin(horaFin);
-            evento.setTipoEvento(tipoEvento);
-            evento.setDj(dj);
-            evento.setCatering(catering);
-            evento.setComparsa(comparsa);
-            evento.setPresupuesto(presupuesto);
-
-
-            int row = ui->tablaEventos->rowCount();
-            ui->tablaEventos->insertRow(row);
-            ui->tablaEventos->setItem(row, numNombre, new QTableWidgetItem(evento.getNombre()));
-            ui->tablaEventos->setItem(row, numCliente, new QTableWidgetItem(evento.getCliente()));
-            ui->tablaEventos->setItem(row, numContacto, new QTableWidgetItem(evento.getContacto()));
-            ui->tablaEventos->setItem(row, numLugar, new QTableWidgetItem(evento.getLugar()));
-            ui->tablaEventos->setItem(row, numFecha, new QTableWidgetItem(evento.getFecha().toString()));
-            ui->tablaEventos->setItem(row, numHoraInicio, new QTableWidgetItem(evento.getHoraInicio().toString("hh:mm")));
-            ui->tablaEventos->setItem(row, numHoraFin, new QTableWidgetItem(evento.getHoraFin().toString("hh:mm")));
-            ui->tablaEventos->setItem(row, numTipoEvento, new QTableWidgetItem(evento.getTipoEvento()));
-            ui->tablaEventos->setItem(row, numDj, new QTableWidgetItem(evento.getDj()));
-            ui->tablaEventos->setItem(row, numCatering, new QTableWidgetItem(evento.getCatering()));
-            ui->tablaEventos->setItem(row, numComparsa, new QTableWidgetItem(evento.getComparsa()));
-            ui->tablaEventos->setItem(row, numCosto, new QTableWidgetItem(QString::number(evento.getPresupuesto())));
-        }
-    }
-    file.close();
-}
 

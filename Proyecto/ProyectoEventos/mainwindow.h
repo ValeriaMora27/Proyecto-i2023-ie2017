@@ -80,9 +80,34 @@ private slots:
     void on_pushButton_conciertos_clicked();
     void on_pushButton_bodas_clicked();
 
+
     /*Pantalla de Eventos Existentes*/
     void on_pushButton_Cancelar_Eventos_clicked();
     void on_pushButton_irCrearEvento_clicked();
+    void on_pushButton_Eliminar_Evento_clicked();
+    void cargarDatosEventos();
+    void eliminarEventoActual();
+
+
+    /*Pantalla Crear Evento*/
+    void on_pushButton_Cancelar_3_clicked();
+    void on_pushButton_Crear_clicked();
+    void on_pushButton_Eventos_clicked();
+    void anadirEvento();
+
+
+    /* Pantalla de proveedores */
+    void on_pushButton_Cancelar_Proveedores_clicked();
+    void on_pushButton_Agregar_Proveedor_clicked();
+    void on_pushButton_Eliminar_Proveedor_clicked();
+    void cargarDatosProveedores();
+    void eliminarProveedorActual();
+
+
+    /* Pantalla de añadir proveedores */
+    void on_pushButton_Regresar_Anadir_Proveedor_clicked();
+    void on_pushButton_anadir_proveedor_clicked();
+    void anadirProvedor();
 
 
     /* Pantalla de Lugares */
@@ -92,42 +117,31 @@ private slots:
     void cargarDatos();
     void eliminarLugarActual();
 
+
     /* Pantalla Añadir Lugares */
     void on_pushButton_Regresar_Anadir_Lugares_clicked();
     void on_pushButton_anadir_lugar_clicked();
 
-    /* Pantalla de proveedores */
-    void on_pushButton_Cancelar_Proveedores_clicked();
-    void cargarDatosProveedores();
-    void eliminarProveedorActual();
 
     /* Pantalla de Estadisticas */
     void on_pushButton_Cancelar_Estadisticas_clicked();
+
 
     /* Pantalla de Solicitud */
     void on_pushButton_Cancelar_Solicitud_clicked();
     void cargarDatosSolicitudes();
     void eliminarSolicitudActual();
 
-    /*Pantalla Crear Evento*/
-    void on_pushButton_Cancelar_3_clicked();
-    void on_pushButton_Crear_clicked();
-    void on_pushButton_Eventos_clicked();
-    void cargarDatosEventos();
 
     /*Pantalla Contáctenos*/
     void on_pushButton_Regresar_clicked();
     void on_pushButton_Enviar_clicked();
 
+///////////////////
 
-    /* Pantalla de añadir proveedores */
-    void on_pushButton_anadir_proveedor_clicked();
-    void on_pushButton_Agregar_Proveedor_clicked();
-    void on_pushButton_Regresar_Anadir_Proveedor_clicked();
-
-    void on_pushButton_Eliminar_Proveedor_clicked();
 
     void on_pushButton_Eliminar_Solicitud_clicked();
+
 
 private:
     Ui::MainWindow *ui; /**< Interfaz de usuario de la ventana principal. */
@@ -145,5 +159,11 @@ private:
      */
     bool esAdministrador();
 };
+
+
+/////////// FUNCIONALIDAD PASABLE A OTRO ARCHIVO ////////
+
+bool verificarPresupuesto(const QString& presupuestoStr, float& presupuesto);
+bool verificarHoras(QTime horaInicio, QTime horaFin);
 
 #endif // MAINWINDOW_H

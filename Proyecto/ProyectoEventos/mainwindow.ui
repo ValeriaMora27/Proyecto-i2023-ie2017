@@ -789,7 +789,7 @@ planificación, organización y gestión de eventos extraordinarios.</string>
       <property name="geometry">
        <rect>
         <x>260</x>
-        <y>60</y>
+        <y>30</y>
         <width>281</width>
         <height>51</height>
        </rect>
@@ -809,10 +809,10 @@ planificación, organización y gestión de eventos extraordinarios.</string>
      <widget class="QPushButton" name="pushButton_Cancelar_Eventos">
       <property name="geometry">
        <rect>
-        <x>220</x>
-        <y>510</y>
-        <width>131</width>
-        <height>61</height>
+        <x>120</x>
+        <y>500</y>
+        <width>141</width>
+        <height>71</height>
        </rect>
       </property>
       <property name="font">
@@ -827,77 +827,20 @@ planificación, organización y gestión de eventos extraordinarios.</string>
      <widget class="QTableWidget" name="tablaEventos">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>120</y>
-        <width>681</width>
-        <height>351</height>
+        <x>30</x>
+        <y>80</y>
+        <width>741</width>
+        <height>391</height>
        </rect>
       </property>
-      <column>
-       <property name="text">
-        <string>Evento</string>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>9</pointsize>
-         <bold>false</bold>
-         <stylestrategy>PreferDefault</stylestrategy>
-        </font>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Cliente</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Fecha</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Hora inicio</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Hora fin</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Tipo de evento</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Dj</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>New Column</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Comparsa</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Costo</string>
-       </property>
-      </column>
      </widget>
      <widget class="QPushButton" name="pushButton_irCrearEvento">
       <property name="geometry">
        <rect>
-        <x>470</x>
-        <y>510</y>
-        <width>131</width>
-        <height>61</height>
+        <x>550</x>
+        <y>500</y>
+        <width>141</width>
+        <height>71</height>
        </rect>
       </property>
       <property name="font">
@@ -910,13 +853,32 @@ planificación, organización y gestión de eventos extraordinarios.</string>
 evento</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_Eliminar_Evento">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>500</y>
+        <width>141</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Eliminar
+ evento</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page05_CrearEvento">
      <widget class="QLabel" name="label_10">
       <property name="geometry">
        <rect>
-        <x>320</x>
-        <y>10</y>
+        <x>560</x>
+        <y>40</y>
         <width>201</width>
         <height>51</height>
        </rect>
@@ -936,8 +898,8 @@ evento</string>
      <widget class="QPushButton" name="pushButton_Cancelar_3">
       <property name="geometry">
        <rect>
-        <x>600</x>
-        <y>270</y>
+        <x>570</x>
+        <y>230</y>
         <width>151</width>
         <height>61</height>
        </rect>
@@ -963,8 +925,8 @@ evento</string>
      <widget class="QPushButton" name="pushButton_Crear">
       <property name="geometry">
        <rect>
-        <x>600</x>
-        <y>170</y>
+        <x>570</x>
+        <y>140</y>
         <width>151</width>
         <height>61</height>
        </rect>
@@ -981,10 +943,10 @@ evento</string>
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>70</y>
+        <x>30</x>
+        <y>20</y>
         <width>431</width>
-        <height>502</height>
+        <height>645</height>
        </rect>
       </property>
       <layout class="QFormLayout" name="formLayout_3">
@@ -1022,9 +984,46 @@ evento</string>
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QLineEdit" name="nombreEvento"/>
+        <widget class="QLineEdit" name="lineEdit_nombreEvento"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="clienteLabel">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Cliente</string>
+         </property>
+        </widget>
        </item>
        <item row="2" column="0">
+        <widget class="QLabel" name="contactoLabel">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Contacto</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="lineEdit_contacto"/>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="lugarLabel">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Lugar&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="lineEdit_lugar"/>
+       </item>
+       <item row="4" column="0">
         <widget class="QLabel" name="fechaLabel">
          <property name="font">
           <font>
@@ -1036,8 +1035,8 @@ evento</string>
          </property>
         </widget>
        </item>
-       <item row="2" column="1">
-        <widget class="QDateEdit" name="fechaEvento">
+       <item row="4" column="1">
+        <widget class="QDateEdit" name="dateEdit_fechaEvento">
          <property name="dateTime">
           <datetime>
            <hour>6</hour>
@@ -1060,7 +1059,7 @@ evento</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="0">
+       <item row="5" column="0">
         <widget class="QLabel" name="horaInicioLabel">
          <property name="font">
           <font>
@@ -1072,13 +1071,20 @@ evento</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="1">
-        <widget class="QTimeEdit" name="horaInicio"/>
+       <item row="5" column="1">
+        <widget class="QTimeEdit" name="dateEdit_horaInicio"/>
        </item>
-       <item row="4" column="1">
-        <widget class="QTimeEdit" name="horaFin"/>
+       <item row="6" column="0">
+        <widget class="QLabel" name="horaFinLabel">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Hora de finalización&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
        </item>
-       <item row="5" column="0">
+       <item row="6" column="1">
+        <widget class="QTimeEdit" name="dateEdit_horaFin"/>
+       </item>
+       <item row="7" column="0">
         <widget class="QLabel" name="tipoEventoLabel">
          <property name="font">
           <font>
@@ -1090,8 +1096,8 @@ evento</string>
          </property>
         </widget>
        </item>
-       <item row="5" column="1">
-        <widget class="QComboBox" name="tipoEvento">
+       <item row="7" column="1">
+        <widget class="QComboBox" name="lineEdit_tipoEvento">
          <item>
           <property name="text">
            <string>Conciertos</string>
@@ -1119,7 +1125,7 @@ evento</string>
          </item>
         </widget>
        </item>
-       <item row="6" column="0">
+       <item row="8" column="0">
         <widget class="QLabel" name="djLabel">
          <property name="font">
           <font>
@@ -1131,10 +1137,10 @@ evento</string>
          </property>
         </widget>
        </item>
-       <item row="6" column="1">
-        <widget class="QLineEdit" name="dj"/>
+       <item row="8" column="1">
+        <widget class="QLineEdit" name="lineEdit_dj"/>
        </item>
-       <item row="7" column="0">
+       <item row="9" column="0">
         <widget class="QLabel" name="cateringLabel">
          <property name="font">
           <font>
@@ -1146,10 +1152,10 @@ evento</string>
          </property>
         </widget>
        </item>
-       <item row="7" column="1">
-        <widget class="QLineEdit" name="catering"/>
+       <item row="9" column="1">
+        <widget class="QLineEdit" name="lineEdit_catering"/>
        </item>
-       <item row="8" column="0">
+       <item row="10" column="0">
         <widget class="QLabel" name="comparsaLabel">
          <property name="font">
           <font>
@@ -1161,10 +1167,10 @@ evento</string>
          </property>
         </widget>
        </item>
-       <item row="8" column="1">
-        <widget class="QLineEdit" name="comparsa"/>
+       <item row="10" column="1">
+        <widget class="QLineEdit" name="lineEdit_comparsa"/>
        </item>
-       <item row="9" column="0">
+       <item row="11" column="0">
         <widget class="QLabel" name="presupuestoLabel">
          <property name="font">
           <font>
@@ -1176,38 +1182,19 @@ evento</string>
          </property>
         </widget>
        </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="horaFinLabel">
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Hora de finalización&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="clienteLabel">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Cliente</string>
-         </property>
-        </widget>
+       <item row="11" column="1">
+        <widget class="QLineEdit" name="lineEdit_presupuesto"/>
        </item>
        <item row="1" column="1">
-        <widget class="QLineEdit" name="cliente"/>
-       </item>
-       <item row="9" column="1">
-        <widget class="QLineEdit" name="presupuesto"/>
+        <widget class="QLineEdit" name="lineEdit_cliente"/>
        </item>
       </layout>
      </widget>
      <widget class="QPushButton" name="pushButton_Eventos">
       <property name="geometry">
        <rect>
-        <x>590</x>
-        <y>370</y>
+        <x>560</x>
+        <y>320</y>
         <width>171</width>
         <height>81</height>
        </rect>
@@ -1299,8 +1286,8 @@ existentes</string>
      <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
-        <x>60</x>
-        <y>30</y>
+        <x>10</x>
+        <y>50</y>
         <width>381</width>
         <height>41</height>
        </rect>
@@ -1321,7 +1308,7 @@ existentes</string>
       <property name="geometry">
        <rect>
         <x>680</x>
-        <y>40</y>
+        <y>60</y>
         <width>83</width>
         <height>29</height>
        </rect>

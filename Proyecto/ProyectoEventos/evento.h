@@ -8,6 +8,9 @@
 
 #include <QString>
 #include <QDateTime>
+#include <QDate>
+#include <QTime>
+
 
 /**
  * @brief La clase Evento representa un evento.
@@ -19,9 +22,9 @@ private:
     QString cliente; /**< El cliente asociado con el evento. */
     QString contacto; /**< Teléfono del cliente asociado con el evento. */
     QString lugar; /**< El lugar donde se realiza el evento. */
-    QDateTime fecha; /**< La fecha del evento. */
-    QDateTime horaInicio; /**< La hora de inicio del evento. */
-    QDateTime horaFin; /**< La hora de finalización del evento. */
+    QDate fecha; /**< La fecha del evento. */
+    QTime horaInicio; /**< La hora de inicio del evento. */
+    QTime horaFin; /**< La hora de finalización del evento. */
     QString tipoEvento; /**< El tipo de evento. */
     QString dj; /**< Dj del evento. */
     QString catering; /**< Catering del evento. */
@@ -93,19 +96,19 @@ public:
      * @brief setFecha establece la fecha del evento.
      * @param newFecha La fecha del evento.
      */
-    void setFecha(QDateTime& newFecha);
+    void setFecha(QDate& newFecha);
 
     /**
      * @brief setHoraInicio establece la hora de inicio del evento.
      * @param newHoraInicio La hora de inicio del evento.
      */
-    void setHoraInicio(QDateTime& newHoraInicio);
+    void setHoraInicio(QTime& newHoraInicio);
 
     /**
      * @brief setHoraFin establece la hora de finalización del evento.
      * @param newHoraFin La hora de finalización del evento.
      */
-    void setHoraFin(QDateTime& newHoraFin);
+    void setHoraFin(QTime& newHoraFin);
 
     /**
      * @brief setTipoEvento establece el tipo de evento.
@@ -167,19 +170,19 @@ public:
      * @brief getFecha devuelve la fecha del evento.
      * @return La fecha del evento.
      */
-    QDateTime getFecha() const;
+    QDate getFecha() const;
 
     /**
      * @brief getHoraInicio devuelve la hora de inicio del evento.
      * @return La hora de inicio del evento.
      */
-    QDateTime getHoraInicio() const;
+    QTime getHoraInicio() const;
 
     /**
      * @brief getHoraFin devuelve la hora de finalización del evento.
      * @return La hora de finalización del evento.
      */
-    QDateTime getHoraFin() const;
+    QTime getHoraFin() const;
 
     /**
      * @brief getTipoEvento devuelve el tipo de evento.
