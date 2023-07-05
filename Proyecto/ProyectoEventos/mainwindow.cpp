@@ -25,30 +25,29 @@ using namespace std;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
-    ui(new Ui::MainWindow)
+      ui(new Ui::MainWindow)
 
 {
     ui->setupUi(this);
-    const QStringList titles{"Lugar","Capacidad","Disponibilidad","Precio","Localización","¿Es bajo techo?"};
+    const QStringList titles{"Lugar", "Capacidad", "Disponibilidad", "Precio", "Localización", "¿Es bajo techo?"};
     ui->tablaLugares->setColumnCount(titles.size());
     ui->tablaLugares->setHorizontalHeaderLabels(titles);
     cargarDatos();
 
-    const QStringList titlesProveedor{"Tipo de servicio","Empresa","Cantidad de eventos","Valoración","Precio"};
+    const QStringList titlesProveedor{"Tipo de servicio", "Empresa", "Cantidad de eventos", "Valoración", "Precio"};
     ui->tablaProveedores->setColumnCount(titlesProveedor.size());
     ui->tablaProveedores->setHorizontalHeaderLabels(titlesProveedor);
     cargarDatosProveedores();
 
-    const QStringList titlesSolicitudes{"Correo","Nombre","Teléfono","Tipo de evento","Presupuesto", "Detalles"};
+    const QStringList titlesSolicitudes{"Correo", "Nombre", "Teléfono", "Tipo de evento", "Presupuesto", "Detalles"};
     ui->tablaSolicitudes->setColumnCount(titlesSolicitudes.size());
     ui->tablaSolicitudes->setHorizontalHeaderLabels(titlesSolicitudes);
     cargarDatosSolicitudes();
 
-    const QStringList titlesEvento{"Nombre","Cliente","Contacto","Fecha","Hora de inicio","Hora de finalización","Tipo de evento","Dj", "Catering","Comparsa","Cotización"};
+    const QStringList titlesEvento{"Nombre", "Cliente", "Contacto", "Fecha", "Hora de inicio", "Hora de finalización", "Tipo de evento", "Dj", "Catering", "Comparsa", "Cotización"};
     ui->tablaEventos->setColumnCount(titlesEvento.size());
     ui->tablaEventos->setHorizontalHeaderLabels(titlesEvento);
     cargarDatosEventos();
-
 
     /**
      * @brief Para crear la base de datos
@@ -149,7 +148,6 @@ void MainWindow::on_pushButton_Cancelar_2_clicked()
     ui->stackedWidget->setCurrentIndex(inicio);
 }
 
-
 void MainWindow::on_pushButton_Iniciar_2_clicked()
 {
     std::string correo = ui->InputNombre_2->text().toStdString();
@@ -158,22 +156,25 @@ void MainWindow::on_pushButton_Iniciar_2_clicked()
     bool loginExitoso = false; /* Inicia asumiendo que el login no será exitoso. */
 
     QFile file("../usuarios.txt");
-    if (!file.open(QIODevice::ReadOnly)) {
+    if (!file.open(QIODevice::ReadOnly))
+    {
         qDebug() << "No se pudo abrir el archivo para lectura";
         return;
     }
 
     QTextStream in(&file);
-    while (!in.atEnd()) {
+    while (!in.atEnd())
+    {
         QString linea = in.readLine();
         QStringList campos = linea.split(",");
         std::string correoArchivo = campos[1].toStdString();
         QString rolUsuario = campos[2];
         std::string contrasenaArchivo = campos[3].toStdString();
 
-        if (correo == correoArchivo && contrasena == contrasenaArchivo) {
+        if (correo == correoArchivo && contrasena == contrasenaArchivo)
+        {
             qDebug() << "Inicio de sesión exitoso!";
-            loginExitoso = true; /* Si las credenciales coinciden, entonces el login es exitoso. */
+            loginExitoso = true;           /* Si las credenciales coinciden, entonces el login es exitoso. */
             rolUsuarioActual = rolUsuario; /* Almacenamos el rol del usuario que ha iniciado sesión. */
             break;
         }
@@ -181,11 +182,13 @@ void MainWindow::on_pushButton_Iniciar_2_clicked()
 
     file.close();
 
-    if (!loginExitoso) {
+    if (!loginExitoso)
+    {
         /* Muestra una ventana de mensaje indicando que el inicio de sesión no fue exitoso */
         QMessageBox::warning(this, tr("Iniciar sesión"), tr("Correo o contraseña incorrecta."));
     }
-    else {
+    else
+    {
         /* Se configura el menú en el widget del índice 3 del stackedWidget */
         setupMenu();
         ui->stackedWidget->setCurrentIndex(principal);
@@ -206,7 +209,8 @@ void MainWindow::on_pushButton_Registrar_clicked()
     /* Verificar si alguna de las entradas está vacía */
     if (ui->InputNombre->text().isEmpty() ||
         ui->InputCorreo->text().isEmpty() ||
-        ui->InputContra->text().isEmpty()) {
+        ui->InputContra->text().isEmpty())
+    {
         // Muestra un mensaje de error si alguna entrada está vacía
         QMessageBox::warning(this, tr("Registro"), tr("Por favor, completa todos los campos."));
         return;
@@ -214,38 +218,43 @@ void MainWindow::on_pushButton_Registrar_clicked()
 
     /* Verificar si el correo es válido */
     std::string correo = ui->InputCorreo->text().toStdString();
-    if (!std::regex_match(correo, pattern)) {
+    if (!std::regex_match(correo, pattern))
+    {
         /* Muestra un mensaje de error si el correo no es válido */
         QMessageBox::warning(this, tr("Registro"), tr("Por favor, ingresa un correo válido."));
         return;
     }
 
     /* Verificar si las contraseñas coinciden */
-    if (ui->InputContra->text() != ui->InputContra_2->text()) {
+    if (ui->InputContra->text() != ui->InputContra_2->text())
+    {
         /* Muestra un mensaje de error si las contraseñas no coinciden */
         QMessageBox::warning(this, tr("Registro"), tr("Las contraseñas no coinciden."));
-            return;
+        return;
     }
 
     /* Verificar si el correo ya existe en el archivo */
     std::string correoIngresado = ui->InputCorreo->text().toStdString();
     QFile file("../usuarios.txt");
-    if (!file.open(QIODevice::ReadOnly)) {
-            qDebug() << "No se pudo abrir el archivo para lectura";
-            return;
+    if (!file.open(QIODevice::ReadOnly))
+    {
+        qDebug() << "No se pudo abrir el archivo para lectura";
+        return;
     }
 
     QTextStream in(&file);
-    while (!in.atEnd()) {
-            QString linea = in.readLine();
-            QStringList campos = linea.split(",");
-            std::string correoArchivo = campos[1].toStdString();
+    while (!in.atEnd())
+    {
+        QString linea = in.readLine();
+        QStringList campos = linea.split(",");
+        std::string correoArchivo = campos[1].toStdString();
 
-            if (correoIngresado == correoArchivo) {
+        if (correoIngresado == correoArchivo)
+        {
             /* Muestra un mensaje de error si el correo ya existe */
             QMessageBox::warning(this, tr("Registro"), tr("Este correo ya está en uso."));
-                return;
-            }
+            return;
+        }
     }
     file.close();
 
@@ -256,7 +265,8 @@ void MainWindow::on_pushButton_Registrar_clicked()
                     ui->InputContra->text().toStdString());
 
     /* Abrir el archivo en modo de escritura */
-    if (!file.open(QIODevice::Append | QIODevice::Text)) {
+    if (!file.open(QIODevice::Append | QIODevice::Text))
+    {
         qDebug() << "No se pudo abrir el archivo para escritura";
         return;
     }
@@ -281,15 +291,17 @@ void MainWindow::on_pushButton_Registrar_clicked()
     ui->stackedWidget->setCurrentIndex(inicio);
 }
 
-
 /* Pantalla Principal */
 bool MainWindow::esAdministrador()
 {
     /* Verificar el rol del usuario actual */
     bool esAdministrador;
-    if (rolUsuarioActual == "Administrador"){
+    if (rolUsuarioActual == "Administrador")
+    {
         esAdministrador = true;
-    }else{
+    }
+    else
+    {
         esAdministrador = false;
     }
 
@@ -312,7 +324,8 @@ void MainWindow::setupMenu()
     connect(eventosAction, &QAction::triggered, this, &MainWindow::onEventosClicked);
     menu->addAction(eventosAction);
 
-    if (!esAdministrador()) {
+    if (!esAdministrador())
+    {
         /* Acción "Contáctenos" */
         QAction *contactenosAction = new QAction("Contáctenos", this);
         connect(contactenosAction, &QAction::triggered, this, &MainWindow::onContactenosClicked);
@@ -326,7 +339,8 @@ void MainWindow::setupMenu()
 
     /* Se verifica si el usuario es un administrador y se
        establecen acciones únicamente para administradores*/
-    if (esAdministrador()) {
+    if (esAdministrador())
+    {
         /* Acción "Evento Nuevo" */
         QAction *eventoNuevoAction = new QAction("Evento nuevo", this);
         connect(eventoNuevoAction, &QAction::triggered, this, &MainWindow::onEventoNuevoClicked);
@@ -369,10 +383,13 @@ void MainWindow::setupMenu()
 void MainWindow::onStackedWidgetCurrentChanged(int index)
 {
     /* Se verifica si el índice actual del QStackedWidget coincide con el índice de la página del menú */
-    if (index == principal) {
+    if (index == principal)
+    {
         /* Se muestra el menú */
         menuBar()->show();
-    } else {
+    }
+    else
+    {
         /* Se oculta el menú */
         menuBar()->hide();
     }
@@ -425,7 +442,6 @@ void MainWindow::onCerrarSesionClicked()
     ui->InputNombre_2->clear();
     ui->InputContra_3->clear();
 }
-
 
 /* Botones de las actividades */
 
@@ -483,7 +499,6 @@ void MainWindow::on_pushButton_Regresar_Anadir_Lugares_clicked()
     ui->stackedWidget->setCurrentIndex(lugares);
 }
 
-
 /* Pantalla Proveedores */
 void MainWindow::on_pushButton_Cancelar_Proveedores_clicked()
 {
@@ -511,8 +526,7 @@ void MainWindow::on_pushButton_Cancelar_3_clicked()
 
 void MainWindow::on_pushButton_Crear_clicked()
 {
-/////
-
+    /////
 }
 
 /* Pantalla Contáctenos */
@@ -530,7 +544,8 @@ void MainWindow::on_pushButton_Enviar_clicked()
         ui->InputTelefonoE->text().isEmpty() ||
         ui->comboBox_2->currentIndex() == -1 ||
         ui->InputPresupuestoE->text().isEmpty() ||
-        ui->InputAcercaEvento->text().isEmpty()) {
+        ui->InputAcercaEvento->text().isEmpty())
+    {
         /* Mostrar un mensaje de error si alguna entrada está vacía */
         QMessageBox::warning(this, tr("Solicitud de Evento"), tr("Por favor, completa todos los campos."));
         return;
@@ -547,15 +562,17 @@ void MainWindow::on_pushButton_Enviar_clicked()
     /* Validar el correo */
     QRegularExpression correoRegex(R"(\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b)");
     QRegularExpressionMatch correoMatch = correoRegex.match(correo);
-    if (!correoMatch.hasMatch()) {
+    if (!correoMatch.hasMatch())
+    {
         QMessageBox::warning(this, "Error", "Por favor, ingresa un correo válido.");
-            return;
+        return;
     }
 
     /* Validar el número de teléfono */
     QRegularExpression telefonoRegex(R"(\b\d{8}\b)");
     QRegularExpressionMatch telefonoMatch = telefonoRegex.match(telefono);
-    if (!telefonoMatch.hasMatch()) {
+    if (!telefonoMatch.hasMatch())
+    {
         QMessageBox::warning(this, "Error", "Por favor, ingresa un número de teléfono válido (8 dígitos).");
         return;
     }
@@ -563,7 +580,8 @@ void MainWindow::on_pushButton_Enviar_clicked()
     /* Convertir el presupuesto a un número decimal */
     bool ok;
     double presupuesto = presupuestoString.toDouble(&ok);
-    if (!ok || presupuesto < 0) {
+    if (!ok || presupuesto < 0)
+    {
         QMessageBox::warning(this, "Error", "El presupuesto debe ser un número válido.");
         return;
     }
@@ -597,7 +615,8 @@ void MainWindow::on_pushButton_Enviar_clicked()
 
     /* Almacenar los datos en un archivo de texto */
     QFile file("../solicitudes.txt");
-    if (file.open(QIODevice::Append | QIODevice::Text)) {
+    if (file.open(QIODevice::Append | QIODevice::Text))
+    {
         QTextStream out(&file);
         out << solicitud.getCorreo() << ","
             << solicitud.getNombre() << ","
@@ -620,10 +639,12 @@ void MainWindow::cargarDatosSolicitudes()
         return;
 
     QTextStream in(&file);
-    while (!in.atEnd()) {
+    while (!in.atEnd())
+    {
         QString line = in.readLine();
         QStringList datos = line.split(",");
-        if (datos.size() == 6) {
+        if (datos.size() == 6)
+        {
             QString correo = datos[0];
             QString nombre = datos[1];
             QString telefono = datos[2];
@@ -658,16 +679,19 @@ void MainWindow::eliminarSolicitudActual()
 {
     /* Obtener la fila seleccionada */
     int row = ui->tablaSolicitudes->currentRow();
-    if (row >= 0) {
+    if (row >= 0)
+    {
         /* Eliminar la fila de la tabla */
         ui->tablaSolicitudes->removeRow(row);
 
         /* Actualizar el archivo de texto */
         QFile file("../solicitudes.txt");
-        if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        if (file.open(QIODevice::WriteOnly | QIODevice::Text))
+        {
             QTextStream out(&file);
             int rowCount = ui->tablaSolicitudes->rowCount();
-            for (int i = 0; i < rowCount; ++i) {
+            for (int i = 0; i < rowCount; ++i)
+            {
                 QString correo = ui->tablaSolicitudes->item(i, 0)->text();
                 QString nombre = ui->tablaSolicitudes->item(i, 1)->text();
                 QString telefono = ui->tablaSolicitudes->item(i, 2)->text();
@@ -698,23 +722,22 @@ void MainWindow::on_pushButton_Eventos_clicked()
     ui->stackedWidget->setCurrentIndex(pantalla_eventos);
 }
 
-
 void MainWindow::on_pushButton_irCrearEvento_clicked()
 {
     ui->stackedWidget->setCurrentIndex(crear_evento);
-
 }
 
 /* Pantalla Añadir Lugares */
 
 void MainWindow::on_pushButton_anadir_lugar_clicked()
 {
-     /* Verificar si alguna de las entradas está vacía */
+    /* Verificar si alguna de las entradas está vacía */
     if (ui->lineEdit_nombre->text().isEmpty() ||
         ui->lineEdit_capacidad->text().isEmpty() ||
         ui->lineEdit_disponibilidad->text().isEmpty() ||
         ui->lineEdit_precio->text().isEmpty() ||
-        ui->lineEdit_localizacion->text().isEmpty()) {
+        ui->lineEdit_localizacion->text().isEmpty())
+    {
         // Muestra un mensaje de error si alguna entrada está vacía
         QMessageBox::warning(this, tr("Lugar"), tr("Por favor, completa todos los campos."));
         return;
@@ -724,18 +747,20 @@ void MainWindow::on_pushButton_anadir_lugar_clicked()
     QString nombre = ui->lineEdit_nombre->text();
     bool ok;
     int capacidad = ui->lineEdit_capacidad->text().toInt(&ok);
-    if (!ok || capacidad <= 0) {
+    if (!ok || capacidad <= 0)
+    {
         QMessageBox::warning(this, "Error", "La capacidad debe ser un número positivo.");
-            return;
+        return;
     }
     QString disponibilidad = ui->lineEdit_disponibilidad->text();
     double precio = ui->lineEdit_precio->text().toDouble(&ok);
-    if (!ok || precio < 0) {
+    if (!ok || precio < 0)
+    {
         QMessageBox::warning(this, "Error", "El precio debe ser un número positivo.");
-            return;
+        return;
     }
     QString localizacion = ui->lineEdit_localizacion->text();
-    bool bajoTecho = ui->comboBox_techo->currentIndex() == 0;  // Suponiendo que la opción 0 es "bajo techo"
+    bool bajoTecho = ui->comboBox_techo->currentIndex() == 0; // Suponiendo que la opción 0 es "bajo techo"
 
     /* Crea un nuevo objeto Lugar con los datos introducidos */
     Lugar lugar;
@@ -767,7 +792,8 @@ void MainWindow::on_pushButton_anadir_lugar_clicked()
 
     /* Almacena los datos en un archivo de texto */
     QFile file("../lugares.txt");
-    if(file.open(QIODevice::Append | QIODevice::Text)) {
+    if (file.open(QIODevice::Append | QIODevice::Text))
+    {
         QTextStream out(&file);
         out << lugar.getNombre() << ","
             << QString::number(lugar.getCapacidad()) << ","
@@ -781,16 +807,19 @@ void MainWindow::on_pushButton_anadir_lugar_clicked()
     QMessageBox::information(this, "Éxito", "Lugar agregado.");
 }
 
-void MainWindow::cargarDatos() {
+void MainWindow::cargarDatos()
+{
     QFile file("../lugares.txt");
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
         return;
 
     QTextStream in(&file);
-    while (!in.atEnd()) {
+    while (!in.atEnd())
+    {
         QString line = in.readLine();
         QStringList datos = line.split(",");
-        if (datos.size() == 6) {
+        if (datos.size() == 6)
+        {
             QString nombre = datos[0];
             int capacidad = datos[1].toInt();
             QString disponibilidad = datos[2];
@@ -821,15 +850,16 @@ void MainWindow::cargarDatos() {
     file.close();
 }
 
-
 void MainWindow::eliminarLugarActual()
 {
     // Obtener la fila seleccionada
     int row = ui->tablaLugares->currentRow();
-    if (row >= 0) {
+    if (row >= 0)
+    {
         // Obtener el nombre del lugar en la fila seleccionada
-        QTableWidgetItem* itemNombre = ui->tablaLugares->item(row, 0);
-        if (itemNombre) {
+        QTableWidgetItem *itemNombre = ui->tablaLugares->item(row, 0);
+        if (itemNombre)
+        {
             QString nombreLugar = itemNombre->text();
 
             // Eliminar la fila de la tabla
@@ -837,19 +867,23 @@ void MainWindow::eliminarLugarActual()
 
             // Eliminar el registro del archivo de texto
             QFile file("../lugares.txt");
-            if (file.open(QIODevice::ReadWrite | QIODevice::Text)) {
+            if (file.open(QIODevice::ReadWrite | QIODevice::Text))
+            {
                 QTextStream in(&file);
                 QStringList lines;
-                while (!in.atEnd()) {
+                while (!in.atEnd())
+                {
                     QString line = in.readLine();
                     QStringList datos = line.split(",");
-                    if (datos.size() == 6 && datos[0] != nombreLugar) {
+                    if (datos.size() == 6 && datos[0] != nombreLugar)
+                    {
                         lines.append(line);
                     }
                 }
                 file.resize(0);
                 QTextStream out(&file);
-                foreach (const QString& line, lines) {
+                foreach (const QString &line, lines)
+                {
                     out << line << "\n";
                 }
                 file.close();
@@ -860,7 +894,6 @@ void MainWindow::eliminarLugarActual()
     }
 }
 
-
 /* Pantalla Añadir Proveedores */
 
 void MainWindow::on_pushButton_anadir_proveedor_clicked()
@@ -870,7 +903,8 @@ void MainWindow::on_pushButton_anadir_proveedor_clicked()
         ui->lineEdit_empresa->text().isEmpty() ||
         ui->lineEdit_cantidadEventos->text().isEmpty() ||
         ui->lineEdit_valoracion->text().isEmpty() ||
-        ui->lineEdit_precio_2->text().isEmpty()) {
+        ui->lineEdit_precio_2->text().isEmpty())
+    {
         /*  Muestra un mensaje de error si alguna entrada está vacía */
         QMessageBox::warning(this, tr("Proveedor"), tr("Por favor, completa todos los campos."));
         return;
@@ -881,15 +915,17 @@ void MainWindow::on_pushButton_anadir_proveedor_clicked()
     QString empresa = ui->lineEdit_empresa->text();
     bool ok;
     int eventos = ui->lineEdit_cantidadEventos->text().toInt(&ok);
-    if (!ok || eventos < 0) {
+    if (!ok || eventos < 0)
+    {
         QMessageBox::warning(this, "Error", "La cantidad de eventos debe ser un número válido.");
-            return;
+        return;
     }
     QString valoracion = ui->lineEdit_valoracion->text();
     double precio = ui->lineEdit_precio_2->text().toDouble(&ok);
-    if (!ok || precio < 0) {
+    if (!ok || precio < 0)
+    {
         QMessageBox::warning(this, "Error", "El precio debe ser un número válido.");
-            return;
+        return;
     }
 
     /* Crear un nuevo objeto Proveedor con los datos introducidos */
@@ -919,7 +955,8 @@ void MainWindow::on_pushButton_anadir_proveedor_clicked()
 
     /* Almacenar los datos en un archivo de texto */
     QFile file("../proveedores.txt");
-    if (file.open(QIODevice::Append | QIODevice::Text)) {
+    if (file.open(QIODevice::Append | QIODevice::Text))
+    {
         QTextStream out(&file);
         out << proveedor.getServicio() << ","
             << proveedor.getEmpresa() << ","
@@ -930,7 +967,6 @@ void MainWindow::on_pushButton_anadir_proveedor_clicked()
     }
     /* Mostrar mensaje de éxito */
     QMessageBox::information(this, "Éxito", "Proveedor agregado.");
-
 }
 
 void MainWindow::cargarDatosProveedores()
@@ -940,10 +976,12 @@ void MainWindow::cargarDatosProveedores()
         return;
 
     QTextStream in(&file);
-    while (!in.atEnd()) {
+    while (!in.atEnd())
+    {
         QString line = in.readLine();
         QStringList datos = line.split(",");
-        if (datos.size() == 5) {
+        if (datos.size() == 5)
+        {
             QString servicio = datos[0];
             QString empresa = datos[1];
             int eventos = datos[2].toInt();
@@ -970,7 +1008,6 @@ void MainWindow::cargarDatosProveedores()
 
     file.close();
 }
-
 
 void MainWindow::eliminarProveedorActual()
 {
@@ -1009,18 +1046,15 @@ void MainWindow::eliminarProveedorActual()
     }
 }
 
-
 void MainWindow::on_pushButton_Agregar_Proveedor_clicked()
 {
     ui->stackedWidget->setCurrentIndex(agregar_proveedores);
 }
 
-
 void MainWindow::on_pushButton_Regresar_Anadir_Proveedor_clicked()
 {
     ui->stackedWidget->setCurrentIndex(proveedores);
 }
-
 
 void MainWindow::on_pushButton_Eliminar_Proveedor_clicked()
 {
@@ -1039,10 +1073,12 @@ void MainWindow::cargarDatosEventos()
         return;
 
     QTextStream in(&file);
-    while (!in.atEnd()) {
+    while (!in.atEnd())
+    {
         QString line = in.readLine();
         QStringList datos = line.split(",");
-        if (datos.size() == componenentesEventoCount) {
+        if (datos.size() == componenentesEventoCount)
+        {
             QString nombre = datos[numNombre];
             QString cliente = datos[numCliente];
             QString contacto = datos[numContacto];
@@ -1060,8 +1096,7 @@ void MainWindow::cargarDatosEventos()
             QDateTime horaInicio = QDateTime::fromString(horaInicioStr, "HH:mm:ss");
             QDateTime horaFin = QDateTime::fromString(horaFinStr, "HH:mm:ss");
 
-
-        /* Crear un nuevo objeto Evento y añadirlo a la tabla */
+            /* Crear un nuevo objeto Evento y añadirlo a la tabla */
             Evento evento;
 
             evento.setNombre(nombre);
@@ -1076,7 +1111,6 @@ void MainWindow::cargarDatosEventos()
             evento.setCatering(catering);
             evento.setComparsa(comparsa);
             evento.setPresupuesto(presupuesto);
-
 
             int row = ui->tablaEventos->rowCount();
             ui->tablaEventos->insertRow(row);
@@ -1096,4 +1130,3 @@ void MainWindow::cargarDatosEventos()
     }
     file.close();
 }
-

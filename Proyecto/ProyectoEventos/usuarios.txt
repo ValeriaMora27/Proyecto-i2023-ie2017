@@ -1,0 +1,6 @@
+Valeria Mora,valeria@gmail.com,Usuario,123
+segav,segav,Administrador,segav
+segav,segav,Usuario,segav
+v,a,Usuario,vv
+zxczc,czczx@gmail.com,Usuario,123
+Carlos Mora,carlos@gmail.com,Administrador,carlos123

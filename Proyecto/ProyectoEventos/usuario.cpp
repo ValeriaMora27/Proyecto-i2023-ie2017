@@ -4,18 +4,10 @@
  */
 #include "usuario.h"
 
-/**
- * @brief Constructor de la clase Usuario.
- *
- * @param nombre El nombre del usuario.
- * @param correo El correo electrónico del usuario.
- * @param rol El rol del usuario.
- * @param contrasena La contraseña del usuario.
- */
-Usuario::Usuario(const std::string& nombre,
-                 const std::string& correo,
-                 const std::string& rol,
-                 const std::string& contrasena)
+Usuario::Usuario(const std::string &nombre,
+                 const std::string &correo,
+                 const std::string &rol,
+                 const std::string &contrasena)
     : nombre(nombre), correo(correo), rol(rol), contrasena(contrasena)
 {
 }
@@ -27,7 +19,8 @@ Usuario::Usuario(const std::string& nombre,
  *
  * @return El nombre del usuario.
  */
-std::string Usuario::getNombre() const {
+std::string Usuario::getNombre() const
+{
     return nombre;
 }
 
@@ -36,7 +29,8 @@ std::string Usuario::getNombre() const {
  *
  * @return El correo electrónico del usuario.
  */
-std::string Usuario::getCorreo() const {
+std::string Usuario::getCorreo() const
+{
     return correo;
 }
 
@@ -45,7 +39,8 @@ std::string Usuario::getCorreo() const {
  *
  * @return El rol del usuario.
  */
-std::string Usuario::getRol() const {
+std::string Usuario::getRol() const
+{
     return rol;
 }
 
@@ -54,6 +49,7 @@ std::string Usuario::getRol() const {
  *
  * @return La contraseña del usuario.
  */
-std::string Usuario::getContrasena() const {
+std::string Usuario::getContrasena() const
+{
     return contrasena;
 }
