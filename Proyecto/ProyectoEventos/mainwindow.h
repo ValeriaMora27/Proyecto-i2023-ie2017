@@ -126,7 +126,7 @@ private slots:
     /* Pantalla de Estadisticas */
     void on_pushButton_Cancelar_Estadisticas_clicked();
     void on_pushButton_Refrescar_clicked();
-    void estadisticaCantidadEventos();
+
 
 
     /* Pantalla de Solicitud */

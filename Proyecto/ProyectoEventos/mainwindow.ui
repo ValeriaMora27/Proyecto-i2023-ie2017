@@ -34,7 +34,7 @@ background-color: #E0E6F0;
      </rect>
     </property>
     <property name="currentIndex">
-     <number>8</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page00_Inicio">
      <widget class="QLabel" name="label_2">
@@ -1039,7 +1039,7 @@ evento</string>
         <widget class="QDateEdit" name="dateEdit_fechaEvento">
          <property name="dateTime">
           <datetime>
-           <hour>6</hour>
+           <hour>18</hour>
            <minute>0</minute>
            <second>0</second>
            <year>2023</year>
@@ -1049,7 +1049,7 @@ evento</string>
          </property>
          <property name="minimumDateTime">
           <datetime>
-           <hour>6</hour>
+           <hour>18</hour>
            <minute>0</minute>
            <second>0</second>
            <year>2023</year>
@@ -1402,7 +1402,7 @@ existentes</string>
        <string>Refrescar</string>
       </property>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>110</x>

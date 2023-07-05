@@ -11,6 +11,7 @@
 #include "lugares.h"
 #include "proveedor.h"
 #include "solicitudes.h"
+#include "estadisticas.h"
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>
@@ -405,8 +406,6 @@ void MainWindow::on_pushButton_Regresar_Anadir_Lugares_clicked()
 
 
 
-
-
 /////////////////////////////////////////////////////////
 /* Pantalla Estadisticas */
 void MainWindow::on_pushButton_Cancelar_Estadisticas_clicked()
@@ -416,32 +415,17 @@ void MainWindow::on_pushButton_Cancelar_Estadisticas_clicked()
 
 void MainWindow::on_pushButton_Refrescar_clicked()
 {
-    estadisticaCantidadEventos();
+    QString eventosTotales = estadisticaCantidadEventos();
+    ui->label_numCantEventos->setText(eventosTotales);
+
+    QString ingresosPrevistos = estIngresosPrevistos();
+    ui->label_numIngresos->setText(ingresosPrevistos);
+
+    QString solicitudesPendientes = estadisticaSolicitudesPendientes();
+    ui->label_numSolicitudesPendientes->setText(solicitudesPendientes);
+
 }
 
-void MainWindow::estadisticaCantidadEventos(){
-    // Abre el archivo
-    QFile file("../eventos.txt");
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-        return;
-
-    // Cuenta las líneas del archivo
-    int lineCount = 0;
-    QTextStream in(&file);
-    while (!in.atEnd()) {
-        in.readLine();
-        lineCount++;
-    }
-
-    // Cierra el archivo
-    file.close();
-
-    // Convierte la cantidad de líneas a texto
-    QString lineCountText = QString::number(lineCount);
-
-    // Actualiza el QLabel con la cantidad de líneas
-    ui->label_numCantEventos->setText(lineCountText);
-}
 
 /////////////////////////////////////////////////////////////
 /* Pantalla Solicitud */
